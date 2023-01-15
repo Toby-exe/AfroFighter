@@ -8,7 +8,7 @@ Afro frighter is a 2d combat game that takes alot of insperation from the popula
 
 Future updates will feature a 2 - player game mode allowing players to put their skills to the test against their friends
 
-## ADD GAME VIEW IMAGE HERE
+## <----ADD GAME VIEW IMAGE HERE---->
 
 
 ## 2. Game Play Details for 1-Player Mode
