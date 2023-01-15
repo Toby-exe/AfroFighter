@@ -33,20 +33,23 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
 
 #### Movement
 
-- `A`       = move right
-changes players position by 2 pixels to the right `(+ 2 on x vector)` while playing `walking animation` 
-- `D`       = move left
-changes players position by 2 pixels to the left `(- 2 on x vector)` while playing `walking animation`
-- `↓`       = slide
-changes players position by 30 pixels (+ 30 on y vector)`
-- `Space`   = jump
+1. `A`       = move right
+   - changes players position by 2 pixels to the right `(+ 2 on x vector)` while playing         `walking animation` 
+   
+2. `D`       = move left
+   - changes players position by 2 pixels to the left `(- 2 on x vector)` while playing    `walking animation`
+   
+3. `↓`       = slide
+   - changes players position by 30 pixels (+ 30 on y vector)`
+   
+4. `Space`   = jump
 
 #### Combat
 
-- `W`       = Light attack
-- `←`       = Heavy attack
-- `F`       = Super / Ranged attack
-- `→`       = Block
+5. `W`       = Light attack
+6. `←`       = Heavy attack
+7. `F`       = Super / Ranged attack
+8. `→`       = Block
 
 ### 2.6 Synchronous Events
 
