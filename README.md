@@ -1,5 +1,5 @@
 # Afro Fighter
-<img width="661" alt="image" src="https://user-images.githubusercontent.com/104709648/212534347-650c2086-21f9-4969-817d-ceba8d2ad440.png">
+![image](https://user-images.githubusercontent.com/104709648/212567909-8469300f-405c-4ce1-a82c-be62412ca029.png)
 
 Atari ST game 
 ## 1. General Game Overview
@@ -17,11 +17,28 @@ Future updates will feature a 2 - player game mode allowing players to put their
 
 The game will launch into a menu screen with the Afro Fighters logo and two game mode options; `1-player` and `2-player`.
 
-<img width="1278" alt="image" src="https://user-images.githubusercontent.com/104709648/212534147-c337e600-f758-4e38-99d8-041f3ae5bbfe.png">
+![image](https://user-images.githubusercontent.com/104709648/212567852-d2971d61-3278-4f28-ac5f-557cd35d1e47.png)
 
-#### 2.1.2 Start State Game View UI and Logic
+#### 2.1.2 Start State Logic and Game View UI 
+
+The `1-Player` game mode beings with the players avatar and the cpu controlled opponent rendered in the arena along with their health bars and a count down starting from 3 in the center of the arena. After the count down has reached one "Fight" will be displayed in the center of the arena; player controls become active and the cpu opponent begins executing its scripted movesets.  
 
 ### 2.2 Objectives and Rules
+
+#### 2.2.1 Health and Damage 
+Player and Cpu opponent will begin with 100% health depicted by the `P-Health Bar` displayed in the top right corner of the screen and `CPU-Health Bar` displayed in the top left corner. When Damage is dealt the health bar of the player who was damaged will be re-renderd with a length `Damge-Value%` shorter. 
+
+Below is a table defining all the offensive moves and their damage values.
+
+| Move  | Damage |
+| ------------- | ------------- |
+| `Light Attack` | 5% |
+| `Heavy Attack`  | 10% |
+| `Ranged / Super` | 20% |
+
+
+#### 2.2.2 Combat Mechanics
+
 
 ### 2.3 Objects
 
@@ -29,27 +46,40 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
 
 ### 2.5 Asynchronous Events
 
-## 2.5.1  Input
+### 2.5.1  Input
 
 #### Movement
 
 1. Move right: `A`
-   - changes players position by 2 pixels to the right `(+ 2 on x vector)` while playing         `walking animation` 
+   - changes players position 1 unit to the right and triggers `Rs Running Animation` 
    
-2. `D`       = move left
-   - changes players position by 2 pixels to the left `(- 2 on x vector)` while playing    `walking animation`
+2. Move left: `D`
+   - changes players position 1 unit to the left and triggers `Ls Running Animation`
    
-3. `↓`       = slide
-   - changes players position by 30 pixels `(+ 30 on y vector)`
+3. Slide: `↓`   
+   - triggers `Slide pose`
    
-4. `Space`   = jump
+4. Jump: `Space`
 
 #### Combat
 
-5. `W`       = Light attack
-6. `←`       = Heavy attack
-7. `F`       = Super / Ranged attack
-8. `→`       = Block
+5. Light attack (Alternating): `W`      
+   - On 1st click 
+      - Triggers `Left Punch` pose
+   - On 2nd Click
+      - Triggers `Right Punch` pose  
+      
+6. Heavy attack: `←`     
+   - Triggers `Left Foot Kick` pose
+
+7. Super / Ranged attack: `F`     
+   - Triggers `Imbue` pose
+   - Triggers `Fire Beam Imbue` Sprite
+   - `Fire Beam` projectile object travels across its intial y-axis until a collision is encounterd 
+
+8. Block: `→`      
+   - Triggers `Block` pose
+   - Player can not take damage in this state
 
 ### 2.6 Synchronous Events
 
