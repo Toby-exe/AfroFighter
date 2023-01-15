@@ -33,7 +33,7 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
 
 #### Movement
 
-1. `A`       = move right
+1. `A`: move right
    - changes players position by 2 pixels to the right `(+ 2 on x vector)` while playing         `walking animation` 
    
 2. `D`       = move left
