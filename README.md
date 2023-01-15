@@ -7,7 +7,7 @@ Atari ST game
 Afro frighter is a 2d combat game that takes alot of insperation from the popular "Street Fighter in the 80s"
 
 ## 2. GamePlay Mechanics and Logic - 1 Player
-![image](https://user-images.githubusercontent.com/104709648/212529785-a10837c4-1dc7-4646-8011-113773aade3f.png)
+![image](https://user-images.githubusercontent.com/104709648/212529862-d3cb1732-36ff-41be-8ce9-b0ee364ff15e.png)
 
 
 ## 3. 
