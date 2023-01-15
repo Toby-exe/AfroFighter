@@ -40,7 +40,7 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
    - changes players position by 2 pixels to the left `(- 2 on x vector)` while playing    `walking animation`
    
 3. `↓`       = slide
-   - changes players position by 30 pixels (+ 30 on y vector)`
+   - changes players position by 30 pixels `(+ 30 on y vector)`
    
 4. `Space`   = jump
 
