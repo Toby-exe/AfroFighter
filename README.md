@@ -1,4 +1,4 @@
-# AfroFighter
+# Afro Fighter
 <img width="661" alt="image" src="https://user-images.githubusercontent.com/104709648/212534347-650c2086-21f9-4969-817d-ceba8d2ad440.png">
 
 Atari ST game 
