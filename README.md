@@ -1,5 +1,5 @@
 # AfroFighter
-![image](https://user-images.githubusercontent.com/104709648/212529671-aaf3128a-46be-4536-ab5d-d8c4a34cd39d.png)
+<img width="661" alt="image" src="https://user-images.githubusercontent.com/104709648/212534347-650c2086-21f9-4969-817d-ceba8d2ad440.png">
 
 Atari ST game 
 ## 1. Introduction and Overview
