@@ -11,7 +11,7 @@ Future updates will feature a 2 - player game mode allowing players to put their
 ## ADD GAME VIEW IMAGE HERE
 
 
-## 2. 
+## 2. Game Play Details for 1-Player Mode
 
 ### 2.1 Menu UI and Logic
 
