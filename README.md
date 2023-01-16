@@ -249,3 +249,6 @@ If any player picks a character, that character is grayed out and cannot be sele
 [] better background (stack implementation to know when pixels are overlapping)
 [] psuedo 3d floor
 [] shaded characters
+
+
+
