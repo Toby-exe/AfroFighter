@@ -63,21 +63,52 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 
 ### 2.3 Scene Objects
 
-`Scene` will display all objects to the screen, below are all the current `Scene Objects`
+`Scene` will display all objects to a `640px x 400px` screen, below are all the current `Scene Objects`
 
-- `Afro Fighter`
+- `Afro Fighter` (2x)
     - see 2.3.1 for details
 - `Health bar` 
 - `Arena floor` 
+- `Count Down Numbers`
+- `Super Indicator`
+- `Fire Beam`
+- `Avatar Profile Image`
+- `Avatar Name`
 
+This means that at any given time during a fight there at least 6 scene objects being displayed on the screen.
 
 #### 2.3.1 Afro Fighter Avatar and Functional Compenents
+
+
 
 #### 2.3.2 CPU-Player 
 
 #### 2.3.3 Arena and HUD 
 
-*Arena floor and Backdrop*
+`| Arena Floor` 
+
+![](https://i.imgur.com/iE2Cvvo.png)
+
+|Properties | Behaviour|
+------------|----------
+Size: 640px x 48px | Static Object used to raise floor level
+                                                                             
+`| Health and Info bar`
+
+![](https://i.imgur.com/Wx2WMlJ.png)
+
+|Component | Properties|Behaviour|Image|
+|-----------|----------|---------|-----|
+|`Health bar` |          |         |   ![](https://i.imgur.com/8lVFhT8.png)
+|`Avatar Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
+|`Avatar Profile Img` |  |  |![](https://i.imgur.com/qECScbN.png)|
+
+
+
+
+
+
+
 
 
 
@@ -130,6 +161,13 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 
 ## 4. Sound Effects
 
+| Sound effect name | Brief Description | Event that triggers playback |
+| ------------- | ------------- | ------------- |
+| Main Theme | "Help urself Dyn remix" found on youtube | User starts the game |
+| Attack misses | - duration of a second | any of the players inputs an attack key but no collision is detected |
+| Attack connects | - duration of a second | any of the players inputs an attack key and a collision is detected |
+| Super | - duration of a second | Super/Ranged attack input is pressed |
+
 ## 5. Additional Features (Time Permitting)
    
 #### 5.1.1 More attacks:
@@ -139,7 +177,7 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 - energy blast (smaller than ultimate move)
 
 #### 5.1.2 Multiple rounds: 
-A round is over when 1 player's health reaches 0%. The first player with 3 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar.
+A round is over when 1 player's health reaches 0%. The first player with 2 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar.
 
 #### 5.1.3 Stun meter: 
 As a player takes hits that aren't blocked, a meter next to the healthbar fills up. When this meter fills up, the next hit a player takes will knock them to the ground and put them in a state where they can't do anything for 2 seconds.
@@ -165,3 +203,15 @@ As difficulty increases, the probablitiy of a perfect counter also increases (sh
  
 #### 5.1.7 Character select: 
 If any player picks a character, that character is grayed out and cannot be selected by someone else. The cpu will pick a character out of the remaining ones at random. The player also has this option.
+
+#### 5.1.8 Announcer:
+| Voiceline | Event that triggers playback |
+| ------------- | ------------- |
+| "Round 1/2, Fight!" | The start of the first or second round |
+| "Final Round, Fight!" | The start of the third round |
+| "Player 1/2 Wins!" | Match is over and winner is declared |
+
+
+
+
+
