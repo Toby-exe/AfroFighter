@@ -78,8 +78,10 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 This means that at any given time during a fight there at least 6 scene objects being displayed on the screen.
 
 #### 2.3.1 Afro Fighter Avatar and Functional Compenents
-<----- ADD FULL BODY IMAGE OF CHARACTER HERE ----->
 
+<p align="center">
+  <img src="https://i.imgur.com/HEpC0ON.png" width="200" > 
+</p>
 
 
 #### 2.3.2 CPU-Player 
@@ -102,8 +104,8 @@ This means that at any given time during a fight there at least 6 scene objects 
 
 ![](https://i.imgur.com/Wx2WMlJ.png)
 
-| Component            | Properties | Behaviour|Image|
-|-----------|----------|---------|-----|
+| Component   | Properties     | Behaviour|Image|
+|-------------|----------|---------|-----|
 |`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>When damage is delt to player it is rerenders with the its `current length - (damage-value% x current length)` </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
 |`Avatar-Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
 |`Avatar-Profile-Img` | |  |![](https://i.imgur.com/qECScbN.png)|
@@ -208,10 +210,7 @@ If any player picks a character, that character is grayed out and cannot be sele
 | "Final Round, Fight!" | The start of the third round |
 | "Player 1/2 Wins!" | Match is over and winner is declared |
 
-
-
-
-
-
-
-
+#### 5.1.9 Graphics Overhaul:
+[] better background (stack implementation to know when pixels are overlapping)
+[] psuedo 3d floor
+[] shaded characters
