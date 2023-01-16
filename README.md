@@ -55,9 +55,9 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 
 ### 2.5 Asynchronous Events
 
-### 2.5.1  Input
+#### 2.5.1  Input
 
-#### Movement
+*Movement*
 
 1. Move right: `A`
    - changes players position 1 unit to the right and triggers `Rs Running Animation` 
@@ -70,7 +70,7 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
    
 4. Jump: `Space`
 
-#### Combat
+*Combat*
 
 5. Light attack (Alternating): `W`      
    - On 1st click 
