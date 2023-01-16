@@ -26,7 +26,7 @@ The `1-Player` game mode beings with the players avatar and the cpu controlled o
 ### 2.2 Objectives and Rules
 
 #### 2.2.1 Health and Damage 
-Player and Cpu opponent will begin with 100% health depicted by the `P-Health Bar` displayed in the top right corner of the screen and `CPU-Health Bar` displayed in the top left corner. When Damage is dealt the health bar of the player who was damaged will be re-renderd with a length `Damge-Value%` shorter. 
+Player and Cpu opponent will begin with 100% health depicted by the `P-Health Bar` displayed in the top right corner of the screen and `CPU-Health Bar` displayed in the top left corner. When Damage is dealt the health bar of the player who was damaged will be re-renderd with a length `Damage-Value%` shorter. 
 
 Below is a table defining all the offensive moves and their damage values.
 
@@ -36,19 +36,23 @@ Below is a table defining all the offensive moves and their damage values.
 | `Heavy Attack`  | 6% |
 | `Ranged / Super` | 16% |
 
-#### 2.2.2 Combat Mechanics
+#### 2.2.2 Combat Mechanics 
 
 *Offense*
 
  `Player` 
- - can use a combination of light and heavy as many times as they wish to deal damage to the opponent.
-    - see 2.3.* for implementation details  
+- Can use a combination of light and heavy as many times as they wish to deal damage to the opponent.
+    - see 2.3.1 for implementation details  
 
  `Cpu-Player`
-
+- This will be the players opponent. It will be "controlled" by the cpu.
+    - it is not intelligent since its offense and defense is not a reaction to is enviroment but a scripted set of moves and actions.
+    - see 2.3.2 for implementation details
 
 
  *Defense*
+
+- If any of the players is hit by an attack while they're in the blocking state, damage is reduced by 50%
 
  *Ability and Combat Balancing* 
 
@@ -57,7 +61,25 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
       - Once this attack is used the star will diseappear untill the event is completed again.
    - The event can be completed multiple times, but each play can only have at most 3 stars at once.  
 
-### 2.3 Objects
+### 2.3 Scene Objects
+
+`Scene` will display all objects to the screen, below are all the current `Scene Objects`
+
+- `Afro Fighter`
+    - see 2.3.1 for details
+- `Health bar` 
+- `Arena floor` 
+
+
+#### 2.3.1 Afro Fighter Avatar and Functional Compenents
+
+#### 2.3.2 CPU-Player 
+
+#### 2.3.3 Arena and HUD 
+
+*Arena floor and Backdrop*
+
+
 
 ### 2.4 Physics
 
@@ -109,18 +131,37 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 ## 4. Sound Effects
 
 ## 5. Additional Features (Time Permitting)
+   
+#### 5.1.1 More attacks:
+- crouching punch/kick
+- jumping punch/kick
+- elbow
+- energy blast (smaller than ultimate move)
 
-i) More attacks:
-   - crouch punch/kick
-   - jumping punch/kick
-   - elbow
-   - energy blast (smaller than ultimate move)
+#### 5.1.2 Multiple rounds: 
+A round is over when 1 player's health reaches 0%. The first player with 3 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar.
 
-ii) multiple rounds:
-   first player with 2 ko's wins the match. Nunber of player ko's
+#### 5.1.3 Stun meter: 
+As a player takes hits that aren't blocked, a meter next to the healthbar fills up. When this meter fills up, the next hit a player takes will knock them to the ground and put them in a state where they can't do anything for 2 seconds.
 
-ii) stun meter:
-   as a player takes hits that aren't blocked, a meter next to the healthbar fills up. When this meter
-   fills up 
+The healthbar will fill up at the following rates:
 
+| Move  | Stun |
+| ------------- | ------------- |
+| `Light Attack` | 10% |
+| `Heavy Attack`  | 30% |
+| `Ranged / Super` | 60% |
+ 
+#### 5.1.4 Finishing move:
+When a player is knocked out at match point, the player that's still standing will have the option to perform a mortal kombat style finishing move.
 
+ 
+#### 5.1.5 "Smarter" CPU:
+The `CPU-Player` has a chance to perfectly counter the player by reading input. For example the real player could enter the input to punch and the cpu would block. Outside of this phase the CPU will perform actions based on distance to the player and a predetermined sequence of moves.
+
+#### 5.1.6 Difficulty levels
+As difficulty increases, the probablitiy of a perfect counter also increases (should never be 100% or the CPU will be unbeatable)
+
+ 
+#### 5.1.7 Character select: 
+If any player picks a character, that character is grayed out and cannot be selected by someone else. The cpu will pick a character out of the remaining ones at random. The player also has this option.
