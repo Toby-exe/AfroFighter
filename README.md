@@ -80,11 +80,43 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 
 This means that at any given time during a fight there at least 6 scene objects being displayed on the screen.
 
-#### 2.3.1 Afro Fighter Avatar and Functional Compenents
+#### 2.3.1 Afro Fighter Avatar and Functional Components
 
 <p align="center">
   <img src="https://i.imgur.com/HEpC0ON.png" width="200" > 
 </p>
+
+Every Afro Fighter is an object that encompasses various `States` and `Offensive and Defensive Animations`.
+
+*States*
+
+`Idle State`
+ - This is the default state for the `Afro Fighter`
+ - This state has animations for both left and right side sprites
+
+|Animation |`RS-Idle-Animation`|`LS-Idle-Animation`| 
+|--------------------|-------------------|----------|
+**Effect on Attributes**| *None*|*None*|
+**Sprite Sheet**| ADD WITH ANIMATION FRAMES HERE IMAGE HERE | ADD WITH ANIMATION FRAMES HERE IMAGE HERE
+
+`Running State`
+- This state is triggerd by the player
+- This state has animations for both left and right side sprites
+
+
+|Animation |`RS-Running-Animation`|`LS-Running-Animation`| 
+|--------------------|-------------------|----------|
+**Effect on Attributes**| *Changes Afro Fighter position to the right*|*Changes Afro Fighter position to the right*|
+**Sprite Sheet**| ADD WITH ANIMATION FRAMES HERE IMAGE HERE | ADD WITH ANIMATION FRAMES HERE IMAGE HERE
+
+`Jumping State`
+
+*Offensive Animations*
+
+
+
+
+*Defensive Animations*
 
 
 #### 2.3.2 CPU-Player 
