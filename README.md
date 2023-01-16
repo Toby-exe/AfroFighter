@@ -39,6 +39,15 @@ Below is a table defining all the offensive moves and their damage values.
 
 #### 2.2.2 Combat Mechanics
 
+*Ability and Combat Balancing* 
+
+In order to discourage a playstyle that spams the `Ranged / Super` attack, this move will only be avaible if the play can block two consecutive `Heavy Attacks` from the opponent. 
+   - When this event is completed a small star will appear below the players health bar to indicate that a their `Ranged / Super` attack is avaiable
+      - Once this attack is used the star will diseappear untill the event is completed again.
+   - The event can be completed multiple times, but each play can only have at most 3 stars at once.  
+
+*Dodging and Defense*
+
 
 ### 2.3 Objects
 
