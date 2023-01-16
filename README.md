@@ -85,31 +85,27 @@ This means that at any given time during a fight there at least 6 scene objects 
 
 #### 2.3.3 Arena and HUD 
 
-`| Arena Floor` 
+`| Arena` 
 
-![](https://i.imgur.com/iE2Cvvo.png)
+![](https://i.imgur.com/h2uduBM.png)
 
-|Properties | Behaviour|
-------------|----------
-Size: 640px x 48px | Static Object used to raise floor level
-                                                                             
+
+
+| Component            | Properties | Behaviour|Image|
+|-----------|----------|---------|-----|
+|`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>Health </li></ul>       |![](https://i.imgur.com/iE2Cvvo.png)|
+
+<br/><br/>
+
 `| Health and Info bar`
 
 ![](https://i.imgur.com/Wx2WMlJ.png)
 
-|Component | Properties|Behaviour|Image|
+| Component            | Properties | Behaviour|Image|
 |-----------|----------|---------|-----|
-|`Health bar` |          |         |   ![](https://i.imgur.com/8lVFhT8.png)
-|`Avatar Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
-|`Avatar Profile Img` |  |  |![](https://i.imgur.com/qECScbN.png)|
-
-
-
-
-
-
-
-
+|`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>Health </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
+|`Avatar-Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
+|`Avatar-Profile-Img` | |  |![](https://i.imgur.com/qECScbN.png)|
 
 
 ### 2.4 Physics
