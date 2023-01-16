@@ -32,23 +32,12 @@ Below is a table defining all the offensive moves and their damage values.
 
 | Move  | Damage |
 | ------------- | ------------- |
-| `Light Attack` | 2% |
-| `Heavy Attack`  | 6% |
-| `Ranged / Super` | 16% |
+| `Light Attack` | 5% |
+| `Heavy Attack`  | 10% |
+| `Ranged / Super` | 20% |
 
 
 #### 2.2.2 Combat Mechanics
-*Offense*
-
-`Player` 
-- can use a combination of light and heavy as many times as they wish to deal damage to the opponent.
-   - see 2.3.* for implementation details  
-
-`Cpu-Player`
-
-
-
-*Defense*
 
 *Ability and Combat Balancing* 
 
@@ -56,6 +45,8 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
    - When this event is completed a small star will appear below the players health bar to indicate that a their `Ranged / Super` attack is avaiable
       - Once this attack is used the star will diseappear untill the event is completed again.
    - The event can be completed multiple times, but each play can only have at most 3 stars at once.  
+
+*Dodging and Defense*
 
 
 ### 2.3 Objects
@@ -111,5 +102,17 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 
 ## 5. Additional Features (Time Permitting)
 
+i) More attacks:
+   - crouch punch/kick
+   - jumping punch/kick
+   - elbow
+   - energy blast (smaller than ultimate move)
+
+ii) multiple rounds:
+   first player with 2 ko's wins the match. Nunber of player ko's
+
+ii) stun meter:
+   as a player takes hits that aren't blocked, a meter next to the healthbar fills up. When this meter
+   fills up 
 
 
