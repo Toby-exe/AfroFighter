@@ -8,7 +8,8 @@ Afro frighter is a 2d combat game that takes alot of insperation from the popula
 
 Future updates will feature a 2 - player game mode allowing players to put their skills to the test against their friends
 
-![](https://i.imgur.com/mXKKTvo.png)
+![](https://i.imgur.com/tMmlcPl.png)
+
 
 
 
@@ -216,3 +217,4 @@ If any player picks a character, that character is grayed out and cannot be sele
 [] better background (stack implementation to know when pixels are overlapping)
 [] psuedo 3d floor
 [] shaded characters
+
