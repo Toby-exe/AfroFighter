@@ -32,13 +32,21 @@ Below is a table defining all the offensive moves and their damage values.
 
 | Move  | Damage |
 | ------------- | ------------- |
-| `Light Attack` | 5% |
-| `Heavy Attack`  | 10% |
-| `Ranged / Super` | 20% |
+| `Light Attack` | 2% |
+| `Heavy Attack`  | 6% |
+| `Ranged / Super` | 16% |
 
 
 #### 2.2.2 Combat Mechanics
 *Offense*
+
+`Player` 
+- can use a combination of light and heavy as many times as they wish to deal damage to the opponent.
+   - see 2.3.* for implementation details  
+
+`Cpu-Player`
+
+
 
 *Defense*
 
