@@ -88,7 +88,7 @@ This means that at any given time during a fight there at least 6 scene objects 
 
 Every Afro Fighter is an object that encompasses various `States` and `Offensive and Defensive Animations`.
 
-*States*
+#### *States*
 
 `Idle State`
  - This is the default state for the `Afro Fighter`
@@ -111,19 +111,19 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 `Jumping State`
 
-*Offensive Animations*
+#### *Offensive Animations*
 
 
 
 
-*Defensive Animations*
+#### *Defensive Animations*
 
 
 #### 2.3.2 CPU-Player 
 
 #### 2.3.3 Arena and HUD 
 
-`| Arena` 
+#### *Arena* 
 
 ![](https://i.imgur.com/h2uduBM.png)
 
@@ -135,7 +135,7 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 <br/><br/>
 
-`| Health and Info bar`
+#### *Health and Info bar*
 
 ![](https://i.imgur.com/Wx2WMlJ.png)
 
@@ -150,9 +150,9 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 ### 2.5 Asynchronous Events
 
-#### 2.5.1  Input
 
-*Movement*
+
+#### 2.5.1 Movement
 
 1. Move right: `A`
    - changes players position 1 unit to the right and triggers `Rs Running Animation` 
@@ -165,7 +165,7 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
    
 4. Jump: `Space`
 
-*Combat*
+#### 2.5.2 Combat
 
 5. Light attack (Alternating): `W`      
    - On 1st click 
@@ -249,4 +249,3 @@ If any player picks a character, that character is grayed out and cannot be sele
 [] better background (stack implementation to know when pixels are overlapping)
 [] psuedo 3d floor
 [] shaded characters
-
