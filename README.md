@@ -78,6 +78,7 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 This means that at any given time during a fight there at least 6 scene objects being displayed on the screen.
 
 #### 2.3.1 Afro Fighter Avatar and Functional Compenents
+<----- ADD FULL BODY IMAGE OF CHARACTER HERE ----->
 
 
 
@@ -93,7 +94,7 @@ This means that at any given time during a fight there at least 6 scene objects 
 
 | Component            | Properties | Behaviour|Image|
 |-----------|----------|---------|-----|
-|`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>Health </li></ul>       |![](https://i.imgur.com/iE2Cvvo.png)|
+|`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |      |![](https://i.imgur.com/iE2Cvvo.png)|
 
 <br/><br/>
 
@@ -103,7 +104,7 @@ This means that at any given time during a fight there at least 6 scene objects 
 
 | Component            | Properties | Behaviour|Image|
 |-----------|----------|---------|-----|
-|`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>Health </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
+|`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>When damage is delt to player it is rerenders with the its `current length - (damage-value% x current length)` </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
 |`Avatar-Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
 |`Avatar-Profile-Img` | |  |![](https://i.imgur.com/qECScbN.png)|
 
@@ -206,6 +207,9 @@ If any player picks a character, that character is grayed out and cannot be sele
 | "Round 1/2, Fight!" | The start of the first or second round |
 | "Final Round, Fight!" | The start of the third round |
 | "Player 1/2 Wins!" | Match is over and winner is declared |
+
+
+
 
 
 
