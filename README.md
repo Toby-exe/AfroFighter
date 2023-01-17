@@ -143,7 +143,7 @@ Effect| <span style="font-weight:normal">Changes Afro Fighter position to the ri
 Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> | 
 |--------------------|-------------------|
 |**Animation** |`RS-Running-Animation` and `LS-Running-Animation`| 
-**Sprite Sheet (WIP)**| ![](https://i.imgur.com/AUfBU45.png)| 
+**Sprite Sheet (WIP)**|  <img src="https://i.imgur.com/AUfBU45.png" width="400" >| 
 
 `Jumping State`
 
@@ -152,7 +152,7 @@ Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</sp
 
 Effect| <span style="font-weight:normal">None</span> | <span style="font-weight:normal">Changes `x-coordinate` and `y-coordinate` of Afro Fighter</span> |
 |--------------------|-------------------|----------|
-|**Animation** |`"Lift Off" Animation`|`Jump Pose`|**Sprite Sheet**|  |
+|**Animation** |`"Lift Off" Animation`|`Jump Pose`|
 |**Sprite Sheet (WIP)**|<img src="https://i.imgur.com/oA3GBhm.png" width="10000" >|<img src="https://i.imgur.com/Km4LfZc.png" width="80" >
 
  `Crouch State`
@@ -174,7 +174,7 @@ Effect| <span style="font-weight:normal">Decreases height on `y-axis` of `Hit-Bo
 
 Effect| <span style="font-weight:normal">Changes `x-coordinate` of Afro Fighter and decreases height on `y-axis` of `Hit-Box` </span> |
 |--------------------|----------|
-|**Animations** |`LS-Slide` and `RS-Slide`|**Sprite Sheet**|  |
+|**Animations** |`LS-Slide` and `RS-Slide`|
 |**Sprite Sheet (WIP)**| ![](https://i.imgur.com/djcKX77.png)
 
 
@@ -183,7 +183,7 @@ Effect| <span style="font-weight:normal">Changes `x-coordinate` of Afro Fighter 
 
 Effect| <span style="font-weight:normal">Ends Game, `Scene` will switch to `Game Over State`</span> |
 |--------------------|----------|
-|**Animations** |`LS-Death` and `RS-Death`|**Sprite Sheet**|  |
+|**Animations** |`LS-Death` and `RS-Death`| 
 |**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/Xj7RIQ4.png" width="200" > <br> `Source` Street Fighter 2|
 
 
@@ -195,7 +195,7 @@ Effect| <span style="font-weight:normal">Ends Game, `Scene` will switch to `Game
 
 Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
 |--------------------|----------|
-|**Animations** |`Left Hand Punch` and `Right Hand Punch`|**Sprite Sheet**|  |
+|**Animations** |`Left Hand Punch` and `Right Hand Punch`|
 |**Sprite Sheet**| <img src="https://i.imgur.com/xyAbEjb.png" width="125" > <img src="https://i.imgur.com/1n10Zlo.png" width="125" >
 
 
@@ -206,7 +206,7 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
 
 Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
 |--------------------|----------|
-|**Animation** | `Right Foot Kick`|**Sprite Sheet**|  |
+|**Animation** | `Right Foot Kick`|
 |**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/axsQb4j.png" width="200" >
 
 
@@ -215,7 +215,7 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
 
 Effect| <span style="font-weight:normal">Create `Fire Beam` Object, see</span> |
 |--------------------|----------|
-|**Animation** |`Fire Beam Imbue` |**Sprite Sheet**|  |
+|**Animation** |`Fire Beam Imbue` |
 |**Sprite Sheet (WIP)**|![](https://i.imgur.com/nTVbiwi.png)<br>`Source` "Goku Kamehameha Sprite Animation" 
 
 #### *Defensive States*
@@ -225,7 +225,7 @@ Effect| <span style="font-weight:normal">Create `Fire Beam` Object, see</span> |
 
 Effect| <span style="font-weight:normal">Reduces damage inflected on `Afro Fighter` by `50%` </span> |
 |--------------------|----------|
-|**Animation** |`Ls-Block` and `Rs-Block` |**Sprite Sheet**|  |
+|**Animation** |`Ls-Block` and `Rs-Block` |
 |**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/hs9Qqv3.png" width="180" > <br>`Source` "DreamsTime(dot)com"
 
 #### 2.3.2 Fire Beam Projectile
@@ -435,8 +435,11 @@ If any player picks a character, that character is grayed out and cannot be sele
 | "Player 1/2 Wins!" | Match is over and winner is declared |
 
 #### 5.1.9 Graphics Overhaul:
-[] better background (stack implementation to know when pixels are overlapping)
-[] psuedo 3d floor
-[] shaded characters
+- better background (stack implementation to know when pixels are overlapping)
+- psuedo 3d floor
+- shaded characters
+
+
+
 
 
