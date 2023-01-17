@@ -26,10 +26,24 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
 
 The `1-Player` game mode beings with the players avatar and the cpu controlled opponent rendered in the arena along with their health bars and a count down starting from 3 in the center of the arena. After the count down has reached one "Fight" will be displayed in the center of the arena; player controls become active and the cpu opponent begins executing its scripted movesets.  
 
+#### 2.1.3 Game Over State and UI
+
+There are two possible `Game Over` states, one for a `Win` and a `Loss`
+
+*Win*
+
+<---- Add Image for winning here ----->
+
+*Loss*
+
+<---- Add Image for losing ------>
+
 ### 2.2 Objectives and Rules
 
 #### 2.2.1 Health and Damage 
 Player and Cpu opponent will begin with 100% health depicted by the `P-Health Bar` displayed in the top right corner of the screen and `CPU-Health Bar` displayed in the top left corner. When Damage is dealt the health bar of the player who was damaged will be re-renderd with a length `Damage-Value%` shorter. 
+
+Damage is based on collision detection between the `Hit Boxes` of the player Objects. See 2.4.* for more details on implementation. 
 
 Below is a table defining all the offensive moves and their damage values.
 
@@ -41,7 +55,7 @@ Below is a table defining all the offensive moves and their damage values.
 
 #### 2.2.2 Combat Mechanics 
 
-*Offense*
+***Offense***
 
  `Player` 
 - Can use a combination of light and heavy as many times as they wish to deal damage to the opponent.
@@ -53,7 +67,7 @@ Below is a table defining all the offensive moves and their damage values.
     - see 2.3.2 for implementation details
 
 
- *Defense*
+ ***Defense***
 
 - If any of the players is hit by an attack while they're in the blocking state, damage is reduced by 50%
 
@@ -68,8 +82,7 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
 
 `Scene` will display all objects to a `640px x 400px` screen, below are all the current `Scene Objects`
 
-- `Afro Fighter` (2x)
-    - see 2.3.1 for details
+- `Afro Fighter` ``(2x)``
 - `Health bar` 
 - `Arena floor` 
 - `Count Down Numbers`
@@ -88,35 +101,57 @@ This means that at any given time during a fight there at least 6 scene objects 
 
 Every Afro Fighter is an object that encompasses various `States` and `Offensive and Defensive Animations`.
 
-#### *States*
+#### *Movement States*
 
 `Idle State`
  - This is the default state for the `Afro Fighter`
  - This state has animations for both left and right side sprites
 
-|Animation |`RS-Idle-Animation`|`LS-Idle-Animation`| 
+Effect| <span style="font-weight:normal">Changes Afro Fighter position to the right</span> | <span style="font-weight:normal">Changes Afro Fighter position to the right</span> |
 |--------------------|-------------------|----------|
-**Effect on Attributes**| *None*|*None*|
-**Sprite Sheet**| ADD WITH ANIMATION FRAMES HERE IMAGE HERE | ADD WITH ANIMATION FRAMES HERE IMAGE HERE
+|**Animation** |`RS-Idle-Animation`|`LS-Idle-Animation`| 
+**Sprite Sheet**|  | 
 
 `Running State`
 - This state is triggerd by the player
 - This state has animations for both left and right side sprites
 
-
-|Animation |`RS-Running-Animation`|`LS-Running-Animation`| 
+Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> | <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> |
 |--------------------|-------------------|----------|
-**Effect on Attributes**| *Changes Afro Fighter position to the right*|*Changes Afro Fighter position to the right*|
-**Sprite Sheet**| ADD WITH ANIMATION FRAMES HERE IMAGE HERE | ADD WITH ANIMATION FRAMES HERE IMAGE HERE
+|**Animation** |`RS-Running-Animation`|`LS-Running-Animation`| 
+**Sprite Sheet**| | 
 
 `Jumping State`
 
-#### *Offensive Animations*
+- This state is triggerd by the player
+- `Lift Off` Animation has both left and right Variants
+
+Effect| <span style="font-weight:normal">None</span> | <span style="font-weight:normal">Changes `x coordinate` and `y coordinate` of player</span> |
+|--------------------|-------------------|----------|
+|**Animation** |`"Lift Off" Animation`|`Jump Pose`|**Sprite Sheet**|  |
+|**Sprite Sheet**
+
+ 
+
+#### *Offensive States*
+
+`Light Attack`
+- Consists of a alternating punches from `Left Hand` and `Right Hand` of the Afro Fighter]
+- Has Variants for both left and right orientations of the Afro Fighter
+
+Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
+|--------------------|----------|
+|**Animations** |`Left Hand Punch` and `Right Hand Punch`|**Sprite Sheet**|  |
+|**Sprite Sheet**| 
 
 
+`Heavy Attack`
+- Single kick from Left foot 
+
+`Super / Ranged Attack`
 
 
-#### *Defensive Animations*
+#### *Defensive States*
 
 
 #### 2.3.2 CPU-Player 
@@ -129,7 +164,7 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 
 
-| Component            | Properties | Behaviour|Image|
+| Object            | Properties | Behaviour|Image|
 |-----------|----------|---------|-----|
 |`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |      |![](https://i.imgur.com/iE2Cvvo.png)|
 
@@ -139,7 +174,7 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 ![](https://i.imgur.com/Wx2WMlJ.png)
 
-| Component   | Properties     | Behaviour|Image|
+| Object  | Properties     | Behaviour|Image|
 |-------------|----------|---------|-----|
 |`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>When damage is delt to player it is rerenders with the its `current length - (damage-value% x current length)` </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
 |`Avatar-Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
@@ -147,6 +182,11 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 
 ### 2.4 Physics
+
+
+#### 2.4.1 Collision detection and Hitboxes
+
+#### 2.4.2 Jump Mechanics
 
 ### 2.5 Asynchronous Events
 
@@ -191,7 +231,17 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 
 ### 2.8 Hypothetical Gaming Session
 
+The user is given the choice of a 1-player or 2-player game on the title screen when the game first launches. When a game mode is selected, the screen switches to the relevant game version (as explained in sections 2 and 3).
+
+Upon entering a game mode, the arena with the players and their respective healthbars will be displayed. A prompt reading "3, 2, 1, FIGHT!" will be appear and the player(s) will be given control of their respective characters. 
+
+As described in 2.2.1, 2.2.2, and 2.5, the players will have different moves they can make based on the set inputs. A combination of attacks can be used to damage the opposing player. The match continues until one of the player's healthbars reach 0% and that player is on the ground. The player that is still standing is the winner. This results in a prompt reading "Player 1/Player 2 Wins!" according to the appropriate player. If both players happen to take each other out at the same time
+
+After a winner is declared via the prompt, the user is sent back to the starting title screen.
+
 ## 3. Game Play details for 2-player Mode
+
+All the gameplay elements of 1-Player Mode apply to 2-Player Mode but the CPU-Player is replaced with a second actual player. The second player will have the same moveset and controls as the first player
 
 ## 4. Sound Effects
 
@@ -211,12 +261,12 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 - energy blast (smaller than ultimate move)
 
 #### 5.1.2 Multiple rounds: 
-A round is over when 1 player's health reaches 0%. The first player with 2 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar.
+A round is over when 1 player's health reaches 0%. The first player with 2 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar. If both players are tied in ko's entering the 3rd round and the 3rd round ends in a draw, a sudden death round will occur with both players having decreased health.
 
 #### 5.1.3 Stun meter: 
 As a player takes hits that aren't blocked, a meter next to the healthbar fills up. When this meter fills up, the next hit a player takes will knock them to the ground and put them in a state where they can't do anything for 2 seconds.
 
-The healthbar will fill up at the following rates:
+The meter will fill up at the following rates:
 
 | Move  | Stun |
 | ------------- | ------------- |
