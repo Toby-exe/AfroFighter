@@ -78,6 +78,10 @@ In order to discourage a playstyle that spams the `Ranged / Super` attack, this 
       - Once this attack is used the star will diseappear untill the event is completed again.
    - The event can be completed multiple times, but each play can only have at most 3 stars at once.  
 
+ ***Movement***
+
+- The player has full control over which direction they're facing. This is indicated by the direction of the most recently pressed movement key (see 2.5.1).
+
 ### 2.3 Scene Objects
 
 `Scene` will display all objects to a `640px x 400px` screen, below are all the current `Scene Objects`
@@ -110,7 +114,7 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
 Effect| <span style="font-weight:normal">Changes Afro Fighter position to the right</span> | <span style="font-weight:normal">Changes Afro Fighter position to the right</span> |
 |--------------------|-------------------|----------|
 |**Animation** |`RS-Idle-Animation`|`LS-Idle-Animation`| 
-**Sprite Sheet**|  | 
+**Sprite Sheet (WIP)**|  | 
 
 `Running State`
 - This state is triggerd by the player
@@ -119,7 +123,7 @@ Effect| <span style="font-weight:normal">Changes Afro Fighter position to the ri
 Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> | <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> |
 |--------------------|-------------------|----------|
 |**Animation** |`RS-Running-Animation`|`LS-Running-Animation`| 
-**Sprite Sheet**| | 
+**Sprite Sheet (WIP)**| | 
 
 `Jumping State`
 
@@ -129,9 +133,16 @@ Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</sp
 Effect| <span style="font-weight:normal">None</span> | <span style="font-weight:normal">Changes `x coordinate` and `y coordinate` of player</span> |
 |--------------------|-------------------|----------|
 |**Animation** |`"Lift Off" Animation`|`Jump Pose`|**Sprite Sheet**|  |
-|**Sprite Sheet**
+|**Sprite Sheet (WIP)**
 
- 
+ `Crouch State`
+ - This State is triggerd by the player when Afro Fighter is in the `Idle State`
+
+`Slide State`
+- The State is triggered by the player when Afro Fighter is in the`Running State`
+
+`Death State`
+- This State is triggerd when the Health of a Afro Fighter is depleted.
 
 #### *Offensive States*
 
@@ -148,15 +159,37 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
 `Heavy Attack`
 - Single kick from Left foot 
 
-`Super / Ranged Attack`
+Effect| <span style="font-weight:normal"></span> |
+|--------------------|----------|
+|**Animation** | |**Sprite Sheet**|  |
+|**Sprite Sheet**| 
 
+`Super / Ranged Attack`
+- Triggerd by player when they have a star (two consecutive `Heavy Attack` blocks)
+
+Effect| <span style="font-weight:normal">Create `Fire Beam` Object, see</span> |
+|--------------------|----------|
+|**Animation** |`Fire Beam Imbue` |**Sprite Sheet**|  |
+|**Sprite Sheet**| 
 
 #### *Defensive States*
 
+`Block`
+- Can be triggerd by player in any other state but `Death State`.
 
-#### 2.3.2 CPU-Player 
+Effect| <span style="font-weight:normal">Reduces damage inflected on `Afro Fighter` by `50%` </span> |
+|--------------------|----------|
+|**Animation** |`Ls-Block` and `Rs-Block` |**Sprite Sheet**|  |
+|**Sprite Sheet (WIP)**| 
 
-#### 2.3.3 Arena and HUD 
+#### 2.3.2 Fire Beam Projectile
+
+
+#### 2.3.3 CPU-Player 
+punch punch block kick crouch jump
+
+#### 2.3.4 Arena and HUD 
+
 
 #### *Arena* 
 
@@ -177,7 +210,7 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
 | Object  | Properties     | Behaviour|Image|
 |-------------|----------|---------|-----|
 |`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>When damage is delt to player it is rerenders with the its `current length - (damage-value% x current length)` </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
-|`Avatar-Name`|          |         |![](https://i.imgur.com/DO5GOhO.png)|
+|`Avatar-Name`|      | |![](https://i.imgur.com/DO5GOhO.png)|
 |`Avatar-Profile-Img` | |  |![](https://i.imgur.com/qECScbN.png)|
 
 
@@ -185,8 +218,12 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
 
 
 #### 2.4.1 Collision detection and Hitboxes
+TOBY
+
 
 #### 2.4.2 Jump Mechanics
+
+TOBY
 
 ### 2.5 Asynchronous Events
 
@@ -226,8 +263,15 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
    - Player can not take damage in this state
 
 ### 2.6 Synchronous Events
+| Event Name  | Triggering Input Event | Description|
+|-------------|----------|---------|
+| Intro prompt | 1 second between each part| "3,2,1, FIGHT!"|
 
 ### 2.7 Condition Based Events
+| Event Name  | Triggering Input Event | Description|
+|-------------|----------|---------|
+| `Health-Bar` Updates | A collision is detected following an attack input | The player who was hit by an attack has their healthbar decrease based on the damage values in 2.2.1 |
+| `Hit-Marker` shows | A collision is detected following an attack input | The player who was hit by an attack has their in 2.2.1 |
 
 ### 2.8 Hypothetical Gaming Session
 
