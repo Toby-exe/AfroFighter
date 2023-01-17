@@ -30,13 +30,22 @@ The `1-Player` game mode beings with the players avatar and the cpu controlled o
 
 There are two possible `Game Over` states, one for a `Win` and a `Loss`
 
-*Win (WIP)*
+***Win (WIP)***
 
-<---- Add Image for winning here ----->
+![](https://i.imgur.com/bOs0tIC.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/H5oTX9V.png)
+![](https://i.imgur.com/Gclwat6.png) ![](https://i.imgur.com/xFpkm7w.png) ![](https://i.imgur.com/vrtQuKT.png) ![](https://i.imgur.com/dngkfqX.png)
 
-*Loss (WIP)*
 
-<---- Add Image for losing ------>
+
+
+***Loss Message (WIP)***
+
+![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/hDfnbYJ.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/JkajbXT.png) ![](https://i.imgur.com/gDGlXHh.png) 
+
+![](https://i.imgur.com/fysz63A.png) ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/vY0S0ju.png) ![](https://i.imgur.com/xFpkm7w.png)
+
+
+
 
 ### 2.2 Objectives and Rules
 
@@ -111,19 +120,19 @@ Every Afro Fighter is an object that encompasses various `States` and `Offensive
  - This is the default state for the `Afro Fighter`
  - This state has animations for both left and right side sprites
 
-Effect| <span style="font-weight:normal">Changes Afro Fighter position to the right</span> | <span style="font-weight:normal">Changes Afro Fighter position to the right</span> |
+Effect| <span style="font-weight:normal">Changes Afro Fighter position to the right</span> | <span style="font-weight:normal">Changes Afro Fighter position to the left</span> |
 |--------------------|-------------------|----------|
 |**Animation** |`RS-Idle-Animation`|`LS-Idle-Animation`| 
-**Sprite Sheet (WIP)**|  | 
+**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/5agMmcv.png" width="125" >  | <img src="https://i.imgur.com/PFUl1Ct.png" width="125" >
 
 `Running State`
 - This state is triggerd by the player
 - This state has animations for both left and right side sprites
 
-Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> | <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> |
-|--------------------|-------------------|----------|
-|**Animation** |`RS-Running-Animation`|`LS-Running-Animation`| 
-**Sprite Sheet (WIP)**| | 
+Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> | 
+|--------------------|-------------------|
+|**Animation** |`RS-Running-Animation` and `LS-Running-Animation`| 
+**Sprite Sheet (WIP)**| ![](https://i.imgur.com/AUfBU45.png)| 
 
 `Jumping State`
 
@@ -133,7 +142,7 @@ Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</sp
 Effect| <span style="font-weight:normal">None</span> | <span style="font-weight:normal">Changes `x-coordinate` and `y-coordinate` of Afro Fighter</span> |
 |--------------------|-------------------|----------|
 |**Animation** |`"Lift Off" Animation`|`Jump Pose`|**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**
+|**Sprite Sheet (WIP)**|<img src="https://i.imgur.com/oA3GBhm.png" width="10000" >|<img src="https://i.imgur.com/Km4LfZc.png" width="80" >
 
  `Crouch State`
  - This State is triggerd by the player when Afro Fighter is in the `Idle State`
@@ -155,7 +164,8 @@ Effect| <span style="font-weight:normal">Decreases height on `y-axis` of `Hit-Bo
 Effect| <span style="font-weight:normal">Changes `x-coordinate` of Afro Fighter and decreases height on `y-axis` of `Hit-Box` </span> |
 |--------------------|----------|
 |**Animations** |`LS-Slide` and `RS-Slide`|**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**| 
+|**Sprite Sheet (WIP)**| ![](https://i.imgur.com/djcKX77.png)
+
 
 `Death State`
 - This State is triggerd when the Health of a Afro Fighter is depleted.
@@ -163,7 +173,8 @@ Effect| <span style="font-weight:normal">Changes `x-coordinate` of Afro Fighter 
 Effect| <span style="font-weight:normal">Ends Game, `Scene` will switch to `Game Over State`</span> |
 |--------------------|----------|
 |**Animations** |`LS-Death` and `RS-Death`|**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**| 
+|**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/Xj7RIQ4.png" width="200" > <br> `Source` Street Fighter 2|
+
 
 #### *Offensive States*
 
@@ -174,16 +185,19 @@ Effect| <span style="font-weight:normal">Ends Game, `Scene` will switch to `Game
 Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
 |--------------------|----------|
 |**Animations** |`Left Hand Punch` and `Right Hand Punch`|**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**| 
+|**Sprite Sheet**| <img src="https://i.imgur.com/xyAbEjb.png" width="125" > <img src="https://i.imgur.com/1n10Zlo.png" width="125" >
+
+
 
 
 `Heavy Attack`
-- Single kick from Left foot 
+- Single kick from Right foot 
 
 Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
 |--------------------|----------|
-|**Animation** | `Left Foot Kick`|**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**| 
+|**Animation** | `Right Foot Kick`|**Sprite Sheet**|  |
+|**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/axsQb4j.png" width="200" >
+
 
 `Super / Ranged Attack`
 - Triggerd by player when they have a star (two consecutive `Heavy Attack` blocks)
@@ -191,7 +205,7 @@ Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Ob
 Effect| <span style="font-weight:normal">Create `Fire Beam` Object, see</span> |
 |--------------------|----------|
 |**Animation** |`Fire Beam Imbue` |**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**| 
+|**Sprite Sheet (WIP)**|![](https://i.imgur.com/nTVbiwi.png)<br>`Source` "Goku Kamehameha Sprite Animation" 
 
 #### *Defensive States*
 
@@ -201,7 +215,7 @@ Effect| <span style="font-weight:normal">Create `Fire Beam` Object, see</span> |
 Effect| <span style="font-weight:normal">Reduces damage inflected on `Afro Fighter` by `50%` </span> |
 |--------------------|----------|
 |**Animation** |`Ls-Block` and `Rs-Block` |**Sprite Sheet**|  |
-|**Sprite Sheet (WIP)**| 
+|**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/hs9Qqv3.png" width="180" > <br>`Source` "DreamsTime(dot)com"
 
 #### 2.3.2 Fire Beam Projectile
 
@@ -209,7 +223,8 @@ Effect| <span style="font-weight:normal">Reduces damage inflected on `Afro Fight
 
 | Object            | Properties | Behaviour|Image|
 |-----------|----------|---------|-----|
-||<ul><li>  </li><li></li>   </li></ul>   |      |
+|`Fire-Beam`|<ul><li>Position Integers, `x` and `y` coordinate  </li></ul>   |Travels accross `y-vector` until it undegoes a collision      |![](https://i.imgur.com/xooOTP9.png) `Source` "Pixel art maker"
+
 
 
 
@@ -235,7 +250,7 @@ This is the default state that the`Cpu-Player` will be in. In this state, it wil
 
 | Object            | Properties | Behaviour|Image|
 |-----------|----------|---------|-----|
-|`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |      |![](https://i.imgur.com/iE2Cvvo.png)|
+|`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   | None     |![](https://i.imgur.com/iE2Cvvo.png)|
 
 <br/><br/>
 
@@ -246,15 +261,27 @@ This is the default state that the`Cpu-Player` will be in. In this state, it wil
 | Object  | Properties     | Behaviour|Image|
 |-------------|----------|---------|-----|
 |`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>When damage is delt to player it is rerenders with the its `current length - (damage-value% x current length)` </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
-|`Avatar-Name`|<ul><li>Size: `26 x 8 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>      | |![](https://i.imgur.com/DO5GOhO.png)|
-|`Avatar-Profile-Img` |<ul><li>Size: `48 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>  |  |![](https://i.imgur.com/qECScbN.png)|
+|`Avatar-Name`|<ul><li>Size: `26 x 8 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>      | None|![](https://i.imgur.com/DO5GOhO.png)|
+|`Avatar-Profile-Img` |<ul><li>Size: `48 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>  |  None|![](https://i.imgur.com/qECScbN.png)|
 
 
 ### 2.4 Physics
 
 
 #### 2.4.1 Collision detection and Hitboxes
-TOBY
+
+`Collision detection` is used to keep the `Afro Fighter` avatar contained in the bounds of the arena and determine when an attack was succesfully laned on the oppponent.
+
+***Bounds Checking for Arena***
+
+The arena has a real width of `640px` if any portion of the `Afro Fighter` collides with either end of this boundary their will not be able to change their `x-coordinate` in the direction where the boundary is violated. The same Rules apply for the `Arena Floor`.
+
+
+***Hit Boxes***
+
+`Hit-boxes` are used to determine the area of a character's sprite that will register a hit when it comes into contact with an opponent's hit box. 
+
+They will not be visible. When two hit boxes collide, the game registers a hit and applies the appropriate damage or knockback (dependant on the `Afro Fighters` current `Offensive state` and opponents `Defensive state`). The size and shape of the hit boxes can vary depending the `Afro Fighters` `State` . 
 
 
 #### 2.4.2 Jump Mechanics
@@ -328,7 +355,7 @@ All the gameplay elements of 1-Player Mode apply to 2-Player Mode but the CPU-Pl
 | Sound effect name | Brief Description | Event that triggers playback |
 | ------------- | ------------- | ------------- |
 | Main Theme | "Help urself Dyn remix" found on youtube | User starts the game |
-| Attack misses | - duration of a second | any of the players inputs an attack key but no collision is detected |
+| Attack misses | "woosh" sound effect like swinging a bat through the air - duration of a second | any of the players inputs an attack key but no collision is detected |
 | Attack connects | - duration of a second | any of the players inputs an attack key and a collision is detected |
 | Super | - duration of a second | Super/Ranged attack input is pressed |
 
@@ -379,5 +406,6 @@ If any player picks a character, that character is grayed out and cannot be sele
 [] better background (stack implementation to know when pixels are overlapping)
 [] psuedo 3d floor
 [] shaded characters
+
 
 
