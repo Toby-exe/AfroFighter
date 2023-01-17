@@ -26,6 +26,19 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
 
 The `1-Player` game mode beings with the players avatar and the cpu controlled opponent rendered in the arena along with their health bars and a count down starting from 3 in the center of the arena. After the count down has reached one "Fight" will be displayed in the center of the arena; player controls become active and the cpu opponent begins executing its scripted movesets.  
 
+![](https://i.imgur.com/Mp5RDhZ.png)
+
+![](https://i.imgur.com/5bb38LU.png)
+
+![](https://i.imgur.com/PGRWsFq.png)
+
+![](https://i.imgur.com/JyPtDz1.png)
+![](https://i.imgur.com/8DkxzaI.png)
+![](https://i.imgur.com/rRSmzBG.png)
+![](https://i.imgur.com/SMSt1A3.png)
+![](https://i.imgur.com/dSRuw2y.png)
+![](https://i.imgur.com/j2H7QlA.png)
+
 #### 2.1.3 Game Over State and UI
 
 There are two possible `Game Over` states, one for a `Win` and a `Loss`
@@ -43,8 +56,6 @@ There are two possible `Game Over` states, one for a `Win` and a `Loss`
 ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/hDfnbYJ.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/JkajbXT.png) ![](https://i.imgur.com/gDGlXHh.png) 
 
 ![](https://i.imgur.com/fysz63A.png) ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/vY0S0ju.png) ![](https://i.imgur.com/xFpkm7w.png)
-
-
 
 
 ### 2.2 Objectives and Rules
@@ -286,7 +297,9 @@ They will not be visible. When two hit boxes collide, the game registers a hit a
 
 #### 2.4.2 Jump Mechanics
 
-TOBY
+The `Afro Figther` has the ability to jump at any time during the fight, every jump will reach the `Maximum Jump Height` of `250 px`, this is the displacment from the intial/ground position of the`Afro Fighters` feet.
+
+While `accending` and `decending` (change in `+/- y-coordinate of sprite` )the player is able to control the `x displacement` of the `Afro Fighter`. 
 
 ### 2.5 Asynchronous Events
 
@@ -342,7 +355,7 @@ The user is given the choice of a 1-player or 2-player game on the title screen 
 
 Upon entering a game mode, the arena with the players and their respective healthbars will be displayed. A prompt reading "3, 2, 1, FIGHT!" will be appear and the player(s) will be given control of their respective characters. 
 
-As described in 2.2.1, 2.2.2, and 2.5, the players will have different moves they can make based on the set inputs. A combination of attacks can be used to damage the opposing player. The match continues until one of the player's healthbars reach 0% and that player is on the ground. The player that is still standing is the winner. This results in a prompt reading "Player 1/Player 2 Wins!" according to the appropriate player. If both players happen to take each other out at the same time
+As described in 2.2.1, 2.2.2, and 2.5, the players will have different moves they can make based on the set inputs. A combination of attacks can be used to damage the opposing player. The match continues until one of the player's healthbars reach 0% and that player is on the ground. The player that is still standing is the winner. This results in a prompt reading "Player 1/Player 2 Wins!" according to the appropriate player. If both players happen to take each other out at the same time the prompt will read "Draw" instead.
 
 After a winner is declared via the prompt, the user is sent back to the starting title screen.
 
@@ -350,14 +363,33 @@ After a winner is declared via the prompt, the user is sent back to the starting
 
 All the gameplay elements of 1-Player Mode apply to 2-Player Mode but the CPU-Player is replaced with a second actual player. The second player will have the same moveset and controls as the first player
 
+***P1 WINS (WIP)***
+
+![](https://i.imgur.com/qAcI2UJ.png)
+![](https://i.imgur.com/PGRWsFq.png)
+![](https://i.imgur.com/RBf6Yg4.png)
+![](https://i.imgur.com/OExSDBs.png)
+![](https://i.imgur.com/WroOcSl.png)
+![](https://i.imgur.com/g5tGLTD.png)
+
+
+***P2 WINS (WIP)***
+
+![](https://i.imgur.com/0hyXnLx.png)
+![](https://i.imgur.com/5bb38LU.png)
+![](https://i.imgur.com/RBf6Yg4.png)
+![](https://i.imgur.com/OExSDBs.png)
+![](https://i.imgur.com/WroOcSl.png)
+![](https://i.imgur.com/g5tGLTD.png)
+
 ## 4. Sound Effects
 
 | Sound effect name | Brief Description | Event that triggers playback |
 | ------------- | ------------- | ------------- |
 | Main Theme | "Help urself Dyn remix" found on youtube | User starts the game |
-| Attack misses | "woosh" sound effect like swinging a bat through the air - duration of a second | any of the players inputs an attack key but no collision is detected |
-| Attack connects | - duration of a second | any of the players inputs an attack key and a collision is detected |
-| Super | - duration of a second | Super/Ranged attack input is pressed |
+| Attack | "woosh" sound effect like swinging a bat through the air - duration of a second | any of the players inputs an attack key |
+| Attack connects | sound of a boxing glove hitting a punching bag - duration of a second | any of the players inputs an attack key and a collision is detected |
+| Super | charge up sound effect - duration of a second | Super/Ranged attack input is pressed |
 
 ## 5. Additional Features (Time Permitting)
    
@@ -406,6 +438,5 @@ If any player picks a character, that character is grayed out and cannot be sele
 [] better background (stack implementation to know when pixels are overlapping)
 [] psuedo 3d floor
 [] shaded characters
-
 
 
