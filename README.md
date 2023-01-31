@@ -39,16 +39,16 @@ Upon completion of the countdown, the word "Fight" will be displayed in the cent
 
 There are two possible `Game Over` states, one for a `Win` and a `Loss`
 
-***Win Message and UI FINISH WITH REAL SCREEN***
+***Win Message and UI***
 
-If the player has beat the opponent this message will remain on screen untill a the player has chosen on of the two menu options; `Play Again` or `Back to Main Menu`
+If the player has beat the opponent this message will remain on screen untill a the player has chosen on of the two menu options; `Play Again` or `Back to Main Menu` (Sprite WIP)
 
 ![](https://i.imgur.com/bOs0tIC.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/H5oTX9V.png) ![](https://i.imgur.com/Gclwat6.png) ![](https://i.imgur.com/xFpkm7w.png) ![](https://i.imgur.com/vrtQuKT.png) ![](https://i.imgur.com/dngkfqX.png)
 
 
-***Loss Message and UI FINISH WITH REAL SCREEN***
+***Loss Message and UI***
 
-If the player has beat the opponent this message will remain on screen untill a the player has chosen on of the two menu options; `Play Again` or `Back to Main Menu`
+If the player has beat the opponent this message will remain on screen untill a the player has chosen on of the two menu options; `Play Again` or `Back to Main Menu` (Sprite WIP)
 
 ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/hDfnbYJ.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/JkajbXT.png) ![](https://i.imgur.com/gDGlXHh.png) 
 
@@ -62,7 +62,7 @@ If the player has beat the opponent this message will remain on screen untill a 
 
 In this game, both the player and their opponent start with a `250px` width health bar. The objective is to maintain one's own health bar, ensuring that it is not depleted before their opponent's. Each combat move has a distinct impact on the player's health, and it is crucial to execute these moves strategically to achieve victory.
 
-***Offense and Defense***
+***Offensive and Defensive States***
 
 |Offensive/Defensive Moves| Description | Damage (pixels removed from health) |Keybind|
 |---------------|-------------|-------|:-----:|
@@ -87,7 +87,7 @@ Since the Opponent isn't controlled by a user's inputs, it operates under the fo
 
 ***Approach***
 
-The `Opponent` will be facing the `Player` at all times. If the distance between the `Player` and the `Opponent` is greater than 50px, the `Opponent` Moves forward towards the player using the appropriate movement input.
+The `Opponent` will be facing the `Player` at all times. If the distance between the `Player` and the `Opponent` is greater than or equal to 16px, the `Opponent` Moves forward towards the player using the appropriate movement input.
 
 ***Combo***
 
@@ -155,9 +155,8 @@ All player animations will have a left and right variant to account for the 2 di
 | Animation | Behaviour | Properties | Image / Sprite Sheet |
 |-----------|------------|------------|:-----:|
 | `Idle` | <li>A bobbing up and down movement</li> |<li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>| <img src="https://i.imgur.com/aW4mL7R.png" width="120"> <img src="https://i.imgur.com/02760L3.png" width="120" >
-| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/q6j3Lmy.png" width="150" >    |      
-| `Jumping "Lift-Off"` |  <li>Bending knees to prepare for a jump / brace after one</li>  |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li> |<img src="https://i.imgur.com/oA3GBhm.png" width="250" >    |  
-| `Jump`  |  <li>An airborne rising motion </li>  |   <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>`airborne boolean set true` |   <img src="https://i.imgur.com/Km4LfZc.png" width="80" > |       
+| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/q6j3Lmy.png" width="150" >  <img src="https://i.imgur.com/dTDTBWO.png" width="150" >|      
+| `Jump`  |  <li>An airborne rising motion </li>  |   <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>`airborne boolean set true` |   <img src="https://i.imgur.com/9AEDduO.png" width="50" > <img src="https://i.imgur.com/Yvqfnk3.png" width="50" >|       
 | `Crouch`  |  <li>Kneeling position</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |<img src="https://i.imgur.com/47cTzWg.png" width="175" >    |      
 | `Slide`   |  <li>A soccer slide tackle</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  |  <img src="https://i.imgur.com/FTZTZgV.png" width="175" > |    
 | `Death`    |  <li>A defeated lying down pose</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/kwd6p5p.png" width="175" >   |    
@@ -166,10 +165,10 @@ All player animations will have a left and right variant to account for the 2 di
     
 | Animation | Behaviour | Properties | Image |
 |-------------|----------|------------|:-----:|   
-| `Light Attack`    |   <li>A straight punch</li> |          |  ![](https://i.imgur.com/9N9XBRJ.png)  |    
-| `Heavy Attack`    |   <li>A side kick</li> |          | <img src="https://i.imgur.com/axsQb4j.png" width="200" >   |   
-| `Super / Ranged Attack Imbue` |  <li>A fire charge-up pose</li>  |    | ![](https://i.imgur.com/nTVbiwi.png)   |      
-| `Block`    |  <li>A boxing highguard</li>  |    |    <img src="https://i.imgur.com/hs9Qqv3.png" width="180" >|    
+| `Light Attack`    |   <li>A straight punch</li> |       <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li><li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |  ![](https://i.imgur.com/9N9XBRJ.png)  |    
+| `Heavy Attack`    |   <li>A side kick</li> |         <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li> | <img src="https://i.imgur.com/35n9bFq.png" width="100" > <img src="https://i.imgur.com/O4FSz4c.png" width="100" >  |   
+| `Super / Ranged Attack Imbue` |  <li>A fire charge-up pose</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   | ![](https://i.imgur.com/nTVbiwi.png)   |      
+| `Block`    |  <li>A boxing highguard</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |    <img src="https://i.imgur.com/hs9Qqv3.png" width="180" >|    
     
 ### 2.5 Asynchronous Events
 
@@ -178,7 +177,7 @@ All player animations will have a left and right variant to account for the 2 di
 #### 2.5.1 Movement Keybinds
 
     
-|Movement    | Key Bind | Request|
+|Movement    | Key Bind | States Requested|
 |------------|----------|--------|
 | Move right |  `A`     |  Changes `Running State` for player to `True`, sets `Rs Running Animation` to `True` |   
 | Move left  |   `D`    |  Changes `Running State` for player to `True`, sets `Ls Running Animation` to `True` |    
@@ -187,54 +186,47 @@ All player animations will have a left and right variant to account for the 2 di
 
 #### 2.5.2 Combat Keybinds
 
-|Combat Move    | Key Bind | Request|
+|Combat Move    | Key Bind | States Requested|
 |------------|----------|--------|
-| Light attack (Alternating) |  `W`    |  Changes `Running State` for player to `True`, sets `Rs Running Animation` to `True` |   
-| Heavy attack  |   `←`     |  Changes `Running State` for player to `True`, sets `Ls Running Animation` to `True` |    
-| Super / Ranged attack     |   `F`     |  Changes `Slide State` for player to `True`, sets `Ls or Rs slide animation` to `True` (base on orientation) |    
-| Block       |    `Space`| Changes `Jump State`  for player to `True`, sets `Ls or Rs jump animation`  to `True` (base on orientation) |    
+| Light attack  |  `W`    |  Changes `Light Attack State` for player to `True`, sets `Light Attack Animation` to `True` |   
+| Heavy attack  |   `←`     |  Changes `Heavy Attack State` for player to `True`, sets `Heavy Attack Animation` to `True` |    
+| Super / Ranged attack     |   `F`     |  First checks if `Consectutive Block Count` >= 2, if `True` `Super / Ranged Attack imbue animation` is set to `True`. `Draw Fire Ball` is set to `True`|    
+| Block       |    `→` | Changes `Block State`for player to `True`, sets `Ls or Rs Block animation` to `True` (base on orientation) |    
 
 
-5. Light attack (Alternating): `W`      
-   - On 1st click 
-      - Triggers `Left Punch` pose
-   - On 2nd Click
-      - Triggers `Right Punch` pose  
-      
-6. Heavy attack: `←`     
-   - Triggers `Left Foot Kick` pose
-
-7. Super / Ranged attack: `F`     
-   - Triggers `Imbue` pose
-   - Triggers `Fire Beam Imbue` Sprite
-   - `Fire Beam` projectile object travels across its intial y-axis until a collision is encounterd 
-
-8. Block: `→`      
-   - Triggers `Block` pose
-   - Player can not take damage in this state
-  
     
 ### 2.6 Synchronous Events
+    
 | Event Name  | Triggering Input Event | Description|
 |-------------|----------|---------|
-| Intro prompt | 1 second between each part| "3,2,1, FIGHT!"|
-|Opponent moveset| could be in condition based||
+| Intro prompt | 2 seconds between each word| "3,2,1, FIGHT!"|
+|Opponent combo| a 35/70th of a second separates each action|The combo consists of the following actions: `Light Attack (x3)`, `Block`, `Heavy Attack`, `Crouch`, `Jump`, `Heavy Attack`, `Block`.|
 
 ### 2.7 Condition Based Events
+    
+*Note: `"PtP"` stands for `"player to player"`*
+    
 | Event Name  | Triggering Input Event | Description|
 |-------------|----------|---------|
-| `Health-Bar` Updates | A collision is detected following an attack input | The player who was hit by an attack has their healthbar decrease based on the damage values in 2.2.1 |
-| `Hit-Marker` shows | A collision is detected following an attack input | The player who was hit by an attack has their in 2.2.1 |
+|`Simple-Hitbox-Collision-PtP`|Player hitbox collides with the hitbox of opponent, or boundary  |     Sets `player collision state` to `True`| 
+| `Damage-HitBox-Collision-PtP`| A `Simple-Hitbox-Collision` is detected while any of the `Combat States` are `True` | Updates player health value based on attack endured  |
+|`Bounds-Checking` for arena | `Simple-HitBox-Collision` is dectected against arena boundary (end of arena width on either side)    |sets `Idle state` for player to `True`    |
+|Opponent direction| The opponent's x-position relative to the player's x-position | The opponent must always face the player;<li>If Player x-position > opponent x-position, set opponent's `right-idle` state to `True`</li> <li>If Player x-position < opponent x-position, set opponent's `left-idle` state to `True`</li>|
+|Opponent movement| The opponent's distance from the player|<li>If distance between Player x-position and opponent x-position is > 16px, have opponent move forward in their current direction until they are within 16px of the player</li>|
 
 ### 2.8 Hypothetical Gaming Session
 
-The user is given the choice of a 1-player or 2-player game on the title screen when the game first launches. When a game mode is selected, the screen switches to the relevant game version (as explained in sections 2 and 3).
+The user is given the choice of a 1-player or 2-player game on the title screen when the game first launches. When a game mode is selected, the screen switches to the relevant game version.
 
 Upon entering a game mode, the arena with the players and their respective healthbars will be displayed. A prompt reading "3, 2, 1, FIGHT!" will be appear and the player(s) will be given control of their respective characters. 
 
-As described in 2.2.1, 2.2.2, and 2.5, the players will have different moves they can make based on the set inputs. A combination of attacks can be used to damage the opposing player. The match continues until one of the player's healthbars reach 0% and that player is on the ground. The player that is still standing is the winner. This results in a prompt reading "Player 1/Player 2 Wins!" according to the appropriate player. If both players happen to take each other out at the same time the prompt will read "Draw" instead.
+As the fight starts, both characters are on the screen, facing each other. The player controlling the human character begins by running towards the opponent, attempting to get close enough to perform a light attack. The computer opponent jumps, avoiding the attack. The computer opponent then jumps again and performs a heavy attack, but the player successfully blocks it.
 
-After a winner is declared via the prompt, the user is sent back to the starting title screen.
+Both characters move back and forth, exchanging light attacks and blocks. The player successfully blocks another heavy attack from the computer opponent, causing their super meter to fill up. The player performs a super move, landing a powerful blow on the opponent that takes away `64 pixels` of health.
+
+The computer opponent retaliates with a combination of light and heavy attacks, but the player is able to block and dodge, avoiding significant damage. Both characters continue to exchange blows, with the player landing a few more light attacks and the computer opponent performing another heavy attack.
+
+As the fight progresses, both characters begin lose their health to light attacks. The computer opponent attempts another heavy attack, but the player is able to block it, filling up their super meter once again. The player performs another super move, landing a final blow that takes away the remaining health of the computer opponent. The player wins the round and is shown a "WINNER" message and is given the choice to "PLAY AGAIN" or "RETURN TO MAIN MENU"
 
 ## 3. Game Play details for 2-player Mode
 
@@ -310,6 +302,7 @@ If any player picks a character, that character is grayed out and cannot be sele
 
 
 ---
+
 
 
 
