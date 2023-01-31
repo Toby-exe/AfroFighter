@@ -69,17 +69,17 @@ In this game, both the player and their opponent start with a `250px` width heal
 | `Light Attack`| A straight punch |`-8px`|`W`| 
 | `Heavy Attack`| A side kick |`-16px`|`←`|
 | `Ranged / Super`| A projectile fireball |`-64px`|`F`|
-| `Block`         | A boxing highguard          |Halves incoming damage from the above attacks|`→ (press and hold)`  |
+| `Block`         | A boxing highguard          |Halves incoming damage from the above attacks|`→` (press and hold)  |
 
 ***Movement States***
 
-| State | Description | Properties |Keybind|
-|-------|-------------|------------|:-------:|
-|  `Idle` | Boxing "Orthodox Stance" |            |  `None / Default State`  |
-| `Running`|Fast shuffle of feet, allowing player <br> to move either left or right across the screen  |            |  <li>Right: `A` </li><li>Left: `D` </li> |
-| `Jump`|   Allows player to change its y position. <br> Player can still change its x position in this state|            |  `Space`  |
-| `Crouching`| Player goes down on one knee  | <li>Animation</li>            |  `↓`  |
-| `Slide`| If the player is `Running` and `Crouches` <br> at the same time they will `Slide` for as <br> long as they crouch |            |  `↓` if in `Running` state |
+| State | Description |Keybind|
+|-------|-------------|:-------:|
+|  `Idle` | Boxing "Orthodox Stance" |             `None / Default State`  |
+| `Running`|Fast shuffle of feet, allowing player <br> to move either left or right across the screen  |              <li>Right: `A` </li><li>Left: `D` </li> |
+| `Jump`|   Allows player to change its y position. <br> Player can still change its x position in this state|              `Space`  |
+| `Crouching`| Player goes down on one knee  |              `↓`  |
+| `Slide`| If the player is `Running` and `Crouches` <br> at the same time they will `Slide` for as <br> long as they crouch |              `↓` if in `Running` state |
 
 #### 2.2.2 Opponent
 
@@ -118,6 +118,14 @@ All of the `Combat moves` but `Super / Ranged` can be used as many times as desi
 
 In order for the Afro Fighter to unlock its `Super / Ranged` ability it must block to consectutive `Heavy Attacks` from its opponent.
 
+***Fire Ball Projectile***
+
+| Properties | Behaviour|Image|
+|----------|---------|-----|
+|<ul><li>Position Integers, `x` and `y` coordinate  </li><li>`Size:` 50px by 80px </li><li>`Hit Box` is a rectangle with the same dimensions as its size</li></ul>   |Travels accross on screen`y-vector`until it undegoes a collision      |![](https://i.imgur.com/xooOTP9.png) `Source` "Pixel art maker"
+
+
+
 ***Health and Info Bar***
 
 
@@ -125,9 +133,9 @@ In order for the Afro Fighter to unlock its `Super / Ranged` ability it must blo
 
 | Object  | Properties     | Behaviour|Image|
 |-------------|----------|---------|-----|
-|`Health-bar` |<ul><li>Size: `248 x 36 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   |<ul><li>Represents Players current Health </li><li>When damage is delt to player it is rerenders with the its `current length - (damage-value% x current length)` </li></ul>       |![](https://i.imgur.com/5ha6Tac.png)
-|`Avatar-Name`|<ul><li>Size: `26 x 8 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>      | None|![](https://i.imgur.com/DO5GOhO.png)|
-|`Avatar-Profile-Img` |<ul><li>Size: `48 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>  |  None|![](https://i.imgur.com/qECScbN.png)|
+|`Health-bar` |<ul><li>`Size:` 250 x 36 px </li><li>`Position` integers, x and y coordinate</li></li></ul>   |Displays player health|![](https://i.imgur.com/5ha6Tac.png)
+|`Avatar-Name`|<ul><li>`Size:` 26 x 8 px </li><li>`Position` integers, x and y coordinate</li></li></ul>      | Displays avatar name|![](https://i.imgur.com/DO5GOhO.png)|
+|`Avatar-Profile-Img` |<ul><li>`Size:` 48 x 48 px </li><li>`Position` integers, x and y coordinate</li></li></ul>  |  Displays profile picture of avatar|![](https://i.imgur.com/qECScbN.png)|
 
 ***Arena***
 
@@ -160,7 +168,7 @@ All player animations will have a left and right variant to account for the 2 di
 |-------------|----------|------------|:-----:|   
 | `Light Attack`    |   <li>A straight punch</li> |          |  ![](https://i.imgur.com/9N9XBRJ.png)  |    
 | `Heavy Attack`    |   <li>A side kick</li> |          | <img src="https://i.imgur.com/axsQb4j.png" width="200" >   |   
-| `Super / Ranged Attack` |  <li>A fire charge-up pose</li>  |    | ![](https://i.imgur.com/nTVbiwi.png)   |      
+| `Super / Ranged Attack Imbue` |  <li>A fire charge-up pose</li>  |    | ![](https://i.imgur.com/nTVbiwi.png)   |      
 | `Block`    |  <li>A boxing highguard</li>  |    |    <img src="https://i.imgur.com/hs9Qqv3.png" width="180" >|    
     
 ### 2.5 Asynchronous Events
@@ -199,7 +207,29 @@ All player animations will have a left and right variant to account for the 2 di
 8. Block: `→`      
    - Triggers `Block` pose
    - Player can not take damage in this state
+  
     
+### 2.6 Synchronous Events
+| Event Name  | Triggering Input Event | Description|
+|-------------|----------|---------|
+| Intro prompt | 1 second between each part| "3,2,1, FIGHT!"|
+|Opponent moveset| could be in condition based||
+
+### 2.7 Condition Based Events
+| Event Name  | Triggering Input Event | Description|
+|-------------|----------|---------|
+| `Health-Bar` Updates | A collision is detected following an attack input | The player who was hit by an attack has their healthbar decrease based on the damage values in 2.2.1 |
+| `Hit-Marker` shows | A collision is detected following an attack input | The player who was hit by an attack has their in 2.2.1 |
+
+### 2.8 Hypothetical Gaming Session
+
+The user is given the choice of a 1-player or 2-player game on the title screen when the game first launches. When a game mode is selected, the screen switches to the relevant game version (as explained in sections 2 and 3).
+
+Upon entering a game mode, the arena with the players and their respective healthbars will be displayed. A prompt reading "3, 2, 1, FIGHT!" will be appear and the player(s) will be given control of their respective characters. 
+
+As described in 2.2.1, 2.2.2, and 2.5, the players will have different moves they can make based on the set inputs. A combination of attacks can be used to damage the opposing player. The match continues until one of the player's healthbars reach 0% and that player is on the ground. The player that is still standing is the winner. This results in a prompt reading "Player 1/Player 2 Wins!" according to the appropriate player. If both players happen to take each other out at the same time the prompt will read "Draw" instead.
+
+After a winner is declared via the prompt, the user is sent back to the starting title screen.
 
 ## 3. Game Play details for 2-player Mode
 
