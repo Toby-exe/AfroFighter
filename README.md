@@ -122,8 +122,7 @@ In order for the Afro Fighter to unlock its `Super / Ranged` ability it must blo
 
 | Properties | Behaviour|Image|
 |----------|---------|-----|
-|<ul><li>Position Integers, `x` and `y` coordinate  </li><li>`Size:` 50px by 80px </li><li>`Hit Box` is a rectangle with the same dimensions as its size</li></ul>   |Travels accross on screen`y-vector`until it undegoes a collision      |![](https://i.imgur.com/AQx9DvE.png)
- 
+|<ul><li>Position Integers, `x` and `y` coordinate  </li><li>`Size:` 50px by 80px </li><li>`Hit Box` is a rectangle with the same dimensions as its size</li></ul>   |Travels accross on screen`y-vector`until it undegoes a collision      |<img src="https://i.imgur.com/Jl7Z2wC.png" width="220" >
 
 
 
@@ -166,10 +165,10 @@ All player animations will have a left and right variant to account for the 2 di
     
 | Animation | Behaviour | Properties | Image |
 |-------------|----------|------------|:-----:|   
-| `Light Attack`    |   <li>A straight punch</li> |       <li>Size: `96 x 64 px` </li><li>Duration: 35/70th of a second per frame</li><li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |  <img src="https://i.imgur.com/9N9XBRJ.png" width="200" > |    
-| `Heavy Attack`    |   <li>A side kick</li> |         <li>Size: `96 x 64 px` </li><li>Duration: 35/70th of a second per frame</li> | <img src="https://i.imgur.com/fSEFbxu.png" width="100" > <img src="https://i.imgur.com/O4FSz4c.png" width="100" >  |   
-| `Super / Ranged Attack Imbue` |  <li>A fire charge-up pose</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th of a second per frame</li>   |  <img src="https://i.imgur.com/uYw4vGu.png" width="230" ><img src="https://i.imgur.com/B6t80JX.png" width="230" >   
-| `Block`    |  <li>A boxing highguard</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th of a second per frame</li>   | <img src="https://i.imgur.com/qu0YUmO.png" width="75" > <img src="https://i.imgur.com/wv3KSL6.png" width="75" >|    
+| `Light Attack`    |   <li>A straight punch</li> |       <li>Size: `64 x 96 px` </li><li>Duration: 35/70th of a second per frame</li>   |  <img src="https://i.imgur.com/9N9XBRJ.png" width="200" > |    
+| `Heavy Attack`    |   <li>A side kick</li> |         <li>Size: `64 x 96 px` </li><li>Duration: 35/70th of a second per frame</li> | <img src="https://i.imgur.com/fSEFbxu.png" width="100" > <img src="https://i.imgur.com/O4FSz4c.png" width="100" >  |   
+| `Super / Ranged Attack Imbue` |  <li>A fire charge-up pose</li>  | <li>Size: `64 x 96 px` </li><li>Duration: 35/70th of a second per frame</li>   |  <img src="https://i.imgur.com/uYw4vGu.png" width="230" ><img src="https://i.imgur.com/B6t80JX.png" width="230" >   
+| `Block`    |  <li>A boxing highguard</li>  | <li>Size: `64 x 96px` </li><li>Duration: 35/70th of a second per frame</li>   | <img src="https://i.imgur.com/qu0YUmO.png" width="75" > <img src="https://i.imgur.com/wv3KSL6.png" width="75" >|    
     
 ### 2.5 Asynchronous Events
 
@@ -298,7 +297,3 @@ If any player picks a character, that character is grayed out and cannot be sele
 - better background (stack implementation to know when pixels are overlapping)
 - psuedo 3d floor
 - shaded characters
-
-
-
-
