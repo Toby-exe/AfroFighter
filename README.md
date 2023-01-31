@@ -122,7 +122,8 @@ In order for the Afro Fighter to unlock its `Super / Ranged` ability it must blo
 
 | Properties | Behaviour|Image|
 |----------|---------|-----|
-|<ul><li>Position Integers, `x` and `y` coordinate  </li><li>`Size:` 50px by 80px </li><li>`Hit Box` is a rectangle with the same dimensions as its size</li></ul>   |Travels accross on screen`y-vector`until it undegoes a collision      |![](https://i.imgur.com/xooOTP9.png) `Source` "Pixel art maker"
+|<ul><li>Position Integers, `x` and `y` coordinate  </li><li>`Size:` 50px by 80px </li><li>`Hit Box` is a rectangle with the same dimensions as its size</li></ul>   |Travels accross on screen`y-vector`until it undegoes a collision      |![](https://i.imgur.com/AQx9DvE.png)
+ 
 
 
 
@@ -297,7 +298,6 @@ If any player picks a character, that character is grayed out and cannot be sele
 - better background (stack implementation to know when pixels are overlapping)
 - psuedo 3d floor
 - shaded characters
-
 
 
 
