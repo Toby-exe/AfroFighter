@@ -155,11 +155,11 @@ All player animations will have a left and right variant to account for the 2 di
 | Animation | Behaviour | Properties | Image / Sprite Sheet |
 |-----------|------------|------------|:-----:|
 | `Idle` | <li>A bobbing up and down movement</li> |<li>Size: `64 x 96 px` </li><li>Duration: 35/70th of a second per frame</li>| <img src="https://i.imgur.com/aW4mL7R.png" width="120"> <img src="https://i.imgur.com/02760L3.png" width="120" >
-| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `64 x 96 px` </li><li>Duration: 35/70th of a second per frame</li>  | <img src="https://i.imgur.com/q6j3Lmy.png" width="150" >  <img src="https://i.imgur.com/dTDTBWO.png" width="150" >|      
+| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `64 x 96 px` </li><li>Duration: 35/70th of a second per frame</li>  | <img src="https://i.imgur.com/q6j3Lmy.png" width="230" >  <img src="https://i.imgur.com/dTDTBWO.png" width="150" >|      
 | `Jump`  |  <li>An airborne rising motion </li>  |   <li>Size: `64 x 96 px` </li><li>Duration: while `airborne is set to true`</li> |   <img src="https://i.imgur.com/9AEDduO.png" width="50" > <img src="https://i.imgur.com/Yvqfnk3.png" width="50" >|       
 | `Crouch`  |  <li>Kneeling position</li>  | <li>Size: `64 x 96 px` </li><li>Duration: while `crouch-state is set to true`</li>   |<img src="https://i.imgur.com/47cTzWg.png" width="175" >    |      
 | `Slide`   |  <li>A soccer slide tackle</li> |  <li>Size: `64 x 64 px` </li><li>Duration: while `running-state & crouching-state are set to true`</li>  |  <img src="https://i.imgur.com/pQ5H6zW.png" width="100" > <img src="https://i.imgur.com/Tynq3h9.png" width="100" >|    
-| `Death`    |  <li>A defeated lying down pose</li> |  <li>Size: `64 x 32 px` </li><li>Duration: while `airborne is set to true`</li>  | <img src="https://i.imgur.com/Tac8Lls.png" width="175" >  <img src="https://i.imgur.com/MII2wAY.png" width="175" > |    
+| `Death`    |  <li>A defeated lying down pose</li> |  <li>Size: `64 x 32 px` </li><li>Duration: while `health = 0px`</li>  | <img src="https://i.imgur.com/Tac8Lls.png" width="175" >  <img src="https://i.imgur.com/MII2wAY.png" width="175" > |    
 
 ***Combat and Defense Animations***
     
@@ -297,7 +297,6 @@ If any player picks a character, that character is grayed out and cannot be sele
 - better background (stack implementation to know when pixels are overlapping)
 - psuedo 3d floor
 - shaded characters
-
 
 
 
