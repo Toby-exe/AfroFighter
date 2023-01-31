@@ -1,18 +1,18 @@
 # Afro Fighter
+
 ![image](https://user-images.githubusercontent.com/104709648/212567909-8469300f-405c-4ce1-a82c-be62412ca029.png)
 
-Atari ST game 
+Atari ST game
+
+Tobias Wondwossen & Jayden Mingle
+
 ## 1. General Game Overview
 
-Afro frighter is a 2d combat game that takes alot of insperation from the popular "Street Fighter" in the 80s. The player is placed in a flat arena with an opponent they must defeat with a combination of hand to hand combat and super powers while ensuring their own health is not depleted. 
+Afro Fighter is a 2D side-view fighting game that puts players in control of an Afro fighter who appears on the right side of the screen. A 3-second countdown starts the fight, during which players must utilize a combination of punches, kicks, and fireballs to defeat their opponent on the left. Defense is also crucial, as players can block, jump, and crouch to avoid incoming attacks. The objective is to deplete the opponent's health from 100 to zero before one's own health is reduced, thereby determining the winner of the fight.
 
 Future updates will feature a 2 - player game mode allowing players to put their skills to the test against their friends
 
 ![](https://i.imgur.com/tMmlcPl.png)
-
-
-
-
 
 ## 2. Game Play Details for 1-Player Mode
 
@@ -22,9 +22,7 @@ The game will launch into a menu screen with the Afro Fighters logo and two game
 
 ![image](https://user-images.githubusercontent.com/104709648/212567852-d2971d61-3278-4f28-ac5f-557cd35d1e47.png)
 
-#### 2.1.2 Start State Logic and Game View UI 
-
-The `1-Player` game mode beings with the players avatar and the cpu controlled opponent rendered in the arena along with their health bars and a count down starting from 3 in the center of the arena. After the count down has reached one "Fight" will be displayed in the center of the arena; player controls become active and the cpu opponent begins executing its scripted movesets.  
+The `1-Player` mode commences with the player's avatar positioned on the right side of the arena, while the opponent is situated on the left, accompanied by their respective health/information bars. A countdown, starting from three, will be displayed in the center of the screen, with each number displayed for a duration of two seconds.
 
 ![](https://i.imgur.com/Mp5RDhZ.png)
 
@@ -32,240 +30,96 @@ The `1-Player` game mode beings with the players avatar and the cpu controlled o
 
 ![](https://i.imgur.com/PGRWsFq.png)
 
-![](https://i.imgur.com/JyPtDz1.png)
-![](https://i.imgur.com/8DkxzaI.png)
-![](https://i.imgur.com/rRSmzBG.png)
-![](https://i.imgur.com/SMSt1A3.png)
-![](https://i.imgur.com/dSRuw2y.png)
-![](https://i.imgur.com/j2H7QlA.png)
+Upon completion of the countdown, the word "Fight" will be displayed in the center of the screen for a duration of two seconds. Player controls will then become active, and the opponent will begin executing its pre-programmed movements.
+
+![](https://i.imgur.com/JyPtDz1.png)![](https://i.imgur.com/8DkxzaI.png)![](https://i.imgur.com/rRSmzBG.png)![](https://i.imgur.com/SMSt1A3.png)![](https://i.imgur.com/dSRuw2y.png)![](https://i.imgur.com/j2H7QlA.png)
 
 #### 2.1.3 Game Over State and UI
 
+
 There are two possible `Game Over` states, one for a `Win` and a `Loss`
 
-***Win (WIP)***
+***Win Message and UI FINISH WITH REAL SCREEN***
 
-![](https://i.imgur.com/bOs0tIC.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/H5oTX9V.png)
-![](https://i.imgur.com/Gclwat6.png) ![](https://i.imgur.com/xFpkm7w.png) ![](https://i.imgur.com/vrtQuKT.png) ![](https://i.imgur.com/dngkfqX.png)
+If the player has beat the opponent this message will remain on screen untill a the player has chosen on of the two menu options; `Play Again` or `Back to Main Menu`
+
+![](https://i.imgur.com/bOs0tIC.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/H5oTX9V.png) ![](https://i.imgur.com/Gclwat6.png) ![](https://i.imgur.com/xFpkm7w.png) ![](https://i.imgur.com/vrtQuKT.png) ![](https://i.imgur.com/dngkfqX.png)
 
 
+***Loss Message and UI FINISH WITH REAL SCREEN***
 
-
-***Loss Message (WIP)***
+If the player has beat the opponent this message will remain on screen untill a the player has chosen on of the two menu options; `Play Again` or `Back to Main Menu`
 
 ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/hDfnbYJ.png) ![reference link](https://i.imgur.com/7XuwVZi.png) ![](https://i.imgur.com/JkajbXT.png) ![](https://i.imgur.com/gDGlXHh.png) 
 
 ![](https://i.imgur.com/fysz63A.png) ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/BVhPqyf.png) ![](https://i.imgur.com/vY0S0ju.png) ![](https://i.imgur.com/xFpkm7w.png)
 
-
 ### 2.2 Objectives and Rules
 
-#### 2.2.1 Health and Damage 
-Player and Cpu opponent will begin with 100% health depicted by the `P-Health Bar` displayed in the top right corner of the screen and `CPU-Health Bar` displayed in the top left corner. When Damage is dealt the health bar of the player who was damaged will be re-renderd with a length `Damage-Value%` shorter. 
+#### 2.2.1 Combat Mechanics 
 
-Damage is based on collision detection between the `Hit Boxes` of the player Objects. See 2.4.1 for more details on implementation. 
+***Health***
 
-Below is a table defining all the offensive moves and their damage values.
+In this game, both the player and their opponent start with a `250px` width health bar. The objective is to maintain one's own health bar, ensuring that it is not depleted before their opponent's. Each combat move has a distinct impact on the player's health, and it is crucial to execute these moves strategically to achieve victory.
 
-| Move  | Damage |
-| ------------- | ------------- |
-| `Light Attack` | 2% |
-| `Heavy Attack`  | 6% |
-| `Ranged / Super` | 16% |
+***Offense and Defense***
 
-#### 2.2.2 Combat Mechanics 
+|Offensive/Defensive Moves| Description | Damage (pixels removed from health) |Keybind|
+|---------------|-------------|-------|:-----:|
+| `Light Attack`| A straight punch |`-8px`|`W`| 
+| `Heavy Attack`| A side kick |`-16px`|`←`|
+| `Ranged / Super`| A projectile fireball |`-64px`|`F`|
+| `Block`         | A boxing highguard          |Halves incoming damage from the above attacks|`→ (press and hold)`  |
 
-***Offense***
+***Movement States***
 
- `Player` 
-- Can use a combination of light and heavy as many times as they wish to deal damage to the opponent.
-    - see 2.3.1 for implementation details  
+| State | Description | Properties |Keybind|
+|-------|-------------|------------|:-------:|
+|  `Idle` | Boxing "Orthodox Stance" |            |  `None / Default State`  |
+| `Running`|Fast shuffle of feet, allowing player <br> to move either left or right across the screen  |            |  <li>Right: `A` </li><li>Left: `D` </li> |
+| `Jump`|   Allows player to change its y position. <br> Player can still change its x position in this state|            |  `Space`  |
+| `Crouching`| Player goes down on one knee  |            |  `↓`  |
+| `Slide`| If the player is running and crouches <br> at the same time they will slide for as <br> long as they crouch |            |  `↓` if in `Running` state |
 
- `Cpu-Player`
-- This will be the players opponent. It will be "controlled" by the cpu.
-    - it is not intelligent since its offense and defense is not a reaction to is enviroment but a scripted set of moves and actions.
-    - see 2.3.2 for implementation details
+#### 2.2.2 Opponent
 
-
- ***Defense***
-
-- If any of the players is hit by an attack while they're in the blocking state, damage is reduced by 50%
-
- *Ability and Combat Balancing* 
-
-In order to discourage a playstyle that spams the `Ranged / Super` attack, this move will only be avaible if the play can block two consecutive `Heavy Attacks` from the opponent. 
-   - When this event is completed a small star will appear below the players health bar to indicate that a their `Ranged / Super` attack is avaiable
-      - Once this attack is used the star will diseappear untill the event is completed again.
-   - The event can be completed multiple times, but each play can only have at most 3 stars at once.  
-
- ***Movement***
-
-- The player has full control over which direction they're facing. This is indicated by the direction of the most recently pressed movement key (see 2.5.1).
-
-### 2.3 Scene Objects
-
-`Scene` will display all objects to a `640px x 400px` screen, below are all the current `Scene Objects`
-
-- `Afro Fighter` ``(2x)``
-- `Health bar` 
-- `Arena floor` 
-- `Count Down Numbers`
-- `Super Indicator`
-- `Fire Beam`
-- `Avatar Profile Image`
-- `Avatar Name`
-
-This means that at any given time during a fight there at least 6 scene objects being displayed on the screen.
-
-#### 2.3.1 Afro Fighter Avatar and Functional Components
-
-<p align="center">
-  <img src="https://i.imgur.com/HEpC0ON.png" width="200" > 
-</p>
-
-Every Afro Fighter is an object that encompasses various `States` and `Offensive and Defensive Animations`.
-
-#### *Movement States*
-
-`Idle State`
- - This is the default state for the `Afro Fighter`
- - This state has animations for both left and right side sprites
-
-Effect| <span style="font-weight:normal">Changes Afro Fighter position to the right</span> | <span style="font-weight:normal">Changes Afro Fighter position to the left</span> |
-|--------------------|-------------------|----------|
-|**Animation** |`RS-Idle-Animation`|`LS-Idle-Animation`| 
-**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/5agMmcv.png" width="125" >  | <img src="https://i.imgur.com/PFUl1Ct.png" width="125" >
-
-`Running State`
-- This state is triggerd by the player
-- This state has animations for both left and right side sprites
-
-Effect| <span style="font-weight:normal">Changes Afro Fighter `x-coordinate`</span> | 
-|--------------------|-------------------|
-|**Animation** |`RS-Running-Animation` and `LS-Running-Animation`| 
-**Sprite Sheet (WIP)**|  <img src="https://i.imgur.com/AUfBU45.png" width="400" >| 
-
-`Jumping State`
-
-- This state is triggerd by the player
-- `Lift Off` Animation has both left and right Variants
-
-Effect| <span style="font-weight:normal">None</span> | <span style="font-weight:normal">Changes `x-coordinate` and `y-coordinate` of Afro Fighter</span> |
-|--------------------|-------------------|----------|
-|**Animation** |`"Lift Off" Animation`|`Jump Pose`|
-|**Sprite Sheet (WIP)**|<img src="https://i.imgur.com/oA3GBhm.png" width="10000" >|<img src="https://i.imgur.com/Km4LfZc.png" width="80" >
-
- `Crouch State`
- - This State is triggerd by the player when Afro Fighter is in the `Idle State`
- 
-Effect| <span style="font-weight:normal">Decreases height on `y-axis` of `Hit-Box` </span> |
-|-------|----------|
-|**Animations** |`LS-Crouch` and `RS-Crouch`| 
-|**Sprite Sheet**| <img src="https://i.imgur.com/TYm0Utr.png" width="100" > <img src="https://i.imgur.com/VtJPOVl.png" width="100" > |
-
-  
-
-
-
-
-`Slide State`
-- The State is triggered by the player when Afro Fighter is in the`Running State`
-
-
-Effect| <span style="font-weight:normal">Changes `x-coordinate` of Afro Fighter and decreases height on `y-axis` of `Hit-Box` </span> |
-|--------------------|----------|
-|**Animations** |`LS-Slide` and `RS-Slide`|
-|**Sprite Sheet (WIP)**| ![](https://i.imgur.com/djcKX77.png)
-
-
-`Death State`
-- This State is triggerd when the Health of a Afro Fighter is depleted.
-
-Effect| <span style="font-weight:normal">Ends Game, `Scene` will switch to `Game Over State`</span> |
-|--------------------|----------|
-|**Animations** |`LS-Death` and `RS-Death`| 
-|**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/Xj7RIQ4.png" width="200" > <br> `Source` Street Fighter 2|
-
-
-#### *Offensive States*
-
-`Light Attack`
-- Consists of a alternating punches from `Left Hand` and `Right Hand` of the Afro Fighter]
-- Has Variants for both left and right orientations of the Afro Fighter
-
-Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
-|--------------------|----------|
-|**Animations** |`Left Hand Punch` and `Right Hand Punch`|
-|**Sprite Sheet**| <img src="https://i.imgur.com/xyAbEjb.png" width="125" > <img src="https://i.imgur.com/1n10Zlo.png" width="125" >
-
-
-
-
-`Heavy Attack`
-- Single kick from Right foot 
-
-Effect| <span style="font-weight:normal">Increases `Hit box` of `Afro Fighter Object`</span> |
-|--------------------|----------|
-|**Animation** | `Right Foot Kick`|
-|**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/axsQb4j.png" width="200" >
-
-
-`Super / Ranged Attack`
-- Triggerd by player when they have a star (two consecutive `Heavy Attack` blocks)
-
-Effect| <span style="font-weight:normal">Create `Fire Beam` Object, see</span> |
-|--------------------|----------|
-|**Animation** |`Fire Beam Imbue` |
-|**Sprite Sheet (WIP)**|![](https://i.imgur.com/nTVbiwi.png)<br>`Source` "Goku Kamehameha Sprite Animation" 
-
-#### *Defensive States*
-
-`Block`
-- Can be triggerd by player in any other state but `Death State`.
-
-Effect| <span style="font-weight:normal">Reduces damage inflected on `Afro Fighter` by `50%` </span> |
-|--------------------|----------|
-|**Animation** |`Ls-Block` and `Rs-Block` |
-|**Sprite Sheet (WIP)**| <img src="https://i.imgur.com/hs9Qqv3.png" width="180" > <br>`Source` "DreamsTime(dot)com"
-
-#### 2.3.2 Fire Beam Projectile
-
-- This is a beam object created after a player has been granted a `Super / Ranged` attack
-
-| Object            | Properties | Behaviour|Image|
-|-----------|----------|---------|-----|
-|`Fire-Beam`|<ul><li>Position Integers, `x` and `y` coordinate  </li></ul>   |Travels accross `y-vector` until it undegoes a collision      |![](https://i.imgur.com/xooOTP9.png) `Source` "Pixel art maker"
-
-
-
-
-#### 2.3.3 CPU-Player 
-Since the CPU player isn't controlled by a user's inputs, it operates under the following states:
+Since the Opponent isn't controlled by a user's inputs, it operates under the following states:
 
 ***Approach***
 
-The `Cpu-Player` will be facing the `Player` at all times. If the distance between the `Player` and the `Cpu-Player` is greater than 50px, the `Cpu-Player` Moves forward towards the player using the appropriate movement input.
+The `Opponent` will be facing the `Player` at all times. If the distance between the `Player` and the `Opponent` is greater than 50px, the `Opponent` Moves forward towards the player using the appropriate movement input.
 
 ***Combo***
 
-This is the default state that the`Cpu-Player` will be in. In this state, it will perform a series of moves that go as follows: punch, punch, block, kick, crouch, jump, kick, move forward, block. Each move will be performed 1 second apart.
-
-#### 2.3.4 Arena and HUD 
+This is the default state that the`Opponent` will be in. In this state, it will perform a series of moves that go as follows: 3x`Light Attack`, `Block`, `Heavy Attack`, `Crouch`, `Jump`, `Heavy Attack`, `Block`. Each move will be performed 1 second apart.
 
 
-#### *Arena* 
+### 2.3 Scene Objects
 
-![](https://i.imgur.com/h2uduBM.png)
+*Note: Coordinates given are assuming `(0,0)` is the top left corner of the screen, and that sprites are drawn from their top left corner aswell.*
 
+***Afro Fighter***
 
+| Properties | States | Combat Moves | Image |
+|------------|--------|-------|-------|
+|<li>`Size`: 98px by 64px  </li><li>`Orientaion`: Upright <br>and   facing  right if it  is a  <br>player, left if it is the opponent  </li><li>Has `Hitbox` that is <br>equal  to its `size`</li><li>`x and y coordinates` <br> Intitaly at `(446, 264)` <br> for the player, `(100,264)` <br> for the opponent </li>           | <li>Idle</li><li>Running</li><li>Jumping</li><li>Sliding</li><li>Crouching</li>|<li>Light Attack</li><li>Heavy Attack</li><li>Super / Ranged</li><li>Block</li>     |<img src="https://i.imgur.com/HEpC0ON.png" width="150" > 
 
-| Object            | Properties | Behaviour|Image|
-|-----------|----------|---------|-----|
-|`Arena-Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   | None     |![](https://i.imgur.com/iE2Cvvo.png)|
+***Afro Fighter Mechanics***
 
-<br/><br/>
+*Movement Boundaries:*
 
-#### *Health and Info bar*
+The Afro Fighter has the capability to traverse the full width of the `640 pixel` arena by using any of its `movement states` as many times as desired. Its jump state will allow it to reach a maximum height of `164 pixels` from its `initial y-coordinate`. Furthermore Afro Fighter is restricted from descending below its default `y-coordinate of 264`, which marks the starting point of the `arena floor.`
+
+The player and the opponent both have complete control over the direction the Afro Fighter faces. In the event that they come to close such that their `hit boxes collide`, they are unable to advance forward until one executes a jump over the other.
+
+*Combat Rules*
+
+All of the `Combat moves` but `Super / Ranged` can be used as many times as desired.
+
+In order for the Afro Fighter to unlock its `Super / Ranged` ability it must block to consectutive `Heavy Attacks` from its opponent.
+
+***Health and Info Bar***
+
 
 ![](https://i.imgur.com/Wx2WMlJ.png)
 
@@ -275,50 +129,58 @@ This is the default state that the`Cpu-Player` will be in. In this state, it wil
 |`Avatar-Name`|<ul><li>Size: `26 x 8 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>      | None|![](https://i.imgur.com/DO5GOhO.png)|
 |`Avatar-Profile-Img` |<ul><li>Size: `48 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>  |  None|![](https://i.imgur.com/qECScbN.png)|
 
+***Arena***
 
-### 2.4 Physics
-
-
-#### 2.4.1 Collision detection and Hitboxes
-
-`Collision detection` is used to keep the `Afro Fighter` avatar contained in the bounds of the arena and determine when an attack was succesfully laned on the oppponent.
-
-***Bounds Checking for Arena***
-
-The arena has a real width of `640px` if any portion of the `Afro Fighter` collides with either end of this boundary their will not be able to change their `x-coordinate` in the direction where the boundary is violated. The same Rules apply for the `Arena Floor`.
+| Object  | Properties     | Behaviour|Image|
+|-------------|----------|---------|-----|
+|`Arena Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   | None     |![](https://i.imgur.com/iE2Cvvo.png)|
+| `Arena`|<ul><li>Contains all other scene objects</li> | | ![](https://i.imgur.com/tMmlcPl.png)|
 
 
-***Hit Boxes***
+### 2.4 Animations
+   
+All player animations will have a left and right variant to account for the 2 directions a player can face.
+    
+***Movement Animations***
 
-`Hit-boxes` are used to determine the area of a character's sprite that will register a hit when it comes into contact with an opponent's hit box. 
 
-They will not be visible. When two hit boxes collide, the game registers a hit and applies the appropriate damage or knockback (dependant on the `Afro Fighters` current `Offensive state` and opponents `Defensive state`). The size and shape of the hit boxes can vary depending the `Afro Fighters` `State` . 
+| Animation | Behaviour | Properties | Image / Sprite Sheet |
+|-----------|------------|------------|:-----:|
+| `Idle` | <li>A bobbing up and down movement</li> |<li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>| <img src="https://i.imgur.com/aW4mL7R.png" width="160"> <img src="https://i.imgur.com/02760L3.png" width="160" >
+| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/AUfBU45.png" width="400" >    |      
+| `Jumping "Lift-Off"` |  <li>Bending knees to prepare for a jump / brace after one</li>  |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li> |<img src="https://i.imgur.com/oA3GBhm.png" width="10000" >    |  
+| `Jump`  |  <li>An airborne rising motion </li>  |   <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>`airborne boolean set true` |   <img src="https://i.imgur.com/Km4LfZc.png" width="80" > |       
+| `Crouch`  |  <li>Kneeling position</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |<img src="https://i.imgur.com/47cTzWg.png" width="175" >    |      
+| `Slide`   |  <li>A soccer slide tackle</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  |![](https://i.imgur.com/FTZTZgV.png)    |    
+| `Death`    |  <li>A defeated lying down pose</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  |![](https://i.imgur.com/kwd6p5p.png)    |    
 
-
-#### 2.4.2 Jump Mechanics
-
-The `Afro Figther` has the ability to jump at any time during the fight, every jump will reach the `Maximum Jump Height` of `250 px`, this is the displacment from the intial/ground position of the`Afro Fighters` feet.
-
-While `accending` and `decending` (change in `+/- y-coordinate of sprite` )the player is able to control the `x displacement` of the `Afro Fighter`. 
-
+***Combat and Defense Animations***
+    
+| Animation | Behaviour | Properties | Image |
+|-------------|----------|------------|:-----:|   
+| `Light Attack`    |   <li>A straight punch</li> |          |  ![](https://i.imgur.com/9N9XBRJ.png)  |    
+| `Heavy Attack`    |   <li>A side kick</li> |          | <img src="https://i.imgur.com/axsQb4j.png" width="200" >   |   
+| `Super / Ranged Attack` |  <li>A fire charge-up pose</li>  |    | ![](https://i.imgur.com/nTVbiwi.png)   |      
+| `Block`    |  <li>A boxing highguard</li>  |    |    <img src="https://i.imgur.com/hs9Qqv3.png" width="180" >|    
+    
 ### 2.5 Asynchronous Events
 
 
 
-#### 2.5.1 Movement
+#### 2.5.1 Movement Keybinds
 
 1. Move right: `A`
-   - changes players position 1 unit to the right and triggers `Rs Running Animation` 
+   - changes player's position 1 unit to the right and triggers `Rs Running Animation` 
    
 2. Move left: `D`
-   - changes players position 1 unit to the left and triggers `Ls Running Animation`
+   - changes player's position 1 unit to the left and triggers `Ls Running Animation`
    
 3. Slide: `↓`   
    - triggers `Slide pose`
    
 4. Jump: `Space`
 
-#### 2.5.2 Combat
+#### 2.5.2 Combat Keybinds
 
 5. Light attack (Alternating): `W`      
    - On 1st click 
@@ -337,50 +199,20 @@ While `accending` and `decending` (change in `+/- y-coordinate of sprite` )the p
 8. Block: `→`      
    - Triggers `Block` pose
    - Player can not take damage in this state
-
-### 2.6 Synchronous Events
-| Event Name  | Triggering Input Event | Description|
-|-------------|----------|---------|
-| Intro prompt | 1 second between each part| "3,2,1, FIGHT!"|
-
-### 2.7 Condition Based Events
-| Event Name  | Triggering Input Event | Description|
-|-------------|----------|---------|
-| `Health-Bar` Updates | A collision is detected following an attack input | The player who was hit by an attack has their healthbar decrease based on the damage values in 2.2.1 |
-| `Hit-Marker` shows | A collision is detected following an attack input | The player who was hit by an attack has their in 2.2.1 |
-
-### 2.8 Hypothetical Gaming Session
-
-The user is given the choice of a 1-player or 2-player game on the title screen when the game first launches. When a game mode is selected, the screen switches to the relevant game version (as explained in sections 2 and 3).
-
-Upon entering a game mode, the arena with the players and their respective healthbars will be displayed. A prompt reading "3, 2, 1, FIGHT!" will be appear and the player(s) will be given control of their respective characters. 
-
-As described in 2.2.1, 2.2.2, and 2.5, the players will have different moves they can make based on the set inputs. A combination of attacks can be used to damage the opposing player. The match continues until one of the player's healthbars reach 0% and that player is on the ground. The player that is still standing is the winner. This results in a prompt reading "Player 1/Player 2 Wins!" according to the appropriate player. If both players happen to take each other out at the same time the prompt will read "Draw" instead.
-
-After a winner is declared via the prompt, the user is sent back to the starting title screen.
+    
 
 ## 3. Game Play details for 2-player Mode
 
 All the gameplay elements of 1-Player Mode apply to 2-Player Mode but the CPU-Player is replaced with a second actual player. The second player will have the same moveset and controls as the first player
 
-***P1 WINS (WIP)***
+***P1 WINS***
 
-![](https://i.imgur.com/qAcI2UJ.png)
-![](https://i.imgur.com/PGRWsFq.png)
-![](https://i.imgur.com/RBf6Yg4.png)
-![](https://i.imgur.com/OExSDBs.png)
-![](https://i.imgur.com/WroOcSl.png)
-![](https://i.imgur.com/g5tGLTD.png)
+![](https://i.imgur.com/qAcI2UJ.png)![](https://i.imgur.com/PGRWsFq.png) ![](https://i.imgur.com/RBf6Yg4.png)![](https://i.imgur.com/OExSDBs.png)![](https://i.imgur.com/WroOcSl.png)![](https://i.imgur.com/g5tGLTD.png)![](https://i.imgur.com/j2H7QlA.png)
 
 
-***P2 WINS (WIP)***
+***P2 WINS***
 
-![](https://i.imgur.com/0hyXnLx.png)
-![](https://i.imgur.com/5bb38LU.png)
-![](https://i.imgur.com/RBf6Yg4.png)
-![](https://i.imgur.com/OExSDBs.png)
-![](https://i.imgur.com/WroOcSl.png)
-![](https://i.imgur.com/g5tGLTD.png)
+![](https://i.imgur.com/0hyXnLx.png)![](https://i.imgur.com/5bb38LU.png) ![](https://i.imgur.com/RBf6Yg4.png)![](https://i.imgur.com/OExSDBs.png)![](https://i.imgur.com/WroOcSl.png)![](https://i.imgur.com/g5tGLTD.png)![](https://i.imgur.com/j2H7QlA.png)
 
 ## 4. Sound Effects
 
@@ -400,25 +232,25 @@ All the gameplay elements of 1-Player Mode apply to 2-Player Mode but the CPU-Pl
 - energy blast (smaller than ultimate move)
 
 #### 5.1.2 Multiple rounds: 
-A round is over when 1 player's health reaches 0%. The first player with 2 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar. If both players are tied in ko's entering the 3rd round and the 3rd round ends in a draw, a sudden death round will occur with both players having decreased health.
+A round is over when one of the players' healthbar reaches 0px. The first player with 2 ko's wins the match. The Number of player ko's is displayed next to their name and healthbar. If both players are tied in ko's entering the 3rd round and the 3rd round ends in a draw, a sudden death round will occur with both players having decreased health.
 
 #### 5.1.3 Stun meter: 
 As a player takes hits that aren't blocked, a meter next to the healthbar fills up. When this meter fills up, the next hit a player takes will knock them to the ground and put them in a state where they can't do anything for 2 seconds.
 
-The meter will fill up at the following rates:
+The meter will be 96px x 16px and will fill up at the following rates:
 
 | Move  | Stun |
 | ------------- | ------------- |
-| `Light Attack` | 10% |
-| `Heavy Attack`  | 30% |
-| `Ranged / Super` | 60% |
+| `Light Attack` | +16px |
+| `Heavy Attack`  | +24px |
+| `Ranged / Super` | +48px |
  
 #### 5.1.4 Finishing move:
 When a player is knocked out at match point, the player that's still standing will have the option to perform a mortal kombat style finishing move.
 
  
 #### 5.1.5 "Smarter" CPU:
-The `CPU-Player` has a chance to perfectly counter the player by reading input. For example the real player could enter the input to punch and the cpu would block. Outside of this phase the CPU will perform actions based on distance to the player and a predetermined sequence of moves.
+The `Opponent` has a chance to perfectly counter the player by reading input. For example the real player could enter the input to punch and the cpu would block. Outside of this phase the CPU will perform actions based on distance to the player and a predetermined sequence of moves.
 
 #### 5.1.6 Difficulty levels
 As difficulty increases, the probablitiy of a perfect counter also increases (should never be 100% or the CPU will be unbeatable)
@@ -438,6 +270,11 @@ If any player picks a character, that character is grayed out and cannot be sele
 - better background (stack implementation to know when pixels are overlapping)
 - psuedo 3d floor
 - shaded characters
+
+#### 5.1.10 More Accurate Hitboxes:
+
+
+---
 
 
 
