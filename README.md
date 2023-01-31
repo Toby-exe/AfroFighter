@@ -132,7 +132,7 @@ In order for the Afro Fighter to unlock its `Super / Ranged` ability it must blo
 ![](https://i.imgur.com/Wx2WMlJ.png)
 
 | Object  | Properties     | Behaviour|Image|
-|-------------|----------|---------|-----|
+|-------------|----------|---------|:-----:|
 |`Health-bar` |<ul><li>`Size:` 250 x 36 px </li><li>`Position` integers, x and y coordinate</li></li></ul>   |Displays player health|![](https://i.imgur.com/5ha6Tac.png)
 |`Avatar-Name`|<ul><li>`Size:` 26 x 8 px </li><li>`Position` integers, x and y coordinate</li></li></ul>      | Displays avatar name|![](https://i.imgur.com/DO5GOhO.png)|
 |`Avatar-Profile-Img` |<ul><li>`Size:` 48 x 48 px </li><li>`Position` integers, x and y coordinate</li></li></ul>  |  Displays profile picture of avatar|![](https://i.imgur.com/qECScbN.png)|
@@ -141,8 +141,8 @@ In order for the Afro Fighter to unlock its `Super / Ranged` ability it must blo
 
 | Object  | Properties     | Behaviour|Image|
 |-------------|----------|---------|-----|
-|`Arena Floor` |<ul><li>Size: `640 x 48 px` </li><li>Position Integers, `x` and `y` coordinate</li></li></ul>   | None     |![](https://i.imgur.com/iE2Cvvo.png)|
-| `Arena`|<ul><li>Contains all other scene objects</li> | | ![](https://i.imgur.com/tMmlcPl.png)|
+|`Arena Floor` |<ul><li>Size: `640 x 48 px` </li><li>`Position` Integers, x and y coordinate</li></li></ul>   | None     |![](https://i.imgur.com/iE2Cvvo.png)|
+| `Arena`|<ul><li></li> | Displays `Health and info bar`,`Arena Floor` and `Background`| ![](https://i.imgur.com/uEZrZb2.png)
 
 
 ### 2.4 Animations
@@ -305,6 +305,9 @@ If any player picks a character, that character is grayed out and cannot be sele
 
 
 ---
+
+
+
 
 
 
