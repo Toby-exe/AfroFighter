@@ -76,7 +76,7 @@ In this game, both the player and their opponent start with a `250px` width heal
 | State | Description |Keybind|
 |-------|-------------|:-------:|
 |  `Idle` | Boxing "Orthodox Stance" |             `None / Default State`  |
-| `Running`|Fast shuffle of feet, allowing player <br> to move either left or right across the screen  |              <li>Right: `A` </li><li>Left: `D` </li> |
+| `Running`|Fast shuffle of feet, allowing player <br> to move either left or right across the screen by increments of `4 pixels`  |              <li>Right: `A` </li><li>Left: `D` </li> |
 | `Jump`|   Allows player to change its y position. <br> Player can still change its x position in this state|              `Space`  |
 | `Crouching`| Player goes down on one knee  |              `↓`  |
 | `Slide`| If the player is `Running` and `Crouches` <br> at the same time they will `Slide` for as <br> long as they crouch |              `↓` if in `Running` state |
@@ -141,8 +141,8 @@ In order for the Afro Fighter to unlock its `Super / Ranged` ability it must blo
 
 | Object  | Properties     | Behaviour|Image|
 |-------------|----------|---------|-----|
-|`Arena Floor` |<ul><li>Size: `640 x 48 px` </li><li>`Position` Integers, x and y coordinate</li></li></ul>   | None     |![](https://i.imgur.com/iE2Cvvo.png)|
-| `Arena`|<ul><li></li> | Displays `Health and info bar`,`Arena Floor` and `Background`| ![](https://i.imgur.com/uEZrZb2.png)
+|`Arena-Floor` |<ul><li>`Size:` 640 x 48 px </li><li>`Position` Integers, x and y coordinate</li></li></ul>   | Displays arena floor  |![](https://i.imgur.com/iE2Cvvo.png)|
+| `Arena`|<ul><li>`Size:` 640 x 400 px</li> | Displays `Health and info bar`,`Arena Floor` and `Background`| ![](https://i.imgur.com/uEZrZb2.png)
 
 
 ### 2.4 Animations
@@ -155,7 +155,7 @@ All player animations will have a left and right variant to account for the 2 di
 | Animation | Behaviour | Properties | Image / Sprite Sheet |
 |-----------|------------|------------|:-----:|
 | `Idle` | <li>A bobbing up and down movement</li> |<li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>| <img src="https://i.imgur.com/aW4mL7R.png" width="120"> <img src="https://i.imgur.com/02760L3.png" width="120" >
-| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/AUfBU45.png" width="150" >    |      
+| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/q6j3Lmy.png" width="150" >    |      
 | `Jumping "Lift-Off"` |  <li>Bending knees to prepare for a jump / brace after one</li>  |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li> |<img src="https://i.imgur.com/oA3GBhm.png" width="250" >    |  
 | `Jump`  |  <li>An airborne rising motion </li>  |   <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>`airborne boolean set true` |   <img src="https://i.imgur.com/Km4LfZc.png" width="80" > |       
 | `Crouch`  |  <li>Kneeling position</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |<img src="https://i.imgur.com/47cTzWg.png" width="175" >    |      
@@ -177,18 +177,23 @@ All player animations will have a left and right variant to account for the 2 di
 
 #### 2.5.1 Movement Keybinds
 
-1. Move right: `A`
-   - changes player's position 1 unit to the right and triggers `Rs Running Animation` 
-   
-2. Move left: `D`
-   - changes player's position 1 unit to the left and triggers `Ls Running Animation`
-   
-3. Slide: `↓`   
-   - triggers `Slide pose`
-   
-4. Jump: `Space`
+    
+|Movement    | Key Bind | Request|
+|------------|----------|--------|
+| Move right |  `A`     |  Changes `Running State` for player to `True`, sets `Rs Running Animation` to `True` |   
+| Move left  |   `D`    |  Changes `Running State` for player to `True`, sets `Ls Running Animation` to `True` |    
+| Slide      |   `↓`    |  Changes `Slide State` for player to `True`, sets `Ls or Rs slide animation` to `True` (base on orientation) |    
+| Jump       |    `Space`| Changes `Jump State`  for player to `True`, sets `Ls or Rs jump animation`  to `True` (base on orientation) |    
 
 #### 2.5.2 Combat Keybinds
+
+|Combat Move    | Key Bind | Request|
+|------------|----------|--------|
+| Light attack (Alternating) |  `W`    |  Changes `Running State` for player to `True`, sets `Rs Running Animation` to `True` |   
+| Heavy attack  |   `←`     |  Changes `Running State` for player to `True`, sets `Ls Running Animation` to `True` |    
+| Super / Ranged attack     |   `F`     |  Changes `Slide State` for player to `True`, sets `Ls or Rs slide animation` to `True` (base on orientation) |    
+| Block       |    `Space`| Changes `Jump State`  for player to `True`, sets `Ls or Rs jump animation`  to `True` (base on orientation) |    
+
 
 5. Light attack (Alternating): `W`      
    - On 1st click 
