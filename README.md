@@ -78,8 +78,9 @@ In this game, both the player and their opponent start with a `250px` width heal
 |  `Idle` | Boxing "Orthodox Stance" |            |  `None / Default State`  |
 | `Running`|Fast shuffle of feet, allowing player <br> to move either left or right across the screen  |            |  <li>Right: `A` </li><li>Left: `D` </li> |
 | `Jump`|   Allows player to change its y position. <br> Player can still change its x position in this state|            |  `Space`  |
-| `Crouching`| Player goes down on one knee  |            |  `↓`  |
-| `Slide`| If the player is running and crouches <br> at the same time they will slide for as <br> long as they crouch |            |  `↓` if in `Running` state |
+| `Crouching`| Player goes down on one knee  | <li>Animation</li>            |  `↓`  |
+| `Slide`| If the player is `Running` and `Crouches` <br> at the same time they will `Slide` for as <br> long as they crouch |            |  `↓` if in `Running` state |
+
 
 #### 2.2.2 Opponent
 
