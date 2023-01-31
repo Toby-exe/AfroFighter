@@ -81,7 +81,6 @@ In this game, both the player and their opponent start with a `250px` width heal
 | `Crouching`| Player goes down on one knee  | <li>Animation</li>            |  `↓`  |
 | `Slide`| If the player is `Running` and `Crouches` <br> at the same time they will `Slide` for as <br> long as they crouch |            |  `↓` if in `Running` state |
 
-
 #### 2.2.2 Opponent
 
 Since the Opponent isn't controlled by a user's inputs, it operates under the following states:
@@ -147,13 +146,13 @@ All player animations will have a left and right variant to account for the 2 di
 
 | Animation | Behaviour | Properties | Image / Sprite Sheet |
 |-----------|------------|------------|:-----:|
-| `Idle` | <li>A bobbing up and down movement</li> |<li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>| <img src="https://i.imgur.com/aW4mL7R.png" width="160"> <img src="https://i.imgur.com/02760L3.png" width="160" >
-| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/AUfBU45.png" width="400" >    |      
-| `Jumping "Lift-Off"` |  <li>Bending knees to prepare for a jump / brace after one</li>  |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li> |<img src="https://i.imgur.com/oA3GBhm.png" width="10000" >    |  
+| `Idle` | <li>A bobbing up and down movement</li> |<li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>| <img src="https://i.imgur.com/aW4mL7R.png" width="120"> <img src="https://i.imgur.com/02760L3.png" width="120" >
+| `Running` | <li>A fast shuffle walk</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/AUfBU45.png" width="150" >    |      
+| `Jumping "Lift-Off"` |  <li>Bending knees to prepare for a jump / brace after one</li>  |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li> |<img src="https://i.imgur.com/oA3GBhm.png" width="250" >    |  
 | `Jump`  |  <li>An airborne rising motion </li>  |   <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>`airborne boolean set true` |   <img src="https://i.imgur.com/Km4LfZc.png" width="80" > |       
 | `Crouch`  |  <li>Kneeling position</li>  | <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>   |<img src="https://i.imgur.com/47cTzWg.png" width="175" >    |      
-| `Slide`   |  <li>A soccer slide tackle</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  |![](https://i.imgur.com/FTZTZgV.png)    |    
-| `Death`    |  <li>A defeated lying down pose</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  |![](https://i.imgur.com/kwd6p5p.png)    |    
+| `Slide`   |  <li>A soccer slide tackle</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  |  <img src="https://i.imgur.com/FTZTZgV.png" width="175" > |    
+| `Death`    |  <li>A defeated lying down pose</li> |  <li>Size: `96 x 64 px` </li><li>Duration: 35/70th seconds per frame</li>  | <img src="https://i.imgur.com/kwd6p5p.png" width="175" >   |    
 
 ***Combat and Defense Animations***
     
@@ -276,7 +275,6 @@ If any player picks a character, that character is grayed out and cannot be sele
 
 
 ---
-
 
 
 
