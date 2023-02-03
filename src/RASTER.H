@@ -2,10 +2,14 @@
 #define RASTER_H
 
 #include "types.h"
+<<<<<<< HEAD
+my balls
+=======
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 400
 
+>>>>>>> 4f1ef6b429a48bb1c3d38a15711f1fee2a5407fd
 /* [TO DO] the functions below are examples. Replace them! */
 void clear_screen();
 void plot_pixel(UINT8 *, int, int);
