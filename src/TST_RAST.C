@@ -2,7 +2,6 @@
 #include "raster.h"
 
 
-
 int main()
 {
     UINT8 *base = (UINT8 *)Physbase();
@@ -12,19 +11,27 @@ int main()
 
 	Cconin();
 
-	greyOut_1(base_32);
+	greyOutL1(base_32);
 
 	Cconin();
 
-	greyOut_2(base_32);
+	greyOutL2(base_32);
 
 	Cconin();
 
-	greyOut_3(base_32);
+	greyOutL3(base_32);
 	
 	Cconin();
 
-	greyOut_4(base_32);
+	greyOutL4(base_32);
+
+	Cconin();
+
+	blackOut(base_32);
+
+	Cconin();
+
+	plotRect(base, 80, 50, 320, 200);
 	
 
     return 0;
