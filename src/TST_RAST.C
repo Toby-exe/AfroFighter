@@ -31,7 +31,7 @@ int main()
 
 	Cconin();
 
-	plotRect(base, 80, 50, 320, 200);
+	plotHorizontal(base, 100, 300, 200);
 	
 
     return 0;

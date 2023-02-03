@@ -4,13 +4,19 @@ void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 
 	int x, y;
 
-	*base = *(base + yPos * 20 + xPos); 
+	/*point base to correct starting position*/
+	*base = *(base + yPos * 80 + xPos); 
 
-	for (y = 0; y < height; y++) {
-		for (x = 0; x < width; x++) {
-			plot_pixel(base, x, y);
-		}
-	}
+}
+
+void plotHorizontal (UINT8 *base, int length, int xPos, int yPos) {
+	int x, y;
+
+	*base = *(base + yPos * 80 + xPos); 
+
+
+	*base = 0xFF;
+
 }
 
 
