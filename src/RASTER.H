@@ -17,18 +17,19 @@ void plot_byte(UINT8 *, int, int);
 void plot_line();
 
 /*Shapes*/
-void plot_rect();
-void plot_rectFill();
+void plotRect(UINT8 *, int, int, int, int);
+void plotRectFill();
 
 /*Bitmaps*/
-void plot_bitmap_8(UINT8 *, int, int, const UINT8 *, unsigned int);
-void plot_bitmap_16(UINT16 *, int, int, const UINT16 *, unsigned int);
-void plot_bitmap_32(UINT32 *, int, int, const UINT32 *, unsigned int);
+void plotBitmap8(UINT8 *, int, int, const UINT8 *, unsigned int);
+void plotBitmap16(UINT16 *, int, int, const UINT16 *, unsigned int);
+void plotBitmap32(UINT32 *, int, int, const UINT32 *, unsigned int);
 
+/*scales of threshold black*/
 void blackOut (UINT32 *);
-void greyOut_1(UINT32 *);
-void greyOut_2(UINT32 *);
-void greyOut_3(UINT32 *);
-void greyOut_4(UINT32 *);
+void greyOutL4(UINT32 *);
+void greyOutL3(UINT32 *);
+void greyOutL2(UINT32 *);
+void greyOutL1(UINT32 *);
 
 #endif
