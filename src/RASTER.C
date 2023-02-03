@@ -1,22 +1,19 @@
 #include "raster.h"
 
+
 void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 
 	int x, y;
-
 	/*point base to correct starting position*/
 	*base = *(base + yPos * 80 + xPos); 
 
+	*base = 1;
 }
 
 void plotHorizontal (UINT8 *base, int length, int xPos, int yPos) {
 	int x, y;
 
-	*base = *(base + yPos * 80 + xPos); 
-
-
 	*base = 0xFF;
-
 }
 
 
