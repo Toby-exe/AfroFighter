@@ -2,7 +2,7 @@
 #define RASTER_H
 
 #include "types.h"
-
+my balls
 /* [TO DO] the functions below are examples. Replace them! */
 void clear_screen();
 void plot_pixel(UINT8 *, int, int);
