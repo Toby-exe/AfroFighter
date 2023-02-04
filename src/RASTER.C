@@ -9,17 +9,29 @@ void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 }
 
 void plotHorizontal (UINT8 *base, int length, int xPos, int yPos) {
-	int x, y;
+	int x;
+	int xCoordinate = (xPos / 8);
+	int xRemainder =  (xPos % 8);
 
-	*(base + yPos * 80 + (xPos >> 3)) |= 0xFF << (7 - ((xPos >> 3) & 7));
-	/*					  xPos / 8			*/
+	for (x = xRemainder; x > xRemainder; x--) {
+		plot_pixel(base, yPos, xCoordinate + x);
+	}
+
+	base = base + (yPos * 80) + xCoordinate;
+	length = length >> 3;
+
+	/*
+	for (x = 0; x < length; x++) {
+		*(base + x) |= 0xFF;
+	}
+	*/
 }
 
 void plot_pixel(UINT8 *base, int x, int y)
 {
     if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
         *(base + y * 80 + (x >> 3)) |= 1 << (7 - (x & 7));
-    /* ------ -----            ^                    ^
+    /* -----------            ^                    ^
                            (x / 8)               (x % 8)
 
         this is the original code in the parentheses but lsl and AND

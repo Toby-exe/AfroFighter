@@ -33,7 +33,7 @@ int main()
 
 	Cconin();
 
-	plotHorizontal(base, 100, 631, 5);
+	plotHorizontal(base, 8, 2, 5);
 	
 
     return 0;
