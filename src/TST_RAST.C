@@ -1,4 +1,6 @@
 #include <osbind.h>
+#include <stdio.h>
+
 #include "raster.h"
 
 
@@ -31,7 +33,7 @@ int main()
 
 	Cconin();
 
-	plotHorizontal(base, 100, 300, 200);
+	plotHorizontal(base, 100, 631, 5);
 	
 
     return 0;

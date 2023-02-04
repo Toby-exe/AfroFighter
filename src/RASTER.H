@@ -1,6 +1,7 @@
 #ifndef RASTER_H
 #define RASTER_H
 
+#include <stdio.h>
 #include "types.h"
 
 #define SCREEN_WIDTH 640
