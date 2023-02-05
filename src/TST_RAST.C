@@ -9,6 +9,8 @@ int main()
     UINT8 *base = (UINT8 *)Physbase();
 	UINT32 *base_32 = (UINT32 *) Physbase();
 
+	Cconin();
+
 	_fill_screen(); /*asm fill screen method*/
 
 	Cconin();
