@@ -9,13 +9,7 @@ void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 }
 
 void plotHorizontal (UINT8 *base, int length, int xPos, int yPos) {
-
-	int x, y;
-	/*point base to correct starting position*/
-	*base = *(base + yPos * 80 + xPos); 
-	for (x = 0; x < length; x++) {
-		*base |= 1 << (7 - (x & 7));
-	}
+	*base = 0xFF;
 }
 
 void plot_pixel(UINT8 *base, int x, int y)
@@ -36,7 +30,7 @@ void blackOut (UINT32 *base_32) {
 
 	for (y = 0; y < 400; y++) {
 		for (x = 0; x < 20; x++) {
-			*(base_32 + y * 20 + x) = 0xFFFFFFFF;
+			*(base_32 + y * 20 + x) = 0x00000000;
 		}
 	}
 }
