@@ -8,9 +8,40 @@ void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 	*base = *(base + yPos * 80 + xPos); 
 }
 
-void plotHorizontal (UINT8 *base, int length, int xPos, int yPos) {
-	*base = 0xFF;
+void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
+    /*assume x2 > x1*/
+    int i, x, remainder;
+    x = x1;
+    remainder = (x2 - x1) % 8;
+    
+    while(x <= (x1 + remainder) || x % 8 != 0)
+    {
+		plot_pixel(base, x, y);
+        x++;
+    }
+
+	remainder = (x2 - x) / 8;
+
+    for(i = 0; i < remainder; i++)
+    {
+       plotByte(base, x, y);
+        x += 8; 
+    }
+
+    while(x <= x2)
+    {
+        /**(base + y * 80 + (x >> 3)) = 0xFF;*/  /*plot_byte*/
+      	plot_pixel(base, x, y);
+        x++;
+    }	
 }
+
+void plotByte(UINT8 *base, int x, int y)
+{
+    if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
+        *(base + y * 80 + (x >> 3)) = 0xFF;
+} 
+
 
 void plot_pixel(UINT8 *base, int x, int y)
 {

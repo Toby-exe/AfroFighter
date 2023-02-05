@@ -9,14 +9,8 @@ int main()
     UINT8 *base = (UINT8 *)Physbase();
 	UINT32 *base_32 = (UINT32 *) Physbase();
 
-	Cconin();
-
-	_fill_screen(); /*asm fill screen method*/
-
-	Cconin();
-
-	_clear_screen(); /*asm clear screen method*/
-
+	printf("%x", *base);
+	
 	Cconin();
 
 	blackOut(base_32);
@@ -43,8 +37,14 @@ int main()
 
 	Cconin();
 
-	plotHorizontal(base, 8, 2, 5);
+	plotHorizontal(base, 2, 24, 5);
+	plotHorizontal(base, 3, 108, 8);
+
+	plot_pixel(base, 24, 4);	
+	plot_pixel(base, 108, 7);	
 	
+	plot_pixel(base, 2, 4);	
+	plot_pixel(base, 3, 7);	
 
     return 0;
 }

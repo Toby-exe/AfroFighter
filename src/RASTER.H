@@ -13,8 +13,8 @@ void plot_pixel(UINT8 *, int, int);
 
 /*Lines*/
 void plotHorizontal(UINT8 *, int, int, int);
-void plot_vertical(UINT8 *, int, int, int);
-void plot_byte(UINT8 *, int, int);
+void plotVertical(UINT8 *, int, int, int);
+void plotByte(UINT8 *, int, int);
 void plot_line();
 
 /*Shapes*/
