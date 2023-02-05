@@ -61,7 +61,7 @@ void blackOut (UINT32 *base_32) {
 
 	for (y = 0; y < 400; y++) {
 		for (x = 0; x < 20; x++) {
-			*(base_32 + y * 20 + x) = 0x00000000;
+			*(base_32 + y * 20 + x) = 0xFFFFFFFF;
 		}
 	}
 }
