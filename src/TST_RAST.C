@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 #include "raster.h"
-
+xref	_fill_screen
+xref	_clear_screen
 
 int main()
 {
