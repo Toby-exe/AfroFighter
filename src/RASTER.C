@@ -9,22 +9,13 @@ void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 }
 
 void plotHorizontal (UINT8 *base, int length, int xPos, int yPos) {
-	int x;
-	int xCoordinate = (xPos / 8);
-	int xRemainder =  (xPos % 8);
 
-	for (x = xRemainder; x > xRemainder; x--) {
-		plot_pixel(base, yPos, xCoordinate + x);
-	}
-
-	base = base + (yPos * 80) + xCoordinate;
-	length = length >> 3;
-
-	/*
+	int x, y;
+	/*point base to correct starting position*/
+	*base = *(base + yPos * 80 + xPos); 
 	for (x = 0; x < length; x++) {
-		*(base + x) |= 0xFF;
+		*base |= 1 << (7 - (x & 7));
 	}
-	*/
 }
 
 void plot_pixel(UINT8 *base, int x, int y)

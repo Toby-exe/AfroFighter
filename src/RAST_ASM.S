@@ -1,18 +1,50 @@
-			xdef		_plot_something_2
+; ------------------ {SUBROUTINE: _clear_screen } ------------------
+; quick clear that uses movem to reduce fetch-execute cycle overhead
+; 
+; takes about half the number of clock cycles as the code in clear.s, 
+; and so runs in about 1/100th of a second (at 8MHz) instead of 1/50th
+;
+				
+				xdef		_clear_screen
 
-; [TO DO] delete this example function
+base			equ			64					; offset from SP (not a6)
 
-y				equ		14
-x				equ		12
-base			equ		8
+_clear_screen:	movem.l		d0-7/a0-6,-(sp)
+				lea			zeroes,a0	
+				movem.l		(a0)+,d1-7/a1-6
+				movea.l		base(sp),a0
+				adda.l 		#32000,a0
+				move.w		#614,d0
 
-_plot_something_2:	
-			link		a6,#0
-			movea.l		base(a6),a0
-			move.w		x(a6),d0
-			move.w		y(a6),d1
-		;	...		...
-			unlk		a6
-			rts
+fill_loop:		movem.l		d1-7/a1-6,-(a0)
+				dbra		d0,fill_loop
+				movem.l 	d1-5,-(a0)
+				movem.l		(sp)+,d0-7/a0-6
+				rts
 
-;recall: cc68x assumes d0-2/a0-2 are *not* preserved across subroutine calls!
+; ------------------ {SUBROUTINE: _fill_screen } ------------------
+; using the same method as _clear_screen, 
+; entirely fills the screen with pixels
+;
+
+				xdef		_fill_screen
+
+; uses same base offset as _clear_screen
+
+_fill_screen:	movem.l		d0-7/a0-6,-(sp)
+				lea			ones,a0	
+				movem.l		(a0)+,d1-7/a1-6
+				movea.l		base(sp),a0
+				adda.l 		#32000,a0
+				move.w		#614,d0
+
+px_loop:		movem.l		d1-7/a1-6,-(a0)
+				dbra		d0,px_loop
+				movem.l 	d1-5,-(a0)
+				movem.l		(sp)+,d0-7/a0-6
+				rts
+
+zeroes:			ds.l		13
+ones:			dcb.l		13,1
+
+
