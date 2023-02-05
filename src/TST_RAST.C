@@ -2,8 +2,7 @@
 #include <stdio.h>
 
 #include "raster.h"
-xref	_fill_screen
-xref	_clear_screen
+
 
 int main()
 {
@@ -38,6 +37,7 @@ int main()
 
 	Cconin();
 
+	/*
 	plotHorizontal(base, 2, 24, 5);
 	plotHorizontal(base, 3, 108, 8);
 
@@ -47,5 +47,25 @@ int main()
 	plot_pixel(base, 2, 4);	
 	plot_pixel(base, 3, 7);	
 
+	plotVertical(base, 10, 24, 108);
+	*/
+
+	/*plot a 5 different rectangele that do not touch each other*/
+
+	plotRect(base, 10, 10, 20, 20);
+
+	plotRect(base, 10, 30, 30, 40);
+
+	plotRect(base, 20, 20, 80, 30);
+
+	plotRectFill(base, 50, 50, 60, 60);
+
+	
+
+
+	
+
+
+	
     return 0;
 }

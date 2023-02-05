@@ -4,8 +4,35 @@
 void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 
 	int x, y;
-	/*point base to correct starting position*/
-	*base = *(base + yPos * 80 + xPos); 
+
+	plotHorizontal(base, xPos, xPos + width, yPos);
+	plotHorizontal(base, xPos, xPos + width, yPos + height);
+	plotVertical(base, yPos, yPos + height, xPos);
+	plotVertical(base, yPos, yPos + height, xPos + width);
+	
+}
+
+void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos) {
+
+	int x, y;
+
+	for(y = yPos; y < yPos + height; y++)
+	{
+		plotHorizontal(base, xPos, xPos + width, y);
+	}
+}
+
+void plotVertical (UINT8 *base, int y1, int y2, int x) {
+	/*assume y2 > y1*/
+	int i, y, length;
+	y = y1;
+	length = y2 - y1;
+	
+	for(i = 0; i < length; i++)
+	{
+		plot_pixel(base, x, y);
+		y++;
+	}
 }
 
 void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
@@ -36,6 +63,7 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
     }	
 }
 
+
 void plotByte(UINT8 *base, int x, int y)
 {
     if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
@@ -55,13 +83,15 @@ void plot_pixel(UINT8 *base, int x, int y)
     */
 } 
 
+
+
 void blackOut (UINT32 *base_32) {
 
 	int x, y;
 
 	for (y = 0; y < 400; y++) {
 		for (x = 0; x < 20; x++) {
-			*(base_32 + y * 20 + x) = 0xFFFFFFFF;
+			*(base_32 + y * 20 + x) = 0x00000000;
 		}
 	}
 }

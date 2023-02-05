@@ -19,7 +19,7 @@ void plot_line();
 
 /*Shapes*/
 void plotRect(UINT8 *, int, int, int, int);
-void plotRectFill();
+void plotRectFill(UINT8 *, int, int, int, int);
 
 /*Bitmaps*/
 void plotBitmap8(UINT8 *, int, int, const UINT8 *, unsigned int);
