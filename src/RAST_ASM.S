@@ -20,6 +20,7 @@ fill_loop:		movem.l		d1-7/a1-6,-(a0)
 				dbra		d0,fill_loop
 				movem.l 	d1-5,-(a0)
 				movem.l		(sp)+,d0-7/a0-6
+				rts
 
 ; ------------------ {SUBROUTINE: _fill_screen } ------------------
 ; using the same method as _clear_screen, 
@@ -41,7 +42,7 @@ px_loop:		movem.l		d1-7/a1-6,-(a0)
 				dbra		d0,px_loop
 				movem.l 	d1-5,-(a0)
 				movem.l		(sp)+,d0-7/a0-6
-
+				rts
 
 zeroes:			ds.l		13
 ones:			dcb.l		13,1
