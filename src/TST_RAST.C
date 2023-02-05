@@ -9,6 +9,10 @@ int main()
     UINT8 *base = (UINT8 *)Physbase();
 	UINT32 *base_32 = (UINT32 *) Physbase();
 
+	_clear_screen(); /*asm clear screen method*/
+
+	Cconin();
+
 	blackOut(base_32);
 
 	Cconin();
