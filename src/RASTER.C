@@ -1,27 +1,27 @@
 #include "raster.h"
 
 
-void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
+void plotRect(UINT8 *base, int width, int height, int xPos, int yPos, enum shades_8bit shade) {
 
 	int x, y;
 
-	plotHorizontal(base, xPos, xPos + width, yPos);
-	plotHorizontal(base, xPos, xPos + width, yPos + height);
-	plotVertical(base, yPos, yPos + height, xPos);
-	plotVertical(base, yPos, yPos + height, xPos + width);
+	plotHorizontal(base, xPos, xPos + width, yPos, shade);
+	plotHorizontal(base, xPos, xPos + width, yPos + height, shade);
+	plotVertical(base, yPos, yPos + height, xPos, shade);
+	plotVertical(base, yPos, yPos + height, xPos + width, shade);
 }
 
-void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos) {
+void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos, enum shades_8bit shade) {
 
 	int x, y;
 
 	for(y = yPos; y < yPos + height; y++)
 	{
-		plotHorizontal(base, xPos, xPos + width, y);
+		plotHorizontal(base, xPos, xPos + width, y, shade);
 	}
 }
 
-void plotVertical (UINT8 *base, int y1, int y2, int x) {
+void plotVertical (UINT8 *base, int y1, int y2, int x, enum shades_8bit shade) {
 	/*assume y2 > y1*/
 	int i, y, length;
 	y = y1;
@@ -34,7 +34,9 @@ void plotVertical (UINT8 *base, int y1, int y2, int x) {
 	}
 }
 
-void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
+
+
+void plotHorizontal (UINT8 *base, int x1, int x2, int y, enum shades_8bit shade) {
     /*assume x2 > x1*/
     int i, x, remainder;
     x = x1;
@@ -43,14 +45,14 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
     while(x <= (x1 + remainder) || x % 8 != 0)
     {
 		plot_pixel(base, x, y);
-        x++;
+		shade == lightGray ? x+=2 : x++;
     }
 
 	remainder = (x2 - x) / 8;
 
     for(i = 0; i < remainder; i++)
     {
-       plotByte(base, x, y);
+       plotByte(base, x, y, shade);
         x += 8; 
     }
 
@@ -58,15 +60,16 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
     {
         /**(base + y * 80 + (x >> 3)) = 0xFF;*/  /*plot_byte*/
       	plot_pixel(base, x, y);
-        x++;
+        shade == lightGray ? x+=2 : x++;
+
     }	
 }
 
 
-void plotByte(UINT8 *base, int x, int y)
+void plotByte(UINT8 *base, int x, int y, enum shades_8bit shade)
 {
     if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
-        *(base + y * 80 + (x >> 3)) = 0xFF;
+        *(base + y * 80 + (x >> 3)) = shade == lightGray ? 0x55 : 0xFF;
 } 
 
 
