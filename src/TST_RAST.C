@@ -15,9 +15,20 @@ int main()
 	/*plot a rect at 416 x and 0 y that goes to 640 x and 400 y */
 	clearScreen(base_32);
 
-	plotHorizontal(base, 10, 200, 200, lightGray);
-	plotRectFill(base, 100, 100, 10, 10, lightGray);
-	
+	/*profile pic box*/
+	plotRect(base, 48, 48, 5, 5);
+	plotRect(base, 48, 48, 587, 5);
+
+	/*health bar*/
+	plotRectFill(base, 250, 24, 54, 8);
+	plotRectFill(base, 250, 24, 336, 8);
+
+	/*player name box*/
+	plotRect(base, 96, 16, 53, 31);
+	plotRect(base, 96, 16, 491, 31);
+
+	/*arena base/floor*/
+	plotRectFill(base, 640, 48, 0, 354);
 	Cconin();
 	
     return 0;

@@ -1,27 +1,27 @@
 #include "raster.h"
 
 
-void plotRect(UINT8 *base, int width, int height, int xPos, int yPos, enum shades_8bit shade) {
+void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 
 	int x, y;
 
-	plotHorizontal(base, xPos, xPos + width, yPos, shade);
-	plotHorizontal(base, xPos, xPos + width, yPos + height, shade);
-	plotVertical(base, yPos, yPos + height, xPos, shade);
-	plotVertical(base, yPos, yPos + height, xPos + width, shade);
+	plotHorizontal(base, xPos, xPos + width, yPos);
+	plotHorizontal(base, xPos, xPos + width, yPos + height);
+	plotVertical(base, yPos, yPos + height, xPos);
+	plotVertical(base, yPos, yPos + height, xPos + width);
 }
 
-void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos, enum shades_8bit shade) {
+void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos) {
 
 	int x, y;
 
 	for(y = yPos; y < yPos + height; y++)
 	{
-		plotHorizontal(base, xPos, xPos + width, y, shade);
+		plotHorizontal(base, xPos, xPos + width, y);
 	}
 }
 
-void plotVertical (UINT8 *base, int y1, int y2, int x, enum shades_8bit shade) {
+void plotVertical (UINT8 *base, int y1, int y2, int x) {
 	/*assume y2 > y1*/
 	int i, y, length;
 	y = y1;
@@ -36,7 +36,7 @@ void plotVertical (UINT8 *base, int y1, int y2, int x, enum shades_8bit shade) {
 
 
 
-void plotHorizontal (UINT8 *base, int x1, int x2, int y, enum shades_8bit shade) {
+void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
     /*assume x2 > x1*/
     int i, x, remainder;
     x = x1;
@@ -45,14 +45,14 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y, enum shades_8bit shade)
     while(x <= (x1 + remainder) || x % 8 != 0)
     {
 		plot_pixel(base, x, y);
-		shade == lightGray ? x+=2 : x++;
-    }
+		x++;
+	}
 
 	remainder = (x2 - x) / 8;
 
     for(i = 0; i < remainder; i++)
     {
-       plotByte(base, x, y, shade);
+       plotByte(base, x, y);
         x += 8; 
     }
 
@@ -60,16 +60,19 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y, enum shades_8bit shade)
     {
         /**(base + y * 80 + (x >> 3)) = 0xFF;*/  /*plot_byte*/
       	plot_pixel(base, x, y);
-        shade == lightGray ? x+=2 : x++;
-
-    }	
+		x++;
+	}	
 }
 
+void plotBitmap8(UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int size)
+{
+	return;
+}
 
-void plotByte(UINT8 *base, int x, int y, enum shades_8bit shade)
+void plotByte(UINT8 *base, int x, int y)
 {
     if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
-        *(base + y * 80 + (x >> 3)) = shade == lightGray ? 0x55 : 0xFF;
+        *(base + y * 80 + (x >> 3)) = 0xFF;
 } 
 
 
@@ -84,8 +87,6 @@ void plot_pixel(UINT8 *base, int x, int y)
         are faster processes than divide and mod
     */
 } 
-
-
 
 void clearScreen(UINT32 *base_32) {
 
@@ -111,67 +112,4 @@ void blackOut(UINT32 *base_32) {
 
 
 
-void greyOutL4(UINT32 *base_32) {
-
-	int x, y;
-
-	for (y = 0; y < 400; y++) {
-		for (x = 0; x < 20; x++) {
-			*(base_32 + y * 20 + x) = 0x55555555;
-		}
-	}
-}
-
-void greyOutL3(UINT32 *base_32) {
-
-	int shift;
-	int x, y;
-
-	for (y = 0; y < 400; y++) {
-		for (x = 0; x < 20; x++) {
-			shift = (x + y) & 2;
-			if (shift == 0) {
-				*(base_32 + y * 20 + x) = 0x55555555;
-			} else {
-				*(base_32 + y * 20 + x) = 0xFFFFFFFF;
-			}
-		}
-	}
-}
-
-void greyOutL2(UINT32 *base_32) {
-
-	int shift;
-	int x, y;
-
-	/*make the entire screen checkered*/
-	for (y = 0; y < 400; y++) {
-		shift = (x + y) & 1;
-		for (x = 0; x < 20; x++) {
-			if (shift == 0) {
-				*(base_32 + y * 20 + x) = 0x55555555;
-			} else {
-				*(base_32 + y * 20 + x) = 0xFFFFFFFF;
-			}
-		}
-	}
-}
-
-void greyOutL1(UINT32 *base_32) {
-
-	int shift;
-	int x, y;
-
-	/*make the entire screen checkered*/
-	for (y = 0; y < 400; y++) {
-		shift = (x + y) & 1;
-		for (x = 0; x < 20; x++) {
-			if (shift == 0) {
-				*(base_32 + y * 20 + x) = 0x55555555;
-			} else {
-				*(base_32 + y * 20 + x) = 0xAAAAAAAA;
-			}
-		}
-	}
-}
 

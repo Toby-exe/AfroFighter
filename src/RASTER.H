@@ -8,24 +8,19 @@
 #define SCREEN_HEIGHT 400
 
 /* [TO DO] the functions below are examples. Replace them! */
-enum shades_8bit {
-	black = 0xFF,
-	white = 0x00,
-	lightGray = 0x55,
-	darkGray = 0xAA,
-};
+
 
 void plot_pixel(UINT8 *, int, int);
 
 /*Lines*/
-void plotHorizontal(UINT8 *, int, int, int, enum shades_8bit shade);
-void plotVertical(UINT8 *, int, int, int, enum shades_8bit shade);
-void plotByte(UINT8 *, int, int, enum shades_8bit shade);
+void plotHorizontal(UINT8 *, int, int, int);
+void plotVertical(UINT8 *, int, int, int);
+void plotByte(UINT8 *, int, int);
 void plot_line();
 
 /*Shapes*/
-void plotRect(UINT8 *, int, int, int, int, enum shades_8bit shade);
-void plotRectFill(UINT8 *, int, int, int, int, enum shades_8bit shade);
+void plotRect(UINT8 *, int, int, int, int);
+void plotRectFill(UINT8 *, int, int, int, int);
 
 /*Bitmaps*/
 void plotBitmap8(UINT8 *, int, int, const UINT8 *, unsigned int);
