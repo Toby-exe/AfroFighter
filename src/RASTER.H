@@ -8,7 +8,6 @@
 #define SCREEN_HEIGHT 400
 
 /* [TO DO] the functions below are examples. Replace them! */
-void clear_screen();
 void plot_pixel(UINT8 *, int, int);
 
 /*Lines*/
@@ -27,7 +26,8 @@ void plotBitmap16(UINT16 *, int, int, const UINT16 *, unsigned int);
 void plotBitmap32(UINT32 *, int, int, const UINT32 *, unsigned int);
 
 /*scales of threshold black*/
-void blackOut (UINT32 *);
+void clearScreen(UINT32 *);
+void blackOut(UINT32 *);
 void greyOutL4(UINT32 *);
 void greyOutL3(UINT32 *);
 void greyOutL2(UINT32 *);

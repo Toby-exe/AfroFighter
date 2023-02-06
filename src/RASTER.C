@@ -9,7 +9,6 @@ void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
 	plotHorizontal(base, xPos, xPos + width, yPos + height);
 	plotVertical(base, yPos, yPos + height, xPos);
 	plotVertical(base, yPos, yPos + height, xPos + width);
-	
 }
 
 void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos) {
@@ -85,7 +84,7 @@ void plot_pixel(UINT8 *base, int x, int y)
 
 
 
-void blackOut (UINT32 *base_32) {
+void clearScreen(UINT32 *base_32) {
 
 	int x, y;
 
@@ -95,6 +94,19 @@ void blackOut (UINT32 *base_32) {
 		}
 	}
 }
+
+void blackOut(UINT32 *base_32) {
+
+	int x, y;
+
+	for (y = 0; y < 400; y++) {
+		for (x = 0; x < 20; x++) {
+			*(base_32 + y * 20 + x) = 0xFFFFFFFF;
+		}
+	}
+}
+
+
 
 void greyOutL4(UINT32 *base_32) {
 
