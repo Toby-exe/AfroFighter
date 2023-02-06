@@ -13,7 +13,9 @@ int main()
 	int y, x, i;
 
 	/*plot a rect at 416 x and 0 y that goes to 640 x and 400 y */
-	clearScreen(base_32);
+	/*fill_screen();*/
+	
+	/*clearScreen(base_32);*/
 
 	/*profile pic box*/
 	plotRect(base, 48, 48, 5, 5);
@@ -29,8 +31,11 @@ int main()
 
 	/*arena base/floor*/
 	plotRectFill(base, 640, 48, 0, 354);
+
 	Cconin();
-	
+
+	clear_screen(base);
+
     return 0;
 }
   

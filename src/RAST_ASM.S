@@ -5,12 +5,12 @@
 ; and so runs in about 1/100th of a second (at 8MHz) instead of 1/50th
 ;
 				
-				xdef		clear_screen
-				xdef		fill_screen
+				xdef		_clear_screen
+				xdef		_fill_screen
 
 base			equ			64					; offset from SP (not a6)
 
-clear_screen:	movem.l		d0-7/a0-6,-(sp)
+_clear_screen:	movem.l		d0-7/a0-6,-(sp)
 				lea			zeroes,a0	
 				movem.l		(a0)+,d1-7/a1-6
 				movea.l		base(sp),a0
@@ -29,7 +29,7 @@ fill_loop:		movem.l		d1-7/a1-6,-(a0)
 ;
 ; uses same base offset as _clear_screen
 
-fill_screen:	movem.l		d0-7/a0-6,-(sp)
+_fill_screen:	movem.l		d0-7/a0-6,-(sp)
 				lea			ones,a0	
 				movem.l		(a0)+,d1-7/a1-6
 				movea.l		base(sp),a0

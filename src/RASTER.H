@@ -35,4 +35,7 @@ void greyOutL3(UINT32 *);
 void greyOutL2(UINT32 *);
 void greyOutL1(UINT32 *);
 
+void clear_screen(UINT8 *);
+void fill_screen();
+
 #endif
