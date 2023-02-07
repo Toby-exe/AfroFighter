@@ -15,7 +15,6 @@ void plot_pixel(UINT8 *, int, int);
 void plotHorizontal(UINT8 *, int, int, int);
 void plotVertical(UINT8 *, int, int, int);
 void plotByte(UINT8 *, int, int);
-void plot_line();
 
 /*Shapes*/
 void plotRect(UINT8 *, int, int, int, int);

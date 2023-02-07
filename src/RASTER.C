@@ -58,8 +58,7 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
 
     while(x <= x2)
     {
-        /**(base + y * 80 + (x >> 3)) = 0xFF;*/  /*plot_byte*/
-      	plot_pixel(base, x, y);
+        plot_pixel(base, x, y);
 		x++;
 	}	
 }
