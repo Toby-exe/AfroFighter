@@ -1,10 +1,10 @@
-#ifndef FONT_H
-#define FONT_H
+#ifndef FONTS_H
+#define FONTS_H
 
 #include "types.h"
 
-extern const UINT8 font[];     /* 8x8 system font */
-
+extern const UINT8 sysfont[];     /* 8x8 system font */
+extern const UINT8 customFont_8bit[]; /* 8x8 custom font */
 #define FONT_HEIGHT 8
 #define CHAR_BEL    7
 #define CHAR_TAB    9

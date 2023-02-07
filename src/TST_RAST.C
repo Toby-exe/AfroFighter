@@ -1,10 +1,7 @@
 #include <osbind.h>
 #include <stdio.h>
-
 #include "raster.h"
-#include "font.h"
-
-
+#include "fonts.h"
 
 int main()
 {
@@ -17,6 +14,8 @@ int main()
 	/*fill_screen();*/
 	
 	/*clearScreen(base_32);*/
+
+	clear_screen(base);
 
 	/*profile pic box*/
 	plotRect(base, 48, 48, 5, 5);
@@ -34,11 +33,11 @@ int main()
 	plotRectFill(base, 640, 48, 0, 354);
 
 	/*plot bit map with font array*/
-	plotBitmap8(base, 62, 36, font, 8);
-	Cconin();
+	plotBitmap8(base, 62, 36, customFont_8bit, 0);
+	plotBitmap8(base, 64, 28, customFont_8bit, 1);
 
-	clear_screen(base);
-
+	
+	
     return 0;
 }
   

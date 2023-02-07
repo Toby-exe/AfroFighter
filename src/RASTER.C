@@ -64,11 +64,13 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
 	}	
 }
 
-void plotBitmap8(UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int size)
+void plotBitmap8(UINT8 *base, int x, int y, const UINT8 *font, unsigned int index)
 {
 	int i;
-    for (i = 8; i < 16; i++) {
-        *(base + i * 80 + (x >> 4)) = bitmap[i];
+
+	base += y * 80;
+    for (i =  index * 8; i <  8 + (index * 8); i++) {
+        *(base + i * 80 + (x >> 3)) = font[i];
     }
 }
 

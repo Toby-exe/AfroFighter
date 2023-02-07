@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include "types.h"
+#include "fonts.h"
+
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 400
@@ -30,12 +32,7 @@ void plotBitmap32(UINT32 *, int, int, const UINT32 *, unsigned int);
 /*scales of threshold black*/
 void clearScreen(UINT32 *);
 void blackOut(UINT32 *);
-void greyOutL4(UINT32 *);
-void greyOutL3(UINT32 *);
-void greyOutL2(UINT32 *);
-void greyOutL1(UINT32 *);
 
 void clear_screen(UINT8 *);
-void fill_screen();
 
 #endif
