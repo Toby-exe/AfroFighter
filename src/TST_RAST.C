@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "raster.h"
+#include "font.h"
 
 
 
@@ -29,6 +30,9 @@ int main()
 
 	/*arena base/floor*/
 	plotRectFill(base, 640, 48, 0, 354);
+
+	/*plot bit map with font array*/
+	plotBitmap8(base, 62, 36, font, 8);
 	Cconin();
 	
     return 0;

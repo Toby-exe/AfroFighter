@@ -66,7 +66,10 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
 
 void plotBitmap8(UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int size)
 {
-	return;
+	int i;
+    for (i = 8; i < 16; i++) {
+        *(base + i * 80 + (x >> 4)) = bitmap[i];
+    }
 }
 
 void plotByte(UINT8 *base, int x, int y)
