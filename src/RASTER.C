@@ -1,4 +1,6 @@
 #include "raster.h"
+#include "fonts.h"
+
 
 
 void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
@@ -63,15 +65,50 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
 	}	
 }
 
-void plotBitmap8(UINT8 *base, int x, int y, const UINT8 *font, unsigned int index)
-{
+void printCharacter(UINT8 *base, int x, int y, char c)
+{	
+	int i;
+	const UINT8 *hexOfChar = CUSTOMFONT_START(c);
+	for (i = 0; i < FONT_HEIGHT; i++)
+	{
+		*(base + (y + i) * 80 + (x >> 3)) = *hexOfChar;
+		hexOfChar++;
+	}
+}
+
+void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int height) {
 	int i;
 
-	base += y * 80;
-    for (i =  index * 8; i <  8 + (index * 8); i++) {
-        *(base + i * 80 + (x >> 3)) = font[i];
+    for(i = 0; i < height; i++)
+	{
+	    *(base + y * 80 + (x >> 3)) = bitmap[i];
+        y++;
     }
+
 }
+
+void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int height) {
+	int i;
+
+    for(i = 0; i < height; i++)
+	{
+	    *(base + y * 40 + (x >> 4)) = bitmap[i];
+        y++;
+    }
+
+}
+
+void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned int height) {
+	int i;
+
+    for(i = 0; i < height; i++)
+	{
+	    *(base + y * 20 + (x >> 5)) = bitmap[i];
+        y++;
+    }
+
+}
+
 
 void plotByte(UINT8 *base, int x, int y)
 {
