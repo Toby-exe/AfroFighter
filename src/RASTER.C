@@ -93,28 +93,5 @@ void plot_pixel(UINT8 *base, int x, int y)
     */
 } 
 
-void clearScreen(UINT32 *base_32) {
-
-	int x, y;
-
-	for (y = 0; y < 400; y++) {
-		for (x = 0; x < 20; x++) {
-			*(base_32 + y * 20 + x) = 0x00000000;
-		}
-	}
-}
-
-void blackOut(UINT32 *base_32) {
-
-	int x, y;
-
-	for (y = 0; y < 400; y++) {
-		for (x = 0; x < 20; x++) {
-			*(base_32 + y * 20 + x) = 0xFFFFFFFF;
-		}
-	}
-}
-
-
 
 

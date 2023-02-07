@@ -10,12 +10,15 @@ int main()
 	UINT32 *base_32 = (UINT32 *) Physbase();
 	int y, x, i;
 
-	/*plot a rect at 416 x and 0 y that goes to 640 x and 400 y */
-	/*fill_screen();*/
-	
-	/*clearScreen(base_32);*/
+	Cconin();
+
+	fill_screen(base);
+
+	Cconin();
 
 	clear_screen(base);
+
+	Cconin();
 
 	/*profile pic box*/
 	plotRect(base, 48, 48, 5, 5);
@@ -35,9 +38,9 @@ int main()
 	/*plot bit map with font array*/
 	plotBitmap8(base, 62, 36, customFont_8bit, 0);
 	plotBitmap8(base, 64, 28, customFont_8bit, 1);
+	
+	Cconin();
 
-	
-	
     return 0;
 }
   

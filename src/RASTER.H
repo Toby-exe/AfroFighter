@@ -9,9 +9,6 @@
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 400
 
-/* [TO DO] the functions below are examples. Replace them! */
-
-
 void plot_pixel(UINT8 *, int, int);
 
 /*Lines*/
@@ -29,10 +26,8 @@ void plotBitmap8(UINT8 *, int, int, const UINT8 *, unsigned int);
 void plotBitmap16(UINT16 *, int, int, const UINT16 *, unsigned int);
 void plotBitmap32(UINT32 *, int, int, const UINT32 *, unsigned int);
 
-/*scales of threshold black*/
-void clearScreen(UINT32 *);
-void blackOut(UINT32 *);
-
+/*clear and fill screen asm*/
 void clear_screen(UINT8 *);
+void fill_screen(UINT8 *);
 
 #endif

@@ -1,5 +1,5 @@
 #include "fonts.h"
-
+/*change to enum so each character can be labelled*/
 const UINT8 font[] =
 {
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,  /* <space> */
