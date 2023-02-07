@@ -99,14 +99,24 @@ void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned in
 }
 
 void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned int height) {
-	int i;
+	
+	int i,j, k, ytemp, xtemp;
+	k = 0;
+	ytemp = y;
+	xtemp = x;
 
-    for(i = 0; i < height; i++)
+	for(i = 0; i < 20; i++)
 	{
-	    *(base + y * 20 + (x >> 5)) = bitmap[i];
-        y++;
-    }
+		for(j = 0; j < height; j++)
+		{
+			*(base + ytemp * 20 + (xtemp >> 5)) = bitmap[k];
+			k++;
+			ytemp++;
+		}
 
+		xtemp += 32;
+		ytemp = y;
+	}
 }
 
 

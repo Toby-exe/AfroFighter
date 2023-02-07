@@ -24,6 +24,7 @@ void plotRectFill(UINT8 *, int, int, int, int);
 void plotBitmap8(UINT8 *, int, int, const UINT8 *, unsigned int);
 void plotBitmap16(UINT16 *, int, int, const UINT16 *, unsigned int);
 void plotBitmap32(UINT32 *, int, int, const UINT32 *, unsigned int);
+void printCharacter(UINT8 *, int, int, char);
 
 /*clear and fill screen asm*/
 void clear_screen(UINT8 *);
