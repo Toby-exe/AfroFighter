@@ -124,11 +124,8 @@ void plot_pixel(UINT8 *base, int x, int y)
         *(base + y * 80 + (x >> 3)) |= 1 << (7 - (x & 7));
     /* -----------            ^                    ^
                            (x / 8)               (x % 8)
-
         this is the original code in the parentheses but lsl and AND
         are faster processes than divide and mod
     */
 } 
-
-
 

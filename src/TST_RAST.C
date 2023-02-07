@@ -144,7 +144,7 @@ int main()
 
 	Cconin();
 	/*plot the avatarPP*/
-	plotBitmap32(base_32, 0, 0, avatarPP, 40);
+	plotBitmap32(base_32, 0, 0, avatarPP, 400);
 
     return 0;	
 }
