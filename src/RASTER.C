@@ -87,32 +87,38 @@ void printString(UINT8 *base, int x, int y, int spacing, const char string[])
 	}
 }
 
-void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int height) {
-	int i;
+void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int height, unsigned int width) {
+	
+	int w, h, i;
+	base = base + y * 80 + (x >> 3);
 
-    for(i = 0; i < height; i++)
-	{
-	    *(base + y * 80 + (x >> 3)) = bitmap[i];
-        y++;
-    }
-
+	i = 0;
+	for (h = 0; h < height; h++) {
+		for (w = 0; w < width; w++) {
+			*(base + (h * 80) + w) = bitmap[i];	
+			i++;
+		}
+	}
 }
 
-void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int height) {
-	int i;
+void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int height, unsigned int width) {
+	
+	int w, h, i;
+	base = base + y * 40 + (x >> 4);
 
-    for(i = 0; i < height; i++)
-	{
-	    *(base + y * 40 + (x >> 4)) = bitmap[i];
-        y++;
-    }
-
+	i = 0;
+	for (h = 0; h < height; h++) {
+		for (w = 0; w < width; w++) {
+			*(base + (h * 40) + w) = bitmap[i];	
+			i++;
+		}
+	}
 }
 
 void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned int height, unsigned int width) {
 	
 	int w, h, i;
-	base = base + 13;
+	base = base + y * 20 + (x >> 5);
 
 	i = 0;
 	for (h = 0; h < height; h++) {
@@ -121,7 +127,6 @@ void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned in
 			i++;
 		}
 	}
-	
 }
 
 

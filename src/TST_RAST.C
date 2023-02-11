@@ -416,10 +416,10 @@ int main()
 	int y, x, i;
 
 	/*plot a rect at 416 x and 0 y that goes to 640 x and 400 y */
-	/*fill_screen();*/
-	
-	/*clearScreen(base_32);*/
-	
+	fill_screen(base);
+
+	Cconin();
+
 	clear_screen(base);
 
 	/*profile pic box*/
@@ -444,7 +444,7 @@ int main()
 
 	clear_screen(base);
 
-	plotBitmap32(base_32, 13, 0, avatarRFv1, 400, 7);
+	plotBitmap32(base_32, 416, 0, avatarRFv1, 400, 7);
 
 	Cconin();	
 
