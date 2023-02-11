@@ -38,8 +38,10 @@ int main()
 
 	/*plot bit map with font array*/
 
-	printString(base, 62, 36, 8, "TO");
-	printString(base, 553, 36, 8, "TO");
+	printString(base, 62, 36, 8, "TOBY");
+	printString(base, 553, 36, 8, "TOBY");
+
+	Cconin();
 
 	clear_screen(base);
 
