@@ -112,7 +112,7 @@ void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned in
 void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, int height, int width) {
 	
 	int w, h, i;
-	base = base + y * 20 + x;
+	base = base + y * 20 + (x >> 5);
 
 	i = 0;
 	for (h = 0; h < height; y++) {
