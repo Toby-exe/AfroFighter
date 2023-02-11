@@ -109,15 +109,15 @@ void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned in
 
 }
 
-void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, int height, int width) {
+void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned int height, unsigned int width) {
 	
 	int w, h, i;
-	base = base + y * 20 + (x >> 5);
+	base = base + 13;
 
 	i = 0;
-	for (h = 0; h < height; y++) {
+	for (h = 0; h < height; h++) {
 		for (w = 0; w < width; w++) {
-			*(base + (h * 20) + w) = bitmap[i];
+			*(base + (h * 20) + w) = bitmap[i];	
 			i++;
 		}
 	}

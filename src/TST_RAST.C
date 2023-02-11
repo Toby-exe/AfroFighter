@@ -444,18 +444,7 @@ int main()
 
 	clear_screen(base);
 
-
-	base_32 = base_32 + 13;
-
-	i = 0;
-	for (y = 0; y < 400; y++) {
-		for (x = 0; x < 7; x++) {
-			*(base_32 + (y * 20) + x) = avatarRFv1[i];
-			i++;
-		}
-	}
-	
-
+	plotBitmap32(base_32, 13, 0, avatarRFv1, 400, 7);
 
 	Cconin();	
 
