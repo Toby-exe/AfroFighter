@@ -9,14 +9,14 @@
 int main()
 {
 
-    UINT8 *base = (UINT8 *)Physbase();
+    UINT8 *base = (UINT8 *) Physbase();
 	UINT16 *base_16 = (UINT16 *) Physbase();
 	UINT32 *base_32 = (UINT32 *) Physbase();
 	int y, x, i;
 
 	/*plot a rect at 416 x and 0 y that goes to 640 x and 400 y */
 	fill_screen(base);
-
+	
 	Cconin();
 
 	clear_screen(base);
@@ -41,9 +41,13 @@ int main()
 	printString(base, 62, 36, 8, "TOBY");
 	printString(base, 553, 36, 8, "TOBY");
 
+	plotBitmap16(base_16, 1, 1, avatarProfilePic, 48, 3);
+	plotBitmap16(base_16, 3, 48, avatarProfilePic, 48, 3);
+
+
 	Cconin();
 
-	clear_screen(base);
+	clear_screen(base);	
 
 	plotBitmap32(base_32, 416, 0, afroManTitle, 400, 7);
 	plotBitmap32(base_32, 64, 37, title, 168, 10);

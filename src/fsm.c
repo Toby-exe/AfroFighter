@@ -3,7 +3,7 @@
 /*update*/
 void update(Model *model)
 {
-    for(;;)
+    for(;;) 
     {
         switch(model->players[1].state)
         {

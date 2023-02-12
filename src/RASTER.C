@@ -147,4 +147,3 @@ void plot_pixel(UINT8 *base, int x, int y)
         are faster processes than divide and mod
     */
 } 
-
