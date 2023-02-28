@@ -1,11 +1,11 @@
 #include "model.h"
+#include "events.h"
 
 /*update*/
 
-void update(Model *model)
+void update(Player *player, enum playerEvents *event)
 {
-   
-    switch(model->players[1].state)
+    switch(player->state)
     {
         case Idle:
         {   
@@ -33,13 +33,13 @@ void update(Model *model)
 
         case Attacking:
         {
-                
+            
         }
         break;
 
         case Super:
         {
-                
+            
         }
         break;
 
@@ -48,7 +48,9 @@ void update(Model *model)
     }
 }
 
-void next()
+
+
+void next(enum playerEvents *event)
 {
     return;
 }
