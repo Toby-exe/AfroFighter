@@ -181,7 +181,7 @@ All player animations will have a left and right variant to account for the 2 di
 |------------|----------|--------|
 | Move right |  `A`     |  Changes `Running State` for player to `True`, sets `Rs Running Animation` to `True` |   
 | Move left  |   `D`    |  Changes `Running State` for player to `True`, sets `Ls Running Animation` to `True` |    
-| Slide      |   `↓`    |  Changes `Slide State` for player to `True`, sets `Ls or Rs slide animation` to `True` (base on orientation) |    
+| Slide      |   `K`    |  Changes `Slide State` for player to `True`, sets `Ls or Rs slide animation` to `True` (base on orientation) |    
 | Jump       |    `Space`| Changes `Jump State`  for player to `True`, sets `Ls or Rs jump animation`  to `True` (base on orientation) |    
 
 #### 2.5.2 Combat Keybinds
@@ -189,9 +189,9 @@ All player animations will have a left and right variant to account for the 2 di
 |Combat Move    | Key Bind | States Requested|
 |------------|----------|--------|
 | Light attack  |  `W`    |  Changes `Light Attack State` for player to `True`, sets `Light Attack Animation` to `True` |   
-| Heavy attack  |   `←`     |  Changes `Heavy Attack State` for player to `True`, sets `Heavy Attack Animation` to `True` |    
+| Heavy attack  |   `J`     |  Changes `Heavy Attack State` for player to `True`, sets `Heavy Attack Animation` to `True` |    
 | Super / Ranged attack     |   `F`     |  First checks if `Consectutive Block Count` >= 2, if `True` `Super / Ranged Attack imbue animation` is set to `True`. `Draw Fire Ball` is set to `True`|    
-| Block       |    `→` | Changes `Block State`for player to `True`, sets `Ls or Rs Block animation` to `True` (base on orientation) |    
+| Block       |    `L` | Changes `Block State`for player to `True`, sets `Ls or Rs Block animation` to `True` (base on orientation) |    
 
 
     
