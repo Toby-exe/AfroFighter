@@ -1,8 +1,8 @@
 #include "model.h"
 
-void initPlayer(Player *p, int x, int y)
+void initPlayer(Player *player, int x, int y)
 {
-    p->state = Idle;
-    p->x = x;
-    p->y = y;
+    player->state = Idle;
+    player->x = x;
+    player->y = y;
 }

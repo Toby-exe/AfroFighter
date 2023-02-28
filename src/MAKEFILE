@@ -1,11 +1,20 @@
-tst_rast: tst_rast.o raster.o rast_asm.o fonts.o splash.o
-	cc68x -g tst_rast.o raster.o fonts.o splash.o rast_asm.o -o tst_rast
+tst_rast: tst_rast.o raster.o rast_asm.o fonts.o splash.o model.o
+	cc68x -g tst_rast.o raster.o fonts.o splash.o rast_asm.o model.o -o tst_rast
+
+tst_model: tst_model.o raster.o rast_asm.o fonts.o splash.o model.o
+	cc68x -g tst_model.o raster.o fonts.o splash.o rast_asm.o model.o -o tst_model
 
 tst_rast.o: tst_rast.c raster.h fonts.h
 	cc68x -g -c tst_rast.c
 
+tst_model.o: tst_model.c raster.h fonts.h model.h
+	cc68x -g -c tst_model.c
+
 raster.o: raster.c raster.h
 	cc68x -g -c raster.c
+
+model.o: model.c raster.h
+	cc68x -g -c model.c
 
 fonts.o: fonts.c raster.h
 	cc68x -g -c fonts.c

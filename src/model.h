@@ -3,23 +3,31 @@
 
 #include "TYPES.H"
 
-#define maxNameLen 20
+#define MAX_NAME_LEN 20
 
-enum pStates 
+#define a_KEY 0x0061
+#define d_KEY 0x0064
+#define w_KEY 0x0077 
+#define f_KEY 0x0066
+#define space_KEY 0x0020
+
+
+enum playerStates 
 { Idle, Running, Jumping, Crouching, Attacking, Super };
 
 typedef struct
 {
-    enum pStates state;
+    enum playerStates state;
     unsigned int x, y;      /*position coordinates*/
     int delta_x, delta_y;   /*horiz. & vert. displacement per clock tick*/
+
 } Player;
 
 /*The health and info bar for both players*/
 typedef struct 
 {
     unsigned int health;
-    char name[maxNameLen];
+    char name[MAX_NAME_LEN];
     UINT8 *pfpBitmap;
 } Bar;
 
@@ -39,8 +47,5 @@ typedef struct
     Border floor;
     Border walls[2];
 } Model;
-
-
-
 
 #endif

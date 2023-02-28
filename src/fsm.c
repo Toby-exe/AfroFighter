@@ -1,6 +1,7 @@
 #include "model.h"
 
 /*update*/
+
 void update(Model *model)
 {
     for(;;) 
@@ -8,14 +9,14 @@ void update(Model *model)
         switch(model->players[1].state)
         {
             case Idle:
-            {
+            {   
 
             }
             break;
 
             case Running:
             {
-                
+                     
             }
             break;
 
@@ -50,8 +51,10 @@ void update(Model *model)
     }
 }
 
-/*next*/
+
+
 void next()
 {
-
+    return;
 }
+

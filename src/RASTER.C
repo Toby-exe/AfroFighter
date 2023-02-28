@@ -109,7 +109,7 @@ void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned in
 	i = 0;
 	for (h = 0; h < height; h++) {
 		for (w = 0; w < width; w++) {
-			*(base + (h * 40) + w) = bitmap[i];	
+			*(base + (h * 40) + w) |= bitmap[i];	
 			i++;
 		}
 	}
@@ -128,6 +128,8 @@ void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned in
 		}
 	}
 }
+
+
 
 
 void plotByte(UINT8 *base, int x, int y)
