@@ -1,59 +1,56 @@
 #include "model.h"
+#include "events.h"
 
 /*update*/
 
-void update(Model *model)
+void update(Player *player, enum playerEvents *event)
 {
-    for(;;) 
+    switch(player->state)
     {
-        switch(model->players[1].state)
-        {
-            case Idle:
-            {   
-
-            }
-            break;
-
-            case Running:
-            {
-                     
-            }
-            break;
-
-            case Jumping:
-            {
-                
-            }
-            break;
-
-            case Crouching:
-            {
-                
-            }
-            break;
-
-            case Attacking:
-            {
-                
-            }
-            break;
-
-            case Super:
-            {
-                
-            }
-            break;
-
-            default:
-            break;
+        case Idle:
+        {   
 
         }
+        break;
+
+        case Running:
+        {
+                    
+        }
+        break;
+
+        case Jumping:
+        {
+            
+        }
+        break;
+
+        case Crouching:
+        {
+            
+        }
+        break;
+
+        case Attacking:
+        {
+            
+        }
+        break;
+
+        case Super:
+        {
+            
+        }
+        break;
+
+        default:
+        break;
     }
 }
 
 
 
-void next()
+void next(enum playerEvents *event)
 {
     return;
 }
