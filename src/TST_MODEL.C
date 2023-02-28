@@ -12,14 +12,11 @@ int main () {
 	UINT32 *base_32 = (UINT32 *) Physbase();
 	UINT16 input;
 
-    clear_screen(base);
-
-    input = Cconin();
-    if (input == a_KEY) {
-        plotRectFill(base, 640, 48, 0, 354);
+    /*test game loop*/
+    while(1 && input != quit) {
+        /*plot bitmap */
+        input = Cconin();
     }
 
-    Cconin();
-    
     return 0;
 };
