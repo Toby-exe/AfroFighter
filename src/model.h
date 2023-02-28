@@ -31,7 +31,9 @@ typedef struct
 {
     unsigned int health;
     char name[MAX_NAME_LEN];
-    UINT8 *pfpBitmap;
+    UINT8 *pfpBitmap;                   /*includes avatar image and decorative borders*/
+    unsigned int x, y;
+    unsigned int barWidth, barHeight;   /*width and height of the healthbar part*/
 } Bar;
 
 /*applies to both the floor and side boundaries*/

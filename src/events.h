@@ -1,4 +1,9 @@
 #include "model.h"
 
-enum playerEvents =
-{ jumpEv, crouchEv, moveEv, attackEv, superEv };
+enum playerEvents { 
+    jumpEv, 
+    crouchEv, 
+    moveEv, 
+    attackEv, 
+    superEv 
+};
