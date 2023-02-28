@@ -1,59 +1,58 @@
 #include "model.h"
+#include "events.h"
 
 /*update*/
 
-void update(Model *model)
+/*void update(Model *model)*/
+void update(Player *player, )
 {
-    for(;;) 
+    switch(player->state)
     {
-        switch(model->players[1].state)
-        {
-            case Idle:
-            {   
-
-            }
-            break;
-
-            case Running:
-            {
-                     
-            }
-            break;
-
-            case Jumping:
-            {
-                
-            }
-            break;
-
-            case Crouching:
-            {
-                
-            }
-            break;
-
-            case Attacking:
-            {
-                
-            }
-            break;
-
-            case Super:
-            {
-                
-            }
-            break;
-
-            default:
-            break;
-
+        case Idle:
+        {   
+            next();
         }
+        break;
+
+        case Running:
+        {
+            next();
+        }
+        break;
+
+        case Jumping:
+        {
+            next();
+        }
+        break;
+
+        case Crouching:
+        {
+            next();
+        }
+        break;
+
+        case Attacking:
+        {
+            next();
+        }
+        break;
+
+        case Super:
+        {
+            next();
+        }
+        break;
+
+        default:
+        break;
+
     }
 }
 
 
 
-void next()
+playerState next()
 {
     return;
 }
