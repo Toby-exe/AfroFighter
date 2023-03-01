@@ -54,4 +54,7 @@ typedef struct
 
 } Model;
 
+/*function prototypes*/
+void move_player(Player *, char);
+
 #endif

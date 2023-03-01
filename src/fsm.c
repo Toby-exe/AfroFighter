@@ -3,7 +3,7 @@
 
 /*update*/
 
-void update(Player *player, enum playerEvents *event)
+void update(Player *player, enum playerEvents event)
 {
     switch(player->state)
     {
@@ -49,7 +49,7 @@ void update(Player *player, enum playerEvents *event)
 }
 
 
-enum playerStates next(enum playerEvents *event)
+enum playerStates next(enum playerEvents event)
 {
     switch(event)
     {

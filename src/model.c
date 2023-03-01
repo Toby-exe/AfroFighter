@@ -19,4 +19,11 @@ void initBar(Bar *bar, int health, char *name, UINT8 *pfpBitmap, int x, int y)
     bar->barHeight = 36;
 }
 
-my balls
+void move_player(Player *player, int hSpeed)
+{
+    player->delta_x = hSpeed;
+    player->x += player->delta_x;
+
+    /* ... what about collision detection? */
+}
+
