@@ -31,18 +31,14 @@ int main()
 	plotRectFill(base, 640, 48, 0, 354);
 
 	/*plot bit map with font array*/
-	plotBitmap16_advncd(base_16, 1, 1, avatarProfilePic, 48);
-	plotBitmap16_advncd(base_16, 2, 49, avatarProfilePic, 48);
-	plotBitmap16_advncd(base_16, 3, 97, avatarProfilePic, 48);
+	plotBitmap16(base_16, 1, 1, avatarProfilePic, 48, 48);
+	plotBitmap16(base_16, 2, 49, avatarProfilePic, 48, 48);
+	plotBitmap16(base_16, 3, 97, avatarProfilePic, 48, 48);
 	
+	/*plot letter E*/
+	plot_pixel(base, 3, 150);
+	plotBitmap8(base, 3, 150, letterEbitmap, 8, 8);
 
-
-
-
-
-
-	
-	
 	Cconin();
 	/*plot the avatarPP*/
 

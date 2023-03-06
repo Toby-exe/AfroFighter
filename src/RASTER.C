@@ -2,26 +2,24 @@
 #include "fonts.h"
 
 
+void plot_pixel(UINT8 *base, int x, int y)
+{
+    if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
+        *(base + y * 80 + (x >> 3)) |= 1 << (7 - (x & 7));
+    /* -----------            ^                    ^
+                           (x / 8)               (x % 8)
+        this is the original code in the parentheses but lsl and AND
+        are faster processes than divide and mod
+    */
+} 
 
-void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
+void plotByte(UINT8 *base, int x, int y)
+{
+    if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
+        *(base + y * 80 + (x >> 3)) = 0xFF;
+} 
 
-	int x, y;
 
-	plotHorizontal(base, xPos, xPos + width, yPos);
-	plotHorizontal(base, xPos, xPos + width, yPos + height);
-	plotVertical(base, yPos, yPos + height, xPos);
-	plotVertical(base, yPos, yPos + height, xPos + width);
-}
-
-void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos) {
-
-	int x, y;
-
-	for(y = yPos; y < yPos + height; y++)
-	{
-		plotHorizontal(base, xPos, xPos + width, y);
-	}
-}
 
 void plotVertical (UINT8 *base, int y1, int y2, int x) {
 	/*assume y2 > y1*/
@@ -35,8 +33,6 @@ void plotVertical (UINT8 *base, int y1, int y2, int x) {
 		y++;
 	}
 }
-
-
 
 void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
     /*assume x2 > x1*/
@@ -66,6 +62,30 @@ void plotHorizontal (UINT8 *base, int x1, int x2, int y) {
 	}	
 }
 
+
+
+void plotRect(UINT8 *base, int width, int height, int xPos, int yPos) {
+
+	int x, y;
+
+	plotHorizontal(base, xPos, xPos + width, yPos);
+	plotHorizontal(base, xPos, xPos + width, yPos + height);
+	plotVertical(base, yPos, yPos + height, xPos);
+	plotVertical(base, yPos, yPos + height, xPos + width);
+}
+
+void plotRectFill(UINT8 *base, int width, int height, int xPos, int yPos) {
+
+	int x, y;
+
+	for(y = yPos; y < yPos + height; y++)
+	{
+		plotHorizontal(base, xPos, xPos + width, y);
+	}
+}
+
+
+
 void printCharacter(UINT8 *base, int x, int y, char c)
 {	
 	int i;
@@ -87,82 +107,64 @@ void printString(UINT8 *base, int x, int y, int spacing, const char string[])
 	}
 }
 
-void plotBitmap16_advncd(UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int height) {
+
+
+void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int width, unsigned int height) {
 	
-	int i, h, shiftIndex;
-	base = base + y * 40;
-
+	int i, h, currByte, nBytes;
 	i = 0;
-	for (h = 0; h < height; h++) {
-		*(base + h * 40 + (x >> 4)) |= bitmap[i] >> (x % 16);
-		*(base + h * 40 + (x >> 4) + 1) |= bitmap[i + 1];
-		*(base + h * 40 + (x >> 4) + 2) |= bitmap[i + 2] << (15 - ((x + (16 - (x+1))) % 16));
-		i += 3;
-	}
+	nBytes = width / 8;
 
-}
-
-
-
-void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int height, unsigned int width) {
-	
-	int w, h, i;
-	base = base + y * 80 + (x >> 3);
-
-	i = 0;
-	for (h = 0; h < height; h++) {
-		for (w = 0; w < width; w++) {
-			*(base + (h * 80) + w) = bitmap[i];	
-			i++;
+	/*vertical loop*/
+	for (h = 0; h < height; h++)
+	{
+		/*single row loop*/
+		for (currByte = 0; currByte < nBytes; currByte++)
+		{
+			*(base + y * 80 + (x >> 3) + currByte) |= bitmap[i + currByte] >> ((x + currByte * 8) % 8);
+			*(base + y * 80 + (x >> 3) + currByte + 1) |= bitmap[i + currByte] << (7 - (x + currByte * 8) % 8);
 		}
+		i += nBytes;
+		y++;
 	}
 }
 
-void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int height, unsigned int width) {
+void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int width, unsigned int height) {
 	
-	int w, h, i;
-	base = base + y * 40 + (x >> 4);
-
+	int i, h, currWord, nWords;
 	i = 0;
-	for (h = 0; h < height; h++) {
-		for (w = 0; w < width; w++) {
-			*(base + (h * 40) + w) |= bitmap[i];	
-			i++;
+	nWords = width / 16;
+
+	/*vertical loop*/
+	for (h = 0; h < height; h++)
+	{
+		/*single row loop*/
+		for (currWord = 0; currWord < nWords; currWord++)
+		{
+			*(base + y * 40 + (x >> 4) + currWord) |= bitmap[i + currWord] >> ((x + currWord * 16) % 16);
+			*(base + y * 40 + (x >> 4) + currWord + 1) |= bitmap[i + currWord] << (15 - (x + currWord * 16) % 16);
 		}
+		i += nWords;
+		y++;
 	}
 }
 
-void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned int height, unsigned int width) {
+void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned int width, unsigned int height) {
 	
-	int w, h, i;
-	base = base + y * 20 + (x >> 5);
-
+	int i, h, currLong, nLongs;
 	i = 0;
-	for (h = 0; h < height; h++) {
-		for (w = 0; w < width; w++) {
-			*(base + (h * 20) + w) = bitmap[i];	
-			i++;
+	nLongs = width / 32;
+
+	/*Vertical loop*/
+	for (h = 0; h < height; h++)
+	{
+		/*single row loop*/
+		for (currLong = 0; currLong < nLongs; currLong++)
+		{
+			*(base + y * 20 + (x >> 5) + currLong) |= bitmap[i + currLong] >> ((x + currLong * 32) % 32);
+			*(base + y * 20 + (x >> 5) + currLong + 1) |= bitmap[i + currLong] << (31 - (x + currLong * 32) % 32);
 		}
+		i += nLongs;
+		y++;
 	}
 }
-
-
-
-
-void plotByte(UINT8 *base, int x, int y)
-{
-    if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
-        *(base + y * 80 + (x >> 3)) = 0xFF;
-} 
-
-
-void plot_pixel(UINT8 *base, int x, int y)
-{
-    if (x >= 0 && x < SCREEN_WIDTH && y >= 0 && y < SCREEN_HEIGHT)
-        *(base + y * 80 + (x >> 3)) |= 1 << (7 - (x & 7));
-    /* -----------            ^                    ^
-                           (x / 8)               (x % 8)
-        this is the original code in the parentheses but lsl and AND
-        are faster processes than divide and mod
-    */
-} 
