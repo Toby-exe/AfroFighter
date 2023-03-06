@@ -87,6 +87,23 @@ void printString(UINT8 *base, int x, int y, int spacing, const char string[])
 	}
 }
 
+void plotBitmap16_advncd(UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned int height) {
+	
+	int i, h, shiftIndex;
+	base = base + y * 40;
+
+	i = 0;
+	for (h = 0; h < height; h++) {
+		*(base + h * 40 + (x >> 4)) |= bitmap[i] >> (x % 16);
+		*(base + h * 40 + (x >> 4) + 1) |= bitmap[i + 1];
+		*(base + h * 40 + (x >> 4) + 2) |= bitmap[i + 2] << (15 - ((x + (16 - (x+1))) % 16));
+		i += 3;
+	}
+
+}
+
+
+
 void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int height, unsigned int width) {
 	
 	int w, h, i;

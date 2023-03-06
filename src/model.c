@@ -7,6 +7,8 @@ void initPlayer(Player *player, int x, int y)
     player->y = y;
 }
 
+
+
 void initBar(Bar *bar, int health, char *name, UINT8 *pfpBitmap, int x, int y)
 {
     bar->health = health;
@@ -19,4 +21,5 @@ void initBar(Bar *bar, int health, char *name, UINT8 *pfpBitmap, int x, int y)
     bar->barHeight = 36;
 }
 
-my balls
+
+
