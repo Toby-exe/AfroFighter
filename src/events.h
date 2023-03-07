@@ -1,2 +1,9 @@
-enum playerEvents = 
-{ onJump, onCrouch, onMove, onAttack, onSuper };
+#include "model.h"
+
+enum playerEvents { 
+    jumpEv, 
+    crouchEv, 
+    moveEv, 
+    attackEv, 
+    superEv 
+};

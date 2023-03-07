@@ -4,7 +4,7 @@
 /*update*/
 
 /*void update(Model *model)*/
-void update(Player *player, )
+void update(Player *player, Event event)
 {
     switch(player->state)
     {
