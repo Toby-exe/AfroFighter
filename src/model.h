@@ -19,39 +19,36 @@
 enum playerStates 
 { Idle, Running, Jumping, Crouching, Attacking, Super };
 
-typedef struct
-{
+typedef struct {
+    unsigned int top_left_x;
+    unsigned int top_left_y;
+    unsigned int width;
+    unsigned int height;
+    bool active;            /* for invincibility frames if feature is added */
+} Hitbox;
+
+typedef struct {
     enum playerStates state;
+    Hitbox hitbox;
     unsigned int x, y;      /*position coordinates*/
     int delta_x, delta_y;   /*horiz. & vert. displacement per clock tick*/
 } Player;
 
 /*The health and info bar for both players*/
-typedef struct 
-{
+typedef struct  {
     unsigned int health;
     char name[MAX_NAME_LEN];
     UINT8 *pfpBitmap;                   /*includes avatar image and decorative borders*/
+    UINT8 *superStars[2];
+    /*UINT8 *rounds[4]; (will keep track of rounds if feature is added; make type for round)*/
     unsigned int x, y;
     unsigned int barWidth, barHeight;   /*width and height of the healthbar part*/
 } Bar;
 
-/*applies to both the floor and side boundaries*/
-typedef struct
-{
-    unsigned int x, y;
-    unsigned int height;
-    unsigned int width;
-} Border;
-
 /*contains all game objects*/
-typedef struct
-{
+typedef struct {
     Player players[2];
     Bar bars[2];
-    Border floor;
-    Border walls[2];
-
 } Model;
 
 /*function prototypes*/
