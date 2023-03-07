@@ -121,8 +121,8 @@ void plotBitmap8 (UINT8 *base, int x, int y, const UINT8 *bitmap, unsigned int w
 		/*single row loop*/
 		for (currByte = 0; currByte < nBytes; currByte++)
 		{
-			*(base + y * 80 + (x >> 3) + currByte) |= bitmap[i + currByte] >> ((x + currByte * 8 - 1) & 7);
-			*(base + y * 80 + (x >> 3) + currByte + 1) |= bitmap[i + currByte] << (7 - (x + currByte * 8 - 1) & 7);
+			*(base + y * 80 + (x >> 3) + currByte) |= bitmap[i + currByte] >> ((x + currByte * 8) & 7);
+			*(base + y * 80 + (x >> 3) + currByte + 1) |= bitmap[i + currByte] << (7 - (x + currByte * 8) & 7);
 		}
 		i += nBytes;
 		y++;
@@ -141,8 +141,8 @@ void plotBitmap16 (UINT16 *base, int x, int y, const UINT16 *bitmap, unsigned in
 		/*single row loop*/
 		for (currWord = 0; currWord < nWords; currWord++)
 		{
-			*(base + y * 40 + (x >> 4) + currWord) |= bitmap[i + currWord] >> ((x + currWord * 16 - 1) & 15);
-			*(base + y * 40 + (x >> 4) + currWord + 1) |= bitmap[i + currWord] << (15 - (x + currWord * 16 - 1) & 15);
+			*(base + y * 40 + (x >> 4) + currWord) |= bitmap[i + currWord] >> ((x + currWord * 16) & 15);
+			*(base + y * 40 + (x >> 4) + currWord + 1) |= bitmap[i + currWord] << (15 - (x + currWord * 16) & 15);
 		}
 		i += nWords;
 		y++;
@@ -161,8 +161,8 @@ void plotBitmap32 (UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned in
 		/*single row loop*/
 		for (currLong = 0; currLong < nLongs; currLong++)
 		{
-			*(base + y * 20 + (x >> 5) + currLong) |= bitmap[i + currLong] >> ((x + currLong * 32 - 1) & 31);
-			*(base + y * 20 + (x >> 5) + currLong + 1) |= bitmap[i + currLong] << (31 - (x + currLong * 32 - 1) & 31);
+			*(base + y * 20 + (x >> 5) + currLong) |= bitmap[i + currLong] >> ((x + currLong * 32) & 31);
+			*(base + y * 20 + (x >> 5) + currLong + 1) |= bitmap[i + currLong] << (31 - (x + currLong * 32) & 31);
 		}
 		i += nLongs;
 		y++;
