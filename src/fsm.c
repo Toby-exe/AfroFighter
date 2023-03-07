@@ -52,8 +52,44 @@ void update(Player *player, Event event)
 
 
 
-playerState next()
-{
-    return;
+enum playerStates next(enum playerEvents *event) {
+    switch(event)
+    {
+        case moveEv:
+        {
+            return Running;
+        }
+        break;
+
+        case jumpEv:
+        {
+            return Jumping;
+        }
+        break;
+
+        case crouchEv:
+        {
+            return Crouching;
+        }
+        break;
+
+        case attackEv:
+        {
+            return Attacking;
+        }
+        break;
+
+        case superEv:
+        {
+            return Super;            
+        }
+        break;
+
+        default:
+        {
+            return Idle;
+        }
+        break;
+    }
 }
 

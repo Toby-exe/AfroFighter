@@ -12,7 +12,7 @@
 #define f_KEY       0x0066  /*super attack*/
 #define j_KEY       0x006A  /*heavy attack*/
 #define k_KEY       0x006B  /*slide*/
-#define q_KEY       0x0071  /*quit/
+#define q_KEY       0x0071  /*quit*/
 #define space_KEY   0x0020  /*jump*/
 
 
