@@ -10,37 +10,37 @@ void update(Player *player, Event event)
     {
         case Idle:
         {   
-            next();
+            player->state = next(event);
         }
         break;
 
         case Running:
         {
-            next();
+            player->state = next(event);
         }
         break;
 
         case Jumping:
         {
-            next();
+            player->state = next(event);
         }
         break;
 
         case Crouching:
         {
-            next();
+            player->state = next(event);
         }
         break;
 
         case Attacking:
         {
-            next();
+            player->state = next(event);
         }
         break;
 
         case Super:
         {
-            next();
+            player->state = next(event);
         }
         break;
 
