@@ -13,7 +13,7 @@ int main () {
 	UINT16 input;
 
     /*test game loop*/
-    while(1 && input != quit) {
+    while(1 && input != q_KEY) {
         /*plot bitmap */
         input = Cconin();
     }
