@@ -1,6 +1,6 @@
 #include "model.h"
 
-enum playerEvents { 
+enum avatarEvents { 
     jumpEv, 
     crouchEv, 
     moveEv, 

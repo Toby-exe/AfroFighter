@@ -16,7 +16,7 @@
 #define space_KEY   0x0020  /*jump*/
 
 
-enum playerStates 
+enum avatarStates 
 { Idle, Running, Jumping, Crouching, Attacking, Super };
 
 typedef struct {
@@ -24,15 +24,15 @@ typedef struct {
     unsigned int top_left_y;
     unsigned int width;
     unsigned int height;
-    bool active;            /* for invincibility frames if feature is added */
+    /*bool active;            for invincibility frames if feature is added */
 } Hitbox;
 
 typedef struct {
-    enum playerStates state;
+    enum avatarStates state;
     Hitbox hitbox;
     unsigned int x, y;      /*position coordinates*/
     int delta_x, delta_y;   /*horiz. & vert. displacement per clock tick*/
-} Player;
+} Avatar;
 
 /*The health and info bar for both players*/
 typedef struct  {
@@ -47,11 +47,12 @@ typedef struct  {
 
 /*contains all game objects*/
 typedef struct {
-    Player players[2];
+    Avatar player;
+    Avatar opponent;
     Bar bars[2];
 } Model;
 
 /*function prototypes*/
-void move_player(Player *, char);
+void move_player(Avatar *, char);
 
 #endif

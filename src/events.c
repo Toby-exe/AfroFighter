@@ -1,6 +1,6 @@
 #include "events.h"
 
-void on_move (Player *player, UINT16 key)
+void on_move (Avatar *player, UINT16 key)
 {
     if(key = a_KEY)
     {

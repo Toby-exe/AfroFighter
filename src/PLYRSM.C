@@ -4,7 +4,7 @@
 /*update*/
 
 /*void update(Model *model)*/
-void update(Player *player, Event event)
+void update (Player *player, enum avatarEvents *event)
 {
     switch(player->state)
     {
@@ -52,7 +52,7 @@ void update(Player *player, Event event)
 
 
 
-enum playerStates next(enum playerEvents *event) {
+enum playerStates next(enum avatarEvents *event) {
     switch(event)
     {
         case moveEv:
