@@ -7,3 +7,5 @@ enum avatarEvents {
     attackEv, 
     superEv 
 };
+
+enum avatarStates on_move ();

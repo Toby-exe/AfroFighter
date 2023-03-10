@@ -1,7 +1,10 @@
 #include "events.h"
 
-void on_move (Avatar *player, UINT16 key)
+
+enum avatarStates on_move (Avatar *player, UINT16 key)
 {
+    avatarStates state = Running;
+
     if(key = a_KEY)
     {
         
@@ -10,4 +13,7 @@ void on_move (Avatar *player, UINT16 key)
     {
 
     }
+
+    return state;
+
 }

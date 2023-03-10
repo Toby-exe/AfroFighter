@@ -4,7 +4,7 @@
 /*update*/
 
 /*void update(Model *model)*/
-void update (Player *player, enum avatarEvents *event)
+void update (Avatar *player, enum avatarEvents event)
 {
     switch(player->state)
     {
@@ -52,12 +52,12 @@ void update (Player *player, enum avatarEvents *event)
 
 
 
-enum playerStates next(enum avatarEvents *event) {
+enum avatarStates next(enum avatarEvents event) {
     switch(event)
     {
         case moveEv:
-        {
-            return Running;
+        {           
+            return on_move();
         }
         break;
 
