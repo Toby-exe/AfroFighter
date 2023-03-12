@@ -13,6 +13,6 @@ enum avatarEvents {
     superEv 
 };
 
-int on_move(UINT16);
+int on_move(Avatar *, UINT16);
 
 #endif

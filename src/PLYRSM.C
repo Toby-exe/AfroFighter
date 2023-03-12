@@ -1,26 +1,23 @@
 #include "events.h"
 #include "types.h"
 #include "model.h"
-/*update*/
 
-/*void update(Model *model)*/
+/*void update(Model *model, enum gameStates state) <--- parameters for the game state machine*/
 void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
 {
-    player->delta_x = on_move(input);
     /*stuff that always happens should go here*/
 
-    /*
     switch(player->state)   
     {
         case Idle:
-            player->state = idleCheckNext(newEvent);
+            player->state = checkIdleNext(player, newEvent, input);
             break;
 
         case Running:
             player->state = Idle;
             
             if (newEvent == Running) {
-                player->state = on_move();
+                player->state = on_move(player, input);
             }
             break;
 
@@ -37,7 +34,7 @@ void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
             player->state = Idle;
             
             if (newEvent == Crouching) {
-                player->state = on_crouch();
+                /*player->state = on_crouch();*/
             }
             break;
 
@@ -46,9 +43,9 @@ void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
             
             if (newEvent == Running) {
                 if (input == 'J') {
-                    player->state = on_light();
+                    /*player->state = on_light();*/
                 } else if (input == 'L') {
-                    player->state = on_heavy();
+                    /*player->state = on_heavy();*/
                 }
             }
             break;
@@ -64,20 +61,14 @@ void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
 
         default:
             break;
-        
-
     }
-    */
 }
 
-
-
-/*
-avatarStates idleCheckNext(enum avatarEvents event) {
+enum avatarStates checkIdleNext(Avatar *player, enum avatarEvents event, UINT16 input) {
     switch(event)
     {
         case moveEv:
-            return on_move();
+            return on_move(player, input);
             break;
 
         case jumpEv:
@@ -101,5 +92,5 @@ avatarStates idleCheckNext(enum avatarEvents event) {
             break;
     }
 }
-*/
+
 

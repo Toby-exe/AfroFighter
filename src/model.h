@@ -3,6 +3,9 @@
 
 #include "TYPES.H"
 #include "string.h"
+#include "sprites.h"
+#include "raster.h"
+#include <osbind.h>
 
 #define MAX_NAME_LEN 20
 
@@ -15,9 +18,10 @@
 #define q_KEY       0x0071  /*quit*/
 #define space_KEY   0x0020  /*jump*/
 
-
 enum avatarStates 
 { Idle, Running, Jumping, Crouching, Attacking, Super };
+
+typedef enum { left, right } direction;
 
 typedef struct {
     unsigned int top_left_x;
@@ -30,6 +34,7 @@ typedef struct {
 typedef struct {
     enum avatarStates state;
     Hitbox hitbox;
+    direction dir;
     unsigned int x, y;      /*position coordinates*/
     int delta_x, delta_y;   /*horiz. & vert. displacement per clock tick*/
 } Avatar;
@@ -55,6 +60,6 @@ typedef struct {
 /*function prototypes*/
 void initPlayer(Avatar *, int, int);
 void initBar(Bar *, int, char *, UINT8 *, int, int);
-void move_player(Avatar *, char);
+void move_player(Avatar *, direction);
 
 #endif

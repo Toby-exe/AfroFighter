@@ -5,7 +5,7 @@
 #include "types.h"
 #include "model.h"
 
-void update(Avatar *, enum avatarStates, UINT16);
-/*avatarStates idleCheckNext(enum avatarEvents);*/
+void update(Avatar *, enum avatarEvents, UINT16);
+enum avatarStates checkIdleNext(Avatar *, enum avatarEvents, UINT16);
 
 #endif

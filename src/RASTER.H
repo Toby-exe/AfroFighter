@@ -5,10 +5,6 @@
 #include "types.h"
 #include "fonts.h"
 
-
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 400
-
 /*Basic*/
 void plot_pixel(UINT8 *, int, int);
 void plotByte(UINT8 *, int, int);

@@ -6,6 +6,9 @@
 #include "model.h"
 #include "raster.h"
 
+/*render game*/
+void render(Model *);
+
 /*movement*/
 void renderAvatarIdle(const Avatar *player, UINT16 *frame);
 
