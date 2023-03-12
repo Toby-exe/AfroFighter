@@ -9,3 +9,5 @@ enum avatarEvents {
 };
 
 enum avatarStates on_move ();
+enum avatarStates on_heavy ();
+enum avatarStates on_light ();

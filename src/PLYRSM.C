@@ -22,7 +22,8 @@ void update (Avatar *player, enum avatarEvents newEvent, char input)
             }
             break;
 
-        case Jumping:
+       /*
+         case Jumping:
             player->state = Idle;
             
             if (newEvent == Jumping) {
@@ -44,7 +45,7 @@ void update (Avatar *player, enum avatarEvents newEvent, char input)
             if (newEvent == Running) {
                 if (input == 'J') {
                     player->state = on_light();
-                } else if (input == 'K') {
+                } else if (input == 'L') {
                     player->state = on_heavy();
                 }
             }
@@ -57,6 +58,7 @@ void update (Avatar *player, enum avatarEvents newEvent, char input)
                 player->state = Super;
             }
             break;
+       */
 
         default:
             break;
