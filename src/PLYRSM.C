@@ -4,92 +4,94 @@
 /*update*/
 
 /*void update(Model *model)*/
-void update (Avatar *player, enum avatarEvents event)
+void update (Avatar *player, enum avatarEvents newEvent, char input)
 {
-    switch(player->state)
+    /*stuff that always happens should go here*/
+
+    switch(player->state)   /*player's current state*/
     {
         case Idle:
-        {   
-            player->state = next(event);
-        }
-        break;
+            player->state = idleCheckNext(newEvent);
+            break;
 
         case Running:
-        {
-            player->state = next(event);
-        }
-        break;
+            player->state = Idle;
+            
+            if (newEvent == Running) {
+                player->state = on_move();
+            }
+            break;
 
         case Jumping:
-        {
-            player->state = next(event);
-        }
-        break;
+            player->state = Idle;
+            
+            if (newEvent == Jumping) {
+                player->state = Jumping;
+            }
+            break;
 
         case Crouching:
-        {
-            player->state = next(event);
-        }
-        break;
+            player->state = Idle;
+            
+            if (newEvent == Crouching) {
+                player->state = on_crouch();
+            }
+            break;
 
         case Attacking:
-        {
-            player->state = next(event);
-        }
-        break;
+            player->state = Idle;
+            
+            if (newEvent == Running) {
+                if (input == 'J') {
+                    player->state = on_light();
+                } else if (input == 'K') {
+                    player->state = on_heavy();
+                }
+            }
+            break;
 
         case Super:
-        {
-            player->state = next(event);
-        }
-        break;
+            player->state = Idle;
+            
+            if (newEvent == Super) {
+                player->state = Super;
+            }
+            break;
 
         default:
-        break;
+            break;
 
     }
 }
 
 
 
-enum avatarStates next(enum avatarEvents event) {
+enum avatarStates idleCheckNext(enum avatarEvents event) {
     switch(event)
     {
         case moveEv:
-        {           
             return on_move();
-        }
-        break;
+            break;
 
         case jumpEv:
-        {
             return Jumping;
-        }
-        break;
+            break;
 
         case crouchEv:
-        {
             return Crouching;
-        }
-        break;
+            break;
 
         case attackEv:
-        {
             return Attacking;
-        }
-        break;
+            break;
 
         case superEv:
-        {
             return Super;            
-        }
-        break;
+            break;
 
         default:
-        {
             return Idle;
-        }
-        break;
+            break;
     }
 }
 
