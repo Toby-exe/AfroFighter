@@ -1,4 +1,8 @@
-#include "model.h"
+#ifndef EVENTS_H
+#define EVENTS_H
+
+#include "TYPES.H"
+#include "MODEL.H"
 
 enum avatarEvents { 
     jumpEv, 
@@ -8,6 +12,6 @@ enum avatarEvents {
     superEv 
 };
 
-enum avatarStates on_move ();
-enum avatarStates on_heavy ();
-enum avatarStates on_light ();
+int on_move(UINT16);
+
+#endif

@@ -1,7 +1,7 @@
 #include "events.h"
+#include "model.h"
 
-
-enum avatarStates on_move (Avatar *player, UINT16 key)
+int on_move(UINT16 key)
 {
     avatarStates state = Running;
 
@@ -14,6 +14,7 @@ enum avatarStates on_move (Avatar *player, UINT16 key)
 
     }
 
-    return state;
-
+    return 0;
 }
+
+

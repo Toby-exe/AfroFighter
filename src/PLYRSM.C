@@ -1,14 +1,16 @@
-#include "model.h"
 #include "events.h"
-
+#include "types.h"
+#include "model.h"
 /*update*/
 
 /*void update(Model *model)*/
-void update (Avatar *player, enum avatarEvents newEvent, char input)
+void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
 {
+    player->delta_x = on_move(input);
     /*stuff that always happens should go here*/
 
-    switch(player->state)   /*player's current state*/
+    /*
+    switch(player->state)   
     {
         case Idle:
             player->state = idleCheckNext(newEvent);
@@ -22,7 +24,7 @@ void update (Avatar *player, enum avatarEvents newEvent, char input)
             }
             break;
 
-       /*
+       
          case Jumping:
             player->state = Idle;
             
@@ -58,17 +60,20 @@ void update (Avatar *player, enum avatarEvents newEvent, char input)
                 player->state = Super;
             }
             break;
-       */
+       
 
         default:
             break;
+        
 
     }
+    */
 }
 
 
 
-enum avatarStates idleCheckNext(enum avatarEvents event) {
+/*
+avatarStates idleCheckNext(enum avatarEvents event) {
     switch(event)
     {
         case moveEv:
@@ -96,4 +101,5 @@ enum avatarStates idleCheckNext(enum avatarEvents event) {
             break;
     }
 }
+*/
 
