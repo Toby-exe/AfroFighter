@@ -16,6 +16,7 @@ void gameLoop() {
 
 void processAsync(Model *model) {
     unsigned int input;
+    avatarEvents newEvent;
     input = Cnecin();
 
     switch (input) {
@@ -24,11 +25,12 @@ void processAsync(Model *model) {
             break;
 
         case a_KEY:
-            update(&model->player, Running, input);
+            newEvent = Running;
             break;
-    
         default:
             break;
     }
+
+    update(model->player, newEvent, input);
 }
 
