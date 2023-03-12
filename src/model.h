@@ -53,6 +53,8 @@ typedef struct {
 } Model;
 
 /*function prototypes*/
+void initPlayer(Avatar *, int, int);
+void initBar(Bar *, int, char *, UINT8 *, int, int);
 void move_player(Avatar *, char);
 
 #endif

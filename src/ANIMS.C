@@ -1,12 +1,12 @@
 #include "anims.h"
 
-const UINT16* idelAnimationRS [] = {
+const UINT16* idleAnimationRS [] = {
     bm_avatarIdleF1_RS,
     bm_avatarIdleF2_RS,
     bm_avatarIdleF3_RS
 };
 
-const UINT16* idelAnimationLS [] = {
+const UINT16* idleAnimationLS [] = {
     bm_avatarIdleF1_LS,
     bm_avatarIdleF2_LS,
     bm_avatarIdleF3_LS

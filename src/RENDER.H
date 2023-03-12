@@ -1,5 +1,5 @@
-#ifndef RENDER.H
-#define RENDER.H
+#ifndef RENDER_H
+#define RENDER_H
 
 #include "types.h"
 #include "sprites.h"

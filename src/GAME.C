@@ -1,7 +1,4 @@
 #include "game.h"
-#include "model.h"
-#include "plyrsm.h"
-
 
 int gameIsRunning = 1;
 
@@ -16,7 +13,7 @@ void gameLoop() {
 
 void processAsync(Model *model) {
     unsigned int input;
-    avatarEvents newEvent;
+    enum avatarEvents newEvent = Idle;
     input = Cnecin();
 
     switch (input) {
@@ -31,6 +28,8 @@ void processAsync(Model *model) {
             break;
     }
 
-    update(model->player, newEvent, input);
+    if(gameIsRunning != 0) {
+        update(&model->player, newEvent, input);
+    }
 }
 

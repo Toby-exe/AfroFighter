@@ -4,8 +4,8 @@ tst_rast: tst_rast.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o even
 tst_model: tst_model.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o
 	cc68x -g tst_model.o raster.o fonts.o splash.o sprites.o rast_asm.o model.o plyrsm.o events.o -o tst_model
 
-tst_game: tst_game.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o game.o
-	cc68x -g tst_game.o raster.o fonts.o splash.o sprites.o rast_asm.o model.o plyrsm.o game.o -o tst_game
+tst_game: tst_game.o events.o fonts.o game.o model.o plyrsm.o raster.o render.o splash.o sprites.o
+	cc68x -g tst_game.o events.o fonts.o game.o model.o plyrsm.o raster.o render.o splash.o sprites.o -o tst_game
 
 tst_rast.o: tst_rast.c raster.h fonts.h
 	cc68x -g -c tst_rast.c
@@ -13,17 +13,11 @@ tst_rast.o: tst_rast.c raster.h fonts.h
 tst_model.o: tst_model.c raster.h fonts.h model.h events.h plyrsm.h types.h
 	cc68x -g -c tst_model.c
 
-tst_game.o: tst_game.c raster.h fonts.h model.h game.h events.h plyrsm.h types.h
+tst_game.o: tst_game.c anims.h events.h fonts.h game.h model.h plyrsm.h raster.h render.h types.h splash.h sprites.h
 	cc68x -g -c tst_game.c
 
-game.o: game.c game.h 
-	cc68x -g -c game.c
-
-raster.o: raster.c raster.h
-	cc68x -g -c raster.c
-
-model.o: model.c model.h
-	cc68x -g -c model.c
+anims.o: anims.c anims.h
+	cc68x -g -c anims.c
 
 events.o: events.c events.h 
 	cc68x -g -c events.c
@@ -31,17 +25,29 @@ events.o: events.c events.h
 fonts.o: fonts.c fonts.h
 	cc68x -g -c fonts.c
 
+game.o: game.c game.h 
+	cc68x -g -c game.c
+
+model.o: model.c model.h
+	cc68x -g -c model.c
+
+plyrsm.o: plyrsm.c plyrsm.h	
+	cc68x -g -c plyrsm.c
+
+raster.o: raster.c raster.h
+	cc68x -g -c raster.c
+
+render.o: render.c render.h
+	cc68x -g -c render.c
+
 splash.o: splash.c splash.h
 	cc68x -g -c splash.c
 
 sprites.o: sprites.c sprites.h
 	cc68x -g -c sprites.c
 
-plyrsm.o: plyrsm.c plyrsm.h	
-	cc68x -g -c plyrsm.c
-
 rast_asm.o: rast_asm.s
 	gen -D -L2 rast_asm.s
 
 clean:
-	rm rast_asm.o
+	rm tst_game

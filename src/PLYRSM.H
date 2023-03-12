@@ -6,5 +6,6 @@
 #include "model.h"
 
 void update(Avatar *, enum avatarStates, UINT16);
+/*avatarStates idleCheckNext(enum avatarEvents);*/
 
 #endif
