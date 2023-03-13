@@ -6,11 +6,12 @@
 #include "model.h"
 
 enum avatarEvents { 
+    moveEv, 
     jumpEv, 
     crouchEv, 
-    moveEv, 
     attackEv, 
-    superEv 
+    superEv,
+    noEv 
 };
 
 int on_move(Avatar *, UINT16);

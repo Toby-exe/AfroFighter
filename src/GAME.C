@@ -58,8 +58,8 @@ void processSync(Model *model) {
 }
 
 void processAsync(Model *model) {
-    UINT16 input;
-    enum avatarEvents newEvent = Idle;
+    unsigned int input = space_KEY;
+    enum avatarEvents newEvent = noEv;
 
     if(Cconis()){
         input = Cnecin();

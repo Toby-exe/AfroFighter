@@ -6,8 +6,14 @@ void initPlayer(Avatar *player, int x, int y)
     player->dir = right;
     player->x = x;
     player->y = y;
+    player->currFrame = 0;
 
     /*init hitbox*/
+    player->hitbox.top_left_x = player->x;
+    player->hitbox.top_left_x = player->x;
+    player->hitbox.width = 48;
+    player->hitbox.height = 80;
+
 }
 
 void initBar(Bar *bar, int health, char *name, UINT8 *pfpBitmap, int x, int y)
@@ -24,26 +30,22 @@ void initBar(Bar *bar, int health, char *name, UINT8 *pfpBitmap, int x, int y)
 
 void move_player(Avatar *player, direction dir)
 {
-    UINT16 *base_16 = (UINT16 *) Physbase();
     player->delta_x = 0;    /*set by default in case a move is out of bounds*/
 
     switch (dir) {
         case left:
             if (posInBounds(player->x - moveSpeed, player->y))
-                player->delta_x = -moveSpeed;
+                player->x -= moveSpeed;
             break;
 
         case right:
-            if (posInBounds(player->x + moveSpeed, player->y))
-                player->delta_x = moveSpeed;
+            if (posInBounds(player->x + player->hitbox.width + moveSpeed, player->y))
+                player->x += moveSpeed;
             break;
             
         default:
             break;
     }
-
-    player->x += player->delta_x;
-    plotBitmap16(base_16, player->x, player->y, bm_avatarIdleF1_RS, 48, 96);
 }
 
 

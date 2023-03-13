@@ -1,20 +1,26 @@
-tst_rast: tst_rast.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o events.o
-	cc68x -g tst_rast.o raster.o fonts.o splash.o sprites.o rast_asm.o model.o events.o -o tst_rast
+tst_rast: tst_rast.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o
+	cc68x -g tst_rast.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o -o tst_rast
 
-tst_model: tst_model.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o
-	cc68x -g tst_model.o raster.o fonts.o splash.o sprites.o rast_asm.o model.o plyrsm.o events.o -o tst_model
+tst_model: tst_model.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o
+	cc68x -g tst_model.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o -o tst_model
 
-tst_game: tst_game.o events.o fonts.o game.o model.o plyrsm.o rast_asm.o raster.o render.o splash.o sprites.o
-	cc68x -g tst_game.o events.o fonts.o game.o model.o plyrsm.o rast_asm.o raster.o render.o splash.o sprites.o -o tst_game
+tst_render: tst_render.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o
+	cc68x -g tst_render.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o -o tst_render
+
+tst_game: tst_game.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o game.o
+	cc68x -g tst_game.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o render.o anims.o game.o -o tst_game
 
 tst_rast.o: tst_rast.c raster.h fonts.h
-	cc68x -g -c tst_rast.c
+	cc68x -g -c tst_rast.c -o tst_rast.o
 
 tst_model.o: tst_model.c raster.h fonts.h model.h events.h plyrsm.h types.h
-	cc68x -g -c tst_model.c
+	cc68x -g -c tst_model.c -o tst_model.o
+
+tst_render.o: tst_render.c anims.h events.h fonts.h game.h model.h plyrsm.h raster.h render.h types.h splash.h sprites.h
+	cc68x -g -c tst_render.c -o tst_render.o
 
 tst_game.o: tst_game.c anims.h events.h fonts.h game.h model.h plyrsm.h raster.h render.h types.h splash.h sprites.h
-	cc68x -g -c tst_game.c
+	cc68x -g -c tst_game.c -o tst_game.o
 
 anims.o: anims.c anims.h
 	cc68x -g -c anims.c
