@@ -6,7 +6,7 @@ void initPlayer(Avatar *player, int x, int y)
     player->dir = right;
     player->x = x;
     player->y = y;
-
+    player->currFrame = 0;
     /*init hitbox*/
 }
 

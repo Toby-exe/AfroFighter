@@ -13,7 +13,8 @@ void gameLoop() {
 
     while (gameIsRunning != false) {
 
-
+        processAsync(&model);
+        clear_screen(base);
         /*profile pic box*/
         plotRect(base, 48, 48, 5, 5);
         plotRect(base, 48, 48, 587, 5);
@@ -29,7 +30,7 @@ void gameLoop() {
         /*arena base/floor*/
         plotRectFill(base, 640, 48, 0, 354);
 
-        processAsync(&model);
+        
     }
     return;
 }

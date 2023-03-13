@@ -1,53 +1,59 @@
-tst_rast: tst_rast.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o events.o
-	cc68x -g tst_rast.o raster.o fonts.o splash.o sprites.o rast_asm.o model.o events.o -o tst_rast
+tst_rast: bin/tst_rast.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o
+	cc68x -g bin/tst_rast.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o -o tst_rast
 
-tst_model: tst_model.o raster.o rast_asm.o fonts.o splash.o sprites.o model.o plyrsm.o events.o
-	cc68x -g tst_model.o raster.o fonts.o splash.o sprites.o rast_asm.o model.o plyrsm.o events.o -o tst_model
+tst_model: bin/tst_model.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o
+	cc68x -g bin/tst_model.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o -o tst_model
 
-tst_game: tst_game.o events.o fonts.o game.o model.o plyrsm.o rast_asm.o raster.o render.o splash.o sprites.o
-	cc68x -g tst_game.o events.o fonts.o game.o model.o plyrsm.o rast_asm.o raster.o render.o splash.o sprites.o -o tst_game
+tst_render: bin/tst_render.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o
+	cc68x -g bin/tst_render.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o -o tst_render
 
-tst_rast.o: tst_rast.c raster.h fonts.h
-	cc68x -g -c tst_rast.c
+tst_game: bin/tst_game.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o
+	cc68x -g bin/tst_game.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o -o tst_game
 
-tst_model.o: tst_model.c raster.h fonts.h model.h events.h plyrsm.h types.h
-	cc68x -g -c tst_model.c
+bin/tst_rast.o: tst_rast.c raster.h fonts.h
+	cc68x -g -c tst_rast.c -o bin/tst_rast.o
 
-tst_game.o: tst_game.c anims.h events.h fonts.h game.h model.h plyrsm.h raster.h render.h types.h splash.h sprites.h
-	cc68x -g -c tst_game.c
+bin/tst_model.o: tst_model.c raster.h fonts.h model.h events.h plyrsm.h types.h
+	cc68x -g -c tst_model.c -o bin/tst_model.o
 
-anims.o: anims.c anims.h
-	cc68x -g -c anims.c
+bin/tst_render.o: tst_render.c anims.h events.h fonts.h game.h model.h plyrsm.h raster.h render.h types.h splash.h sprites.h
+	cc68x -g -c tst_render.c -o bin/tst_render.o
 
-events.o: events.c events.h 
-	cc68x -g -c events.c
+bin/tst_game.o: tst_game.c anims.h events.h fonts.h game.h model.h plyrsm.h raster.h render.h types.h splash.h sprites.h
+	cc68x -g -c tst_game.c -o bin/tst_game.o
 
-fonts.o: fonts.c fonts.h
-	cc68x -g -c fonts.c
+bin/anims.o: anims.c anims.h
+	cc68x -g -c anims.c -o bin/anims.o
 
-game.o: game.c game.h raster.h
-	cc68x -g -c game.c
+bin/events.o: events.c events.h 
+	cc68x -g -c events.c -o bin/events.o
 
-model.o: model.c model.h
-	cc68x -g -c model.c
+bin/fonts.o: fonts.c fonts.h
+	cc68x -g -c fonts.c -o bin/fonts.o
 
-plyrsm.o: plyrsm.c plyrsm.h	
-	cc68x -g -c plyrsm.c
+bin/game.o: game.c game.h raster.h
+	cc68x -g -c game.c -o bin/game.o
 
-raster.o: raster.c raster.h
-	cc68x -g -c raster.c
+bin/model.o: model.c model.h
+	cc68x -g -c model.c -o bin/model.o
 
-render.o: render.c render.h
-	cc68x -g -c render.c
+bin/plyrsm.o: plyrsm.c plyrsm.h	
+	cc68x -g -c plyrsm.c -o bin/plyrsm.o
 
-splash.o: splash.c splash.h
-	cc68x -g -c splash.c
+bin/raster.o: raster.c raster.h
+	cc68x -g -c raster.c -o bin/raster.o
 
-sprites.o: sprites.c sprites.h
-	cc68x -g -c sprites.c
+bin/render.o: render.c render.h
+	cc68x -g -c render.c -o bin/render.o
 
-rast_asm.o: rast_asm.s
-	gen -D -L2 rast_asm.s
+bin/splash.o: splash.c splash.h
+	cc68x -g -c splash.c -o bin/splash.o
+
+bin/sprites.o: sprites.c sprites.h
+	cc68x -g -c sprites.c -o bin/sprites.o
+
+bin/rast_asm.o: rast_asm.s
+	gen -D -L2 rast_asm.s -obin/rast_asm.o
 
 clean:
 	rm tst_game

@@ -28,24 +28,24 @@ typedef struct {
     unsigned int top_left_y;
     unsigned int width;
     unsigned int height;
-    /*bool active;            for invincibility frames if feature is added */
+
 } Hitbox;
 
 typedef struct {
     enum avatarStates state;
     Hitbox hitbox;
     direction dir;
+    int currFrame;
     unsigned int x, y;      /*position coordinates*/
     int delta_x, delta_y;   /*horiz. & vert. displacement per clock tick*/
 } Avatar;
 
-/*The health and info bar for both players*/
 typedef struct  {
     unsigned int health;
     char name[MAX_NAME_LEN];
     UINT8 *pfpBitmap;                   /*includes avatar image and decorative borders*/
     UINT8 *superStars[2];
-    /*UINT8 *rounds[4]; (will keep track of rounds if feature is added; make type for round)*/
+
     unsigned int x, y;
     unsigned int barWidth, barHeight;   /*width and height of the healthbar part*/
 } Bar;
