@@ -10,6 +10,6 @@
 
 void gameLoop();
 void processAsync(Model *model);
-void processSync();
+void processSync(Model *model);
 
 #endif
