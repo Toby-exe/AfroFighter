@@ -1,36 +1,41 @@
 #include "game.h"
 
+UINT32 timeThen, timeNow, timeDelta;
 bool gameIsRunning = true;
+
+UINT32 getTime() {
+    long old_ssp;
+    long timeNow;
+    long *timer = (long *) 0x462;
+
+    old_ssp = Super(0);
+    timeNow = *timer;
+    Super(old_ssp);
+
+    return timeNow;
+}
 
 void gameLoop() {
 
     UINT8 *base = (UINT8 *) Physbase();
 	UINT16 *base_16 = (UINT16 *) Physbase();
 	UINT32 *base_32 = (UINT32 *) Physbase();
+
     Model model;
 
     initPlayer(&model.player, 420, 112);
-
     while (gameIsRunning != false) {
 
-        processAsync(&model);
-        clear_screen(base);
-        /*profile pic box*/
-        plotRect(base, 48, 48, 5, 5);
-        plotRect(base, 48, 48, 587, 5);
+        timeNow = getTime();
+        timeDelta = timeNow - timeThen;
 
-        /*health bar*/
-        plotRectFill(base, 250, 24, 54, 8);
-        plotRectFill(base, 250, 24, 336, 8);
+        if(timeDelta > 0) {
+            processAsync(&model);
+            render(&model); 
+            timeThen = timeNow;
+            clear_screen(base);
+        } 
 
-        /*player name box*/
-        plotRect(base, 96, 16, 53, 31);
-        plotRect(base, 96, 16, 491, 31);
-
-        /*arena base/floor*/
-        plotRectFill(base, 640, 48, 0, 354);
-
-        
     }
     return;
 }
@@ -38,7 +43,10 @@ void gameLoop() {
 void processAsync(Model *model) {
     unsigned int input;
     enum avatarEvents newEvent = Idle;
-    input = Cnecin();
+
+    if(Cconis()) {
+        input = Cnecin();
+    }
 
     switch (input) {
         case q_KEY:
@@ -48,6 +56,11 @@ void processAsync(Model *model) {
         case a_KEY:
             newEvent = moveEv;
             break;
+        
+        case d_KEY:
+            newEvent = moveEv;
+            break;
+
         default:
             break;
     }
@@ -56,8 +69,5 @@ void processAsync(Model *model) {
         update(&model->player, newEvent, input);
     }
 
-    /*clear_game()*/
-    /*render_game(Model *model, void* base) <-- void base allows us to
-    select between byte, word, longword as needed*/
 }
 

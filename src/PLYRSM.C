@@ -2,6 +2,35 @@
 #include "types.h"
 #include "model.h"
 
+enum avatarStates checkIdleNext(Avatar *player, enum avatarEvents event, UINT16 input) {
+    switch(event)
+    {
+        case moveEv:
+            return on_move(player, input);
+            break;
+
+        case jumpEv:
+            return Jumping;
+            break;
+
+        case crouchEv:
+            return Crouching;
+            break;
+
+        case attackEv:
+            return Attacking;
+            break;
+
+        case superEv:
+            return Super;            
+            break;
+
+        default:
+            return Idle;
+            break;
+    }
+}
+
 /*void update(Model *model, enum gameStates state) <--- parameters for the game state machine*/
 void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
 {
@@ -16,7 +45,7 @@ void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
         case Running:
             player->state = Idle;
             
-            if (newEvent == Running) {
+            if (newEvent == moveEv) {
                 player->state = on_move(player, input);
             }
             break;
@@ -64,33 +93,6 @@ void update (Avatar *player, enum avatarEvents newEvent, UINT16 input)
     }
 }
 
-enum avatarStates checkIdleNext(Avatar *player, enum avatarEvents event, UINT16 input) {
-    switch(event)
-    {
-        case moveEv:
-            return on_move(player, input);
-            break;
 
-        case jumpEv:
-            return Jumping;
-            break;
-
-        case crouchEv:
-            return Crouching;
-            break;
-
-        case attackEv:
-            return Attacking;
-            break;
-
-        case superEv:
-            return Super;            
-            break;
-
-        default:
-            return Idle;
-            break;
-    }
-}
 
 

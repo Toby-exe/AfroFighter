@@ -7,6 +7,7 @@
 #include "sprites.h"
 #include "plyrsm.h"
 #include "events.h"
+#include "render.h"
 
 void gameLoop();
 void processAsync(Model *model);

@@ -7,8 +7,8 @@ tst_model: bin/tst_model.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o 
 tst_render: bin/tst_render.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o
 	cc68x -g bin/tst_render.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o -o tst_render
 
-tst_game: bin/tst_game.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o
-	cc68x -g bin/tst_game.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o -o tst_game
+tst_game: bin/tst_game.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o bin/game.o
+	cc68x -g bin/tst_game.o bin/raster.o bin/rast_asm.o bin/fonts.o bin/splash.o bin/sprites.o bin/model.o bin/plyrsm.o bin/events.o bin/render.o bin/anims.o bin/game.o -o tst_game
 
 bin/tst_rast.o: tst_rast.c raster.h fonts.h
 	cc68x -g -c tst_rast.c -o bin/tst_rast.o

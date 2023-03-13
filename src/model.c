@@ -1,4 +1,5 @@
 #include "model.h"
+#include <osbind.h>
 
 void initPlayer(Avatar *player, int x, int y)
 {
@@ -41,9 +42,7 @@ void move_player(Avatar *player, direction dir)
         default:
             break;
     }
-
     player->x += player->delta_x;
-    plotBitmap16(base_16, player->x, player->y, bm_avatarIdleF1_RS, 48, 96);
 }
 
 

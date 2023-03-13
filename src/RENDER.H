@@ -9,7 +9,6 @@
 
 /*render game*/
 void render(Model *);
-
 /*movement*/
 void renderAvatarIdle(Avatar *player);
 
